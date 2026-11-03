@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Semilla-IA">
+  <rect width="64" height="64" rx="14" fill="#14532d"/>
+  <path d="M32 48c0-12 6-20 16-23-1 12-7 19-16 23z" fill="#fde68a"/>
+  <path d="M32 48c0-10-5-17-14-20 1 10 6 16 14 20z" fill="#8fbf95"/>
+  <path d="M32 50V34" stroke="#fdf6e3" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

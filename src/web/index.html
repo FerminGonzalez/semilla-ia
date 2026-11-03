@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#14532d" />
+    <title>Semilla-IA · Nodo neuro-educativo sin conexión</title>
+    <meta
+      name="description"
+      content="Nodo educativo autónomo: inferencia local, sin internet, con orquestador simbólico, cartuchos culturales y copiloto docente. Prototipo #hack4edu 2026."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span class="brand-text">
+            <strong>Semilla-IA</strong>
+            <span>nodo autónomo</span>
+          </span>
+        </div>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="#/" data-nav="nodo"><span aria-hidden="true">◉</span> Nodo</a>
+          <a href="#/aula" data-nav="aula"><span aria-hidden="true">✎</span> Aula</a>
+          <a href="#/docente" data-nav="docente"><span aria-hidden="true">▤</span> Docente</a>
+          <a href="#/hardware" data-nav="hardware"><span aria-hidden="true">⚙</span> Hardware</a>
+          <a href="#/etica" data-nav="etica"><span aria-hidden="true">§</span> Ética</a>
+        </nav>
+
+        <div class="sidebar-foot">
+          <div class="status-dot" id="sidebar-status">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="sidebar-status-text">comprobando…</span>
+          </div>
+          <p class="tiny muted">v1.0 · sin internet</p>
+        </div>
+      </aside>
+
+      <main id="contenido" class="main" tabindex="-1"></main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
