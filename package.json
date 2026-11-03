@@ -1,0 +1,17 @@
+﻿{
+  "name": "semilla-ia-nodo",
+  "version": "1.0.0",
+  "description": "Semilla-IA â€” nodo neuro-educativo autÃ³nomo: inferencia local, sin internet, con orquestador simbÃ³lico y copiloto docente",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "dev": "node --watch src/server.mjs",
+    "test": "node --test \"tests/*.test.mjs\"",
+    "report": "python scripts/make-report.py"
+  }
+}
+

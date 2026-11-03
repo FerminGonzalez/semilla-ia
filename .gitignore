@@ -1,0 +1,9 @@
+node_modules/
+data/
+dist/
+*.log
+.env
+_pitch_texto.txt
+__pycache__/
+docs/_paginas/
+
