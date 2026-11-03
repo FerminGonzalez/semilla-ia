@@ -28,7 +28,7 @@ from reportlab.platypus import (
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, "docs")
-OUT = os.path.join(DOCS, "INFORME-SEMILLA-IA.pdf")
+OUT = os.path.join(ROOT, "INFORME-SEMILLA-IA.pdf")
 API = os.environ.get("NODO_API", "http://127.0.0.1:8090")
 
 # ---------------------------------------------------------------- tipografías
@@ -1001,4 +1001,5 @@ def build():
 
 if __name__ == "__main__":
     build()
+
 

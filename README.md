@@ -44,7 +44,7 @@ node src/server.mjs
 | LoRA entrenado | **Fuera de alcance** | Los cartuchos son prompts + reglas |
 
 El informe completo, con la evaluación del pitch y las medidas, está en
-[`docs/INFORME-SEMILLA-IA.pdf`](docs/INFORME-SEMILLA-IA.pdf).
+[`INFORME-SEMILLA-IA.pdf`](INFORME-SEMILLA-IA.pdf).
 
 ## El orquestador, en una frase
 
@@ -124,7 +124,8 @@ src/core/*.mjs     orquestador, motor simbólico, transcodificador,
                    ejercicios, docente, sensores, telemetría
 src/web/           interfaz sin compilación (módulos ES + CSS)
 tests/             44 pruebas nativas
-docs/              informe en PDF y capturas
+docs/              capturas y generador del informe
+INFORME-SEMILLA-IA.pdf   informe técnico y evaluación del pitch
 ```
 
 ## Licencia
