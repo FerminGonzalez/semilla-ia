@@ -27,6 +27,25 @@ $env:NODO_HOST = '0.0.0.0'
 node src/server.mjs
 ```
 
+El panel del nodo mostrará entonces la dirección que hay que abrir desde un móvil o
+un portátil del mismo wifi (`http://192.168.x.x:8090`). No hay que instalar nada en
+los dispositivos de los alumnos: es una página web servida por el nodo.
+
+La primera vez, Windows pedirá permiso para aceptar conexiones en la red privada.
+Hay que permitirlo, o abrir el puerto con una consola de administrador:
+
+```powershell
+New-NetFirewallRule -DisplayName "Semilla-IA" -Direction Inbound -LocalPort 8090 -Protocol TCP -Action Allow -Profile Private
+```
+
+**Si la wifi aparece como red «Pública», Windows bloqueará el puerto 8090** aunque
+el nodo escuche en todas las interfaces. Dos salidas:
+
+- Marcar esa red como privada (Configuración → Red e Internet → Wi-Fi → propiedades).
+- O usar la dirección de **Tailscale** que el panel muestra: esa interfaz ya está en
+  perfil privado y funciona también fuera del aula, siempre que el equipo esté en la
+  misma red privada.
+
 ## Qué hay dentro
 
 | Pieza | Estado | Nota |

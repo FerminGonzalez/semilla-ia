@@ -1034,6 +1034,24 @@ tr:last-child td {
   place-items: center;
 }
 
+.share-url {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--green);
+  word-break: break-all;
+}
+.code-block {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+  color: var(--ink);
+  margin: 0.5rem 0;
+}
+
 /* ---------------------------------- toast --------------------------------- */
 
 .toast {

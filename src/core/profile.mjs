@@ -1,5 +1,5 @@
 ﻿import os from 'node:os';
-import { OLLAMA_MODEL, OLLAMA_URL, VERSION } from './config.mjs';
+import { HOST, OLLAMA_MODEL, OLLAMA_URL, PORT, VERSION } from './config.mjs';
 import { store } from './store.mjs';
 
 const MB = 1024 * 1024;
@@ -95,15 +95,35 @@ export async function modelStatus() {
   }
 }
 
-/** Direcciones IPv4 no internas, para el cartel «conéctate a Aula-Semilla». */
+/** Direcciones útiles para el cartel «conéctate a Aula-Semilla». */
 export function lanAddresses() {
   const result = [];
+  const isPrivate = (address) =>
+    /^192\.168\./.test(address) ||
+    /^10\./.test(address) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(address);
+  const isTailscale = (address) => /^100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\./.test(address);
+  // 192.168.56.0/24 es el rango por defecto del adaptador host-only de VirtualBox:
+  // aparece con nombre "Ethernet 2" y no es alcanzable desde otros equipos.
+  const isVirtualBoxOnly = (address) => /^192\.168\.56\./.test(address);
+
   for (const [name, list] of Object.entries(os.networkInterfaces())) {
+    if (/vmware|virtualbox|hyper-v|vethernet|loopback|bluetooth/i.test(name)) continue;
     for (const item of list ?? []) {
-      if (item.family === 'IPv4' && !item.internal) result.push({ name, address: item.address });
+      if (item.family !== 'IPv4' || item.internal) continue;
+      const address = item.address;
+      if (isVirtualBoxOnly(address)) continue;
+      if (!isPrivate(address) && !isTailscale(address)) continue;
+      result.push({
+        name,
+        address,
+        kind: /tailscale/i.test(name) || isTailscale(address) ? 'tailscale' : 'aula',
+      });
     }
   }
-  return result;
+
+  // Primero la red del aula, después la red privada virtual.
+  return result.sort((a, b) => (a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind === 'aula' ? -1 : 1));
 }
 
 export function powerEstimate(activeModelLoaded) {
@@ -131,6 +151,12 @@ export async function nodeSnapshot() {
     counters: state.counters,
     measurements: state.measurements,
     offline: true,
+    // Solo se publica la red local cuando el nodo está en modo aula.
+    sharing: {
+      enabled: HOST === '0.0.0.0',
+      port: PORT,
+      addresses: HOST === '0.0.0.0' ? lanAddresses() : [],
+    },
     startedAt: new Date(Date.now() - process.uptime() * 1000).toISOString(),
   };
 }

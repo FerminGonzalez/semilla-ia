@@ -80,7 +80,7 @@ export async function renderNodo(root) {
         ),
         el(
           'div',
-          { class: 'row', style: undefined },
+          { class: 'row' },
           el('a', { class: 'btn btn-primary', href: '#/aula', text: 'Entrar al aula' }),
           el('a', { class: 'btn btn-ghost', href: '#/docente', text: 'Panel docente' }),
         ),
@@ -105,6 +105,8 @@ export async function renderNodo(root) {
         el('a', { class: 'btn btn-quiet btn-sm', href: '#/hardware', text: 'Ver energía y federación' }),
       ),
     ),
+
+    sharingCard(profile),
 
     el(
       'section',
@@ -155,6 +157,77 @@ export async function renderNodo(root) {
         text: `Versión ${profile.version} · encendido desde hace ${since(profile.startedAt)} · sin dependencias externas.`,
       }),
     ),
+  );
+}
+
+function sharingCard(profile) {
+  const sharing = profile.sharing ?? { enabled: false, port: 8090, addresses: [] };
+
+  if (!sharing.enabled || sharing.addresses.length === 0) {
+    return el(
+      'section',
+      { class: 'card' },
+      el('h2', { text: 'Compartir con el equipo' }),
+      el('p', {
+        class: 'small muted',
+        text: 'Ahora mismo el nodo solo escucha en este equipo. Para que otros dispositivos de la misma wifi abran el aula:',
+      }),
+      el('pre', { class: 'code-block', text: 'set NODO_HOST=0.0.0.0\nnode src/server.mjs' }),
+      el('p', {
+        class: 'tiny muted',
+        text: 'La primera vez Windows pedirá permiso para aceptar conexiones en la red privada. Hay que permitirlo.',
+      }),
+    );
+  }
+
+  const list = el('div', { class: 'stack' });
+
+  for (const item of sharing.addresses) {
+    const url = `http://${item.address}:${sharing.port}`;
+    const label =
+      item.kind === 'tailscale'
+        ? 'red privada Tailscale · sirve también fuera del aula'
+        : 'misma red wifi';
+    list.append(
+      el(
+        'div',
+        { class: 'row', style: 'justify-content:space-between;gap:0.6rem' },
+        el(
+          'div',
+          {},
+          el('a', { class: 'share-url', href: url, target: '_blank', rel: 'noopener', text: url }),
+          el('p', { class: 'tiny muted', text: `${label} · interfaz ${item.name}` }),
+        ),
+        el('button', {
+          type: 'button',
+          class: 'btn btn-ghost btn-sm',
+          text: 'Copiar',
+          onclick: async (event) => {
+            try {
+              await navigator.clipboard.writeText(url);
+              event.target.textContent = 'Copiado';
+            } catch {
+              toast(`Copia esta dirección: ${url}`);
+            }
+          },
+        }),
+      ),
+    );
+  }
+
+  return el(
+    'section',
+    { class: 'card' },
+    el('h2', { text: 'Compartir con el equipo' }),
+    el('p', {
+      class: 'small muted',
+      text: 'El nodo está escuchando en la red local. Cualquier dispositivo de la misma wifi puede abrir el aula sin instalar nada:',
+    }),
+    list,
+    el('p', {
+      class: 'tiny muted',
+      text: 'El panel docente sigue protegido por PIN. Si no cargan las direcciones, revisa que el firewall de Windows permita el puerto en redes privadas.',
+    }),
   );
 }
 
