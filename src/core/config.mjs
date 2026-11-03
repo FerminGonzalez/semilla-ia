@@ -18,6 +18,12 @@ export const HOST = process.env.NODO_HOST ?? '127.0.0.1';
 export const OLLAMA_URL = process.env.OLLAMA_URL ?? 'http://127.0.0.1:11434';
 export const OLLAMA_MODEL = process.env.OLLAMA_MODEL ?? 'qwen2.5:3b';
 
+/**
+ * Modelo activo en tiempo de ejecución. Se puede cambiar desde el panel del nodo
+ * sin reiniciar: el nodo pasa de un 1.5B rápido a un 3B más capaz.
+ */
+export const runtime = { model: OLLAMA_MODEL };
+
 export function ensureDataDir() {
   if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
 }
@@ -41,8 +47,10 @@ function freshConfig() {
     pin,
     createdAt: new Date().toISOString(),
     sessionSecret: randomBytes(32).toString('hex'),
+    model: OLLAMA_MODEL,
   };
   writeConfig(CONFIG_PATH, config);
+  runtime.model = config.model;
   console.log(`[semilla] PIN del panel docente (se muestra solo esta vez): ${pin}`);
   return config;
 }
@@ -75,6 +83,7 @@ export function loadConfig() {
     pin: String(raw.pin ?? ''),
     createdAt: raw.createdAt ?? new Date().toISOString(),
     sessionSecret: raw.sessionSecret ?? '',
+    model: typeof raw.model === 'string' && raw.model !== '' ? raw.model : OLLAMA_MODEL,
   };
 
   if (!/^\d{6}$/.test(config.pin)) {
@@ -88,5 +97,18 @@ export function loadConfig() {
   }
   if (changed) writeConfig(CONFIG_PATH, config);
 
+  runtime.model = config.model;
   return config;
+}
+
+/** Guarda el modelo elegido para que sobreviva al reinicio del nodo. */
+export function persistModel(model) {
+  runtime.model = model;
+  try {
+    const config = JSON.parse(readFileSync(CONFIG_PATH, 'utf8'));
+    config.model = model;
+    writeConfig(CONFIG_PATH, config);
+  } catch {
+    /* si no se puede persistir, el cambio sigue vivo en memoria */
+  }
 }

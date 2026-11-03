@@ -1,0 +1,14 @@
+# Modelfile para el nodo Semilla-IA
+# Usa el GGUF del proyectoLLMcuantizado (Qwen2.5 1.5B Instruct, Q5_K_M).
+#
+#   ollama create semilla-1.5b -f docs/Modelfile.semilla
+#   set OLLAMA_MODEL=semilla-1.5b
+#   node src/server.mjs
+
+FROM C:\Users\Ghost\proyectoLLMcuantizado\qwen2.5-1.5b-instruct-q5_k_m.gguf
+
+# Contexto corto a propósito: el nodo objetivo tiene 512 MB de RAM.
+PARAMETER num_ctx 2048
+PARAMETER temperature 0.4
+PARAMETER top_p 0.9
+PARAMETER stop "<|im_end|>"

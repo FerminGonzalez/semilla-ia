@@ -669,8 +669,94 @@ def measurements(story, profile, telemetry):
     )
 
 
+def integration(story):
+    story.append(section("Integración con el proyecto de cuantización", 6))
+
+    story.append(
+        P(
+            "La carpeta <b>proyectoLLMcuantizado</b> contiene una guía técnica de 12 páginas sobre "
+            "Neuro-Semilla (BitLinear 1.58-bit, QAT con pesos fantasma, empaquetado a 2 bits, "
+            "despliegue en RISC-V y portal cautivo) y un modelo real: "
+            "<b>qwen2.5-1.5b-instruct-q5_k_m.gguf</b>, 1,2 GB."
+        )
+    )
+    story.append(P("Lo que se ha integrado de verdad", "h3"))
+    story.append(
+        P(
+            "El GGUF se ha registrado en el nodo con un Modelfile propio y ya es seleccionable desde "
+            "el panel. El nodo puede cambiar de cerebro sin reiniciar y conserva la elección. Medido "
+            "en este equipo, con el mismo prompt:"
+        )
+    )
+    story.append(
+        data_table(
+            [
+                ["Modelo", "Cuantización", "Disco", "Velocidad", "Calidad observada"],
+                ["semilla-1.5b (Qwen2.5 1.5B)", "Q5_K_M", "1226 MB", "13,7–15,7 tok/s", "Más rápida; respuestas más simples y con algún error conceptual."],
+                ["qwen2.5:3b", "Q4_K_M", "1841 MB", "8,6–9,4 tok/s", "Casi la mitad de velocidad; respuestas mejor construidas."],
+            ],
+            [5.0 * cm, 2.4 * cm, 2.2 * cm, 2.6 * cm, 5.2 * cm],
+        )
+    )
+    story.append(
+        P(
+            "Ese es el compromiso real del nodo: el 1.5B duplica la velocidad y libera 600 MB de RAM, "
+            "que es exactamente lo que necesita un equipo de 512 MB. La calidad se sostiene porque el "
+            "trabajo estructurado no pasa por el modelo.",
+            "small",
+        )
+    )
+    story.append(
+        callout(
+            "Lo que el GGUF no es",
+            "Es una cuantización de 5 bits por peso, no ternaria. No hay ningún checkpoint 1.58-bit "
+            "en la carpeta: la guía describe cómo entrenarlo y empaquetarlo, no incluye el resultado. "
+            "Presentar este archivo como «modelo ternario» sería falso y comprobable.",
+            "warn",
+        )
+    )
+
+    story.append(P("Cómo se llega al 1.58-bit que describe la guía", "h3"))
+    story.append(
+        P(
+            "Hay un malentendido que conviene deshacer antes: el ternario no es un formato de "
+            "cuantización posterior. No se coge un Qwen entrenado y se convierte a {-1, 0, +1} sin "
+            "destruirlo; BitNet b1.58 se entrena desde cero con QAT. Eso exige GPU y semanas, y no "
+            "cabe en un hackathon. Lo que sí cabe es ejecutar un modelo ternario ya publicado."
+        )
+    )
+    story.append(
+        data_table(
+            [
+                ["Etapa", "Qué se hace", "Qué hace falta", "Resultado esperado"],
+                ["0 · Hoy", "Qwen2.5 1.5B en Q4/Q5 sobre Ollama", "Nada: ya está hecho", "15 tok/s, 1,2 GB, calidad aceptable"],
+                ["1 · Ternario real sin entrenar", "Descargar BitNet b1.58 2B4T y ejecutarlo con bitnet.cpp o con llama.cpp (TQ1_0/TQ2_0)", "CMake, compilador C++, ~1,1 GB de descarga", "1.58-bit de verdad; medir tok/s y RAM en este equipo"],
+                ["2 · Servirlo al nodo", "Levantar llama-server o el servidor de bitnet.cpp y apuntar el nodo con un adaptador OpenAI-compatible", "Añadir un proveedor al nodo (una tarde)", "El nodo usa el ternario sin tocar la interfaz"],
+                ["3 · Nodo físico", "Compilar para RISC-V y medir en placa", "Milk-V Duo o Luckfox Pico, toolchain riscv64", "0,5–3 tok/s en CPU; la NPU exige toolchain del fabricante"],
+                ["4 · Modelo propio", "Entrenar con QAT sobre corpus educativo", "Presupuesto de GPU y semanas", "Investigación, no hackathon"],
+            ],
+            [3.0 * cm, 5.4 * cm, 4.4 * cm, 4.6 * cm],
+        )
+    )
+
+    story.append(P("Tres correcciones a la guía, para que no os las hagan en la demo", "h3"))
+    for item in bullets(
+        [
+            "<b>La bandera <font face='Courier'>-DNEURO_SEMILLA_BUILD_NPU=ON</font> no existe</b> en "
+            "llama.cpp. Compilar con una opción inventada falla; la NPU de esos SoC necesita el "
+            "toolchain del fabricante y kernels propios, no un flag de CMake.",
+            "<b>150 MB para 1000 millones de pesos no cuadra:</b> 10⁹ × 1,58 bits ÷ 8 ≈ 197 MB. Para "
+            "2 000 millones son ~395 MB. Las cuentas propias de la guía dan 283 MB para 1,5·10⁹.",
+            "<b>El servidor de ejemplo usa la plantilla <font face='Courier'>[INST]</font></b>, que es "
+            "de Llama 2. Qwen usa ChatML (<font face='Courier'>&lt;|im_start|&gt;</font>); con la "
+            "plantilla equivocada el modelo responde peor y nadie sabe por qué.",
+        ]
+    ):
+        story.append(item)
+
+
 def screenshots(story):
-    story.append(section("El prototipo en pantalla", 6))
+    story.append(section("El prototipo en pantalla", 7))
 
     shots = [
         ("captura-nodo.png", "Panel del nodo. Métricas medidas, estado del modelo y la tabla que separa lo real de lo proyectado."),
@@ -696,7 +782,7 @@ def screenshots(story):
 
 
 def coverage(story):
-    story.append(section("Cobertura de los retos ProFuturo", 7))
+    story.append(section("Cobertura de los retos ProFuturo", 8))
     story.append(
         P(
             "«Funcional» significa que la mecánica está construida y se puede probar en la demo. "
@@ -739,7 +825,7 @@ def coverage(story):
 
 
 def limits(story):
-    story.append(section("Límites, riesgos y camino al hardware", 8))
+    story.append(section("Límites, riesgos y camino al hardware", 9))
     story.append(P("Límites que el informe asume", "h3"))
     for item in bullets(
         [
@@ -790,7 +876,7 @@ def limits(story):
 
 
 def demo(story):
-    story.append(section("Guion de demostración", 9))
+    story.append(section("Guion de demostración", 10))
     story.append(P("Noventa segundos, en este orden", "h3"))
     steps = [
         ("0–15 s", "Panel del nodo", "Señalar el modelo local, la memoria medida y la etiqueta naranja de 1,2 W: «esto es proyección, no medida»."),
@@ -831,7 +917,7 @@ def demo(story):
 
 
 def ethics(story):
-    story.append(section("Ética y protección de menores", 10))
+    story.append(section("Ética y protección de menores", 11))
     story.append(
         P(
             "Un producto para menores en contextos vulnerables tiene que poder auditarse. "
@@ -857,7 +943,7 @@ def ethics(story):
 
 def annex(story):
     story.append(PageBreak())
-    story.append(section("Anexo · Cómo ejecutarlo", 11))
+    story.append(section("Anexo · Cómo ejecutarlo", 12))
     story.append(P("Arranque", "h3"))
     code_style = ParagraphStyle(
         "code",
@@ -984,6 +1070,7 @@ def build():
     built(story)
     architecture(story, tps_text, latency_text)
     measurements(story, profile, telemetry)
+    integration(story)
     screenshots(story)
     coverage(story)
     limits(story)
@@ -1001,5 +1088,6 @@ def build():
 
 if __name__ == "__main__":
     build()
+
 
 

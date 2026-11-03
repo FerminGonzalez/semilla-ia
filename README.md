@@ -56,6 +56,8 @@ el nodo escuche en todas las interfaces. Dos salidas:
 | 5 cartuchos pedagógicos | Funcional | Matemáticas, ciencias, lengua, lenguas originarias, calma |
 | Transcodificador (Reto 03) | Funcional | Lectura fácil, audio y mapa en ~8 ms |
 | Taller y corrección sin estado | Funcional | Generación por semilla |
+| **Consulta libre** | Funcional | Chat sin cartucho contra el modelo local, con streaming y copiado |
+| **Cambio de modelo en caliente** | Funcional | Del 1.5B rápido al 3B más capaz, sin reiniciar |
 | Copiloto docente (Reto 12) | Funcional | Dudas agregadas, dinámica, rúbrica, señales |
 | Sensor y método científico (Reto 17) | Funcional | Ingesta HTTP + andamiaje |
 | Telemetría federada (Reto 13) | Funcional | 17 B binarios, cabe en un marco LoRa |
@@ -87,12 +89,38 @@ Cada respuesta indica en la interfaz qué motor la produjo y cuánto tardó.
 El cartucho de lenguas **no inventa**: si se le pide ngäbere, responde que no tiene
 léxico verificado y propone cómo construirlo con un hablante nativo.
 
+## Integración con `proyectoLLMcuantizado`
+
+El nodo ejecuta el GGUF de esa carpeta (Qwen2.5 1.5B Instruct, Q5_K_M) además del
+modelo por defecto, y permite cambiar entre ambos desde el panel.
+
+```powershell
+# Registrar el GGUF como modelo de Ollama (una sola vez)
+ollama create semilla-1.5b -f docs\Modelfile.semilla
+```
+
+Medido en este equipo:
+
+| Modelo | Cuantización | Disco | Velocidad |
+|---|---|---|---|
+| semilla-1.5b (Qwen2.5 1.5B) | Q5_K_M | 1226 MB | 13,7–15,7 tok/s |
+| qwen2.5:3b | Q4_K_M | 1841 MB | 8,6–9,4 tok/s |
+
+**Ese GGUF es de 5 bits, no ternario.** La guía de la carpeta describe cómo entrenar
+y empaquetar un modelo 1.58-bit, pero no incluye el checkpoint entrenado. Para tener
+ternario real hay que ejecutar un modelo ya publicado (BitNet b1.58 2B4T) con
+`bitnet.cpp` o con `llama.cpp` en `TQ1_0`/`TQ2_0`. El informe detalla la ruta
+completa por etapas.
+
 ## API
 
 | Ruta | Método | Qué hace |
 |---|---|---|
 | `/api/profile` | GET | Hardware, modelo, medidas y proyecciones |
 | `/api/chat` | POST | Conversación con streaming SSE y motor declarado |
+| `/api/ask` | POST | Consulta libre al modelo, sin cartucho (SSE) |
+| `/api/models` | GET | Modelos locales disponibles y el activo |
+| `/api/models/active` | POST | Cambia el modelo del nodo y lo persiste |
 | `/api/transcode` | POST | Una lección en tres formatos |
 | `/api/exercise` | POST | Serie determinista de ejercicios |
 | `/api/exercise/check` | POST | Corrección sin estado |

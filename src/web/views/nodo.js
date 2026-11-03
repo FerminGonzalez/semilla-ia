@@ -1,9 +1,10 @@
 import { el, getJson, metric, tag, fmtMs } from '../lib/dom.js';
 
 export async function renderNodo(root) {
-  const [profile, telemetry] = await Promise.all([
+  const [profile, telemetry, modelInfo] = await Promise.all([
     getJson('/api/profile'),
     getJson('/api/telemetry').catch(() => null),
+    getJson('/api/models').catch(() => ({ active: null, models: [], llm: null })),
   ]);
 
   const model = profile.model;
@@ -107,6 +108,7 @@ export async function renderNodo(root) {
     ),
 
     sharingCard(profile),
+    modelCard(modelInfo),
 
     el(
       'section',
@@ -227,6 +229,83 @@ function sharingCard(profile) {
     el('p', {
       class: 'tiny muted',
       text: 'El panel docente sigue protegido por PIN. Si no cargan las direcciones, revisa que el firewall de Windows permita el puerto en redes privadas.',
+    }),
+  );
+}
+
+function modelCard(modelInfo) {
+  const models = Array.isArray(modelInfo.models) ? modelInfo.models : [];
+
+  if (models.length === 0) {
+    return el(
+      'section',
+      { class: 'card' },
+      el('h2', { text: 'Cerebro del nodo' }),
+      el('p', {
+        class: 'small muted',
+        text: 'No hay modelos locales con Ollama en marcha. El nodo sigue funcionando con el motor simbólico.',
+      }),
+    );
+  }
+
+  const select = el(
+    'select',
+    { class: 'input', 'aria-label': 'Modelo activo' },
+    models.map((model) =>
+      el('option', {
+        value: model.name,
+        text: `${model.name} · ${model.quantization ?? 'n/d'} · ${model.sizeMb ?? '?'} MB`,
+        selected: model.active,
+      }),
+    ),
+  );
+
+  const active = models.find((model) => model.active) ?? models[0];
+  const button = el('button', {
+    type: 'button',
+    class: 'btn btn-primary',
+    text: 'Activar',
+    onclick: async () => {
+      if (select.value === modelInfo.active) {
+        toast('Ese modelo ya está activo');
+        return;
+      }
+      button.disabled = true;
+      const previous = button.textContent;
+      button.textContent = 'Cargando…';
+      try {
+        await postJson('/api/models/active', { name: select.value });
+        toast('Modelo activo. La primera respuesta tarda en cargar.');
+        const main = document.getElementById('contenido');
+        main.replaceChildren();
+        await renderNodo(main);
+      } catch (error) {
+        toast(error.message, 'error');
+        button.disabled = false;
+        button.textContent = previous;
+      }
+    },
+  });
+
+  return el(
+    'section',
+    { class: 'card' },
+    el('h2', { text: 'Cerebro del nodo' }),
+    el('p', {
+      class: 'small muted',
+      text: 'Cambiar de modelo cambia el equilibrio entre velocidad y calidad. Se guarda para el próximo arranque.',
+    }),
+    el(
+      'div',
+      { class: 'grid grid-3' },
+      el('div', {}, el('span', { class: 'metric-label', text: 'Activo' }), el('p', { class: 'mono', text: active?.name ?? '—' })),
+      el('div', {}, el('span', { class: 'metric-label', text: 'Parámetros' }), el('p', { class: 'mono', text: active?.parameters ?? '—' })),
+      el('div', {}, el('span', { class: 'metric-label', text: 'Peso en disco' }), el('p', { class: 'mono', text: active?.sizeMb ? `${active.sizeMb} MB` : '—' })),
+    ),
+    el('div', { class: 'row', style: 'margin-top:0.7rem' }, select, button),
+    el('p', {
+      class: 'tiny muted',
+      text: 'Los modelos con sufijo :cloud se excluyen a propósito: exigen internet y este nodo no lo tiene.',
     }),
   );
 }

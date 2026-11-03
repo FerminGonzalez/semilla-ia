@@ -1,5 +1,5 @@
 ﻿import os from 'node:os';
-import { HOST, OLLAMA_MODEL, OLLAMA_URL, PORT, VERSION } from './config.mjs';
+import { HOST, OLLAMA_URL, PORT, VERSION, runtime } from './config.mjs';
 import { store } from './store.mjs';
 
 const MB = 1024 * 1024;
@@ -65,15 +65,15 @@ export async function modelStatus() {
 
   try {
     const tags = await ollamaFetch('/api/tags');
-    const model = (tags.models ?? []).find((item) => item.name === OLLAMA_MODEL);
+    const model = (tags.models ?? []).find((item) => item.name === runtime.model);
     if (!model) {
-      return { ...base, error: `el modelo ${OLLAMA_MODEL} no está descargado en este equipo` };
+      return { ...base, error: `el modelo ${runtime.model} no está descargado en este equipo` };
     }
 
     let loadedRamMb = null;
     try {
       const ps = await ollamaFetch('/api/ps');
-      const running = (ps.models ?? []).find((item) => item.name === OLLAMA_MODEL);
+      const running = (ps.models ?? []).find((item) => item.name === runtime.model);
       if (running?.size) loadedRamMb = Math.round(running.size / MB);
     } catch {
       /* /api/ps puede no estar disponible en versiones antiguas */
@@ -161,6 +161,30 @@ export async function nodeSnapshot() {
   };
 }
 
+/** Modelos locales disponibles. Los `:cloud` se excluyen: exigen internet. */
+export async function listModels() {
+  try {
+    const response = await fetch(`${OLLAMA_URL}/api/tags`, { signal: AbortSignal.timeout(2000) });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+
+    return (data.models ?? [])
+      // Los modelos remotos de Ollama llevan «cloud» en el nombre y exigen internet.
+      .filter((item) => !/cloud/i.test(String(item.name)))
+      .map((item) => ({
+        name: item.name,
+        sizeMb: item.size ? Math.round(item.size / MB) : null,
+        parameters: item.details?.parameter_size ?? null,
+        quantization: item.details?.quantization_level ?? null,
+        family: item.details?.family ?? null,
+        active: item.name === runtime.model,
+      }))
+      .sort((a, b) => (a.sizeMb ?? 0) - (b.sizeMb ?? 0));
+  } catch {
+    return [];
+  }
+}
+
 /** Arranque del modelo para que la primera respuesta no pague la carga. */
 export function prewarmModel() {
   // Se hace por HTTP: la CLI depende de la versión y del intérprete de turno.
@@ -168,7 +192,7 @@ export function prewarmModel() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      model: OLLAMA_MODEL,
+      model: runtime.model,
       prompt: 'hola',
       stream: false,
       keep_alive: '30m',
@@ -184,3 +208,4 @@ export function prewarmModel() {
       console.warn('[semilla] no se pudo precargar el modelo:', String(error.message).slice(0, 120));
     });
 }
+

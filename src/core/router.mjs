@@ -200,6 +200,68 @@ export async function chat({
   }
 }
 
+/** Consulta libre: sin cartucho, para el adulto de la sala. */
+const FREE_SYSTEM = `Eres el asistente del nodo Semilla-IA, un equipo escolar que funciona sin internet.
+Hablas con un docente o con el adulto que acompaña el aula.
+
+Reglas:
+- Español de España, claro y directo. Sin relleno.
+- Respuestas de menos de 200 palabras salvo que se pida más.
+- No pides datos personales ni los inventas. Si el usuario los escribe, no los repites.
+- No das diagnósticos médicos ni psicológicos.
+- Si no sabes algo, lo dices y propones cómo comprobarlo.
+- Nada de enlaces, vídeos ni recursos online: aquí no hay conexión.
+- No inventes cifras ni citas.
+
+Estás en un nodo con un modelo pequeño: si la pregunta exige cálculo exacto, dilo y
+propón hacerlo paso a paso.`;
+
+export async function askFree({ message, onMeta, onToken, signal }) {
+  const started = Date.now();
+  const text = String(message ?? '').trim();
+  if (text === '') throw Object.assign(new Error('Escribe una pregunta'), { status: 400 });
+
+  if (llmInFlight >= LLM_QUEUE_LIMIT) {
+    throw Object.assign(
+      new Error('El nodo está atendiendo otra consulta. Prueba en unos segundos.'),
+      { status: 429 },
+    );
+  }
+
+  const available = await isAvailable();
+  if (!available) {
+    throw Object.assign(
+      new Error('El modelo local no responde. El aula sigue disponible con el motor simbólico.'),
+      { status: 503 },
+    );
+  }
+
+  onMeta?.({ engine: 'llm', reason: 'consulta libre · sin cartucho', model: 'local' });
+
+  llmInFlight += 1;
+  try {
+    const result = await streamGenerate({
+      system: FREE_SYSTEM,
+      prompt: text,
+      onToken,
+      signal,
+      maxTokens: 420,
+    });
+
+    if (result.text.trim() === '') throw new Error('respuesta vacía');
+
+    return {
+      text: result.text,
+      engine: 'llm',
+      ms: result.elapsedMs,
+      tokensPerSecond: result.tokensPerSecond,
+      model: result.model,
+    };
+  } finally {
+    llmInFlight = Math.max(0, llmInFlight - 1);
+  }
+}
+
 function recordDoubt({ cartridge, topic, grade, message, engine }) {
   // Se guarda el texto, pero la interfaz y el informe dicen exactamente eso:
   // «pregunta sin nombre ni IP», no «pregunta anónima».

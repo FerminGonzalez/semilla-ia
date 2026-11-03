@@ -2,10 +2,10 @@ import http from 'node:http';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize, resolve, sep } from 'node:path';
-import { WEB_DIR, HOST, PORT, VERSION, loadConfig } from './core/config.mjs';
-import { nodeSnapshot, prewarmModel } from './core/profile.mjs';
+import { WEB_DIR, HOST, PORT, VERSION, loadConfig, persistModel, runtime } from './core/config.mjs';
+import { nodeSnapshot, prewarmModel, listModels } from './core/profile.mjs';
 import { publicCartridges, getCartridge } from './core/cartridges.mjs';
-import { chat } from './core/router.mjs';
+import { chat, askFree, llmStatus } from './core/router.mjs';
 import { transcode } from './core/transcoder.mjs';
 import { generateExercises, checkAnswer } from './core/exercises.mjs';
 import { teacherSummary, clearDoubts } from './core/teacher.mjs';
@@ -290,6 +290,102 @@ async function handleApi(req, res, url) {
     } catch (error) {
       sendEvent('error', {
         message: error instanceof Error ? error.message : 'Fallo al responder',
+      });
+    } finally {
+      clearTimeout(hardTimeout);
+    }
+
+    if (!res.writableEnded) res.end();
+    return undefined;
+  }
+
+  if (pathname === '/api/models') {
+    return json(res, 200, {
+      active: runtime.model,
+      models: await listModels(),
+      llm: llmStatus(),
+    });
+  }
+
+  if (pathname === '/api/models/active') {
+    if (method !== 'POST') return fail(res, 405, 'Método no permitido');
+    const body = await readJson(req);
+    const name = String(body.name ?? '').trim();
+
+    if (llmStatus().inFlight > 0) {
+      return fail(res, 409, 'Hay una consulta en curso. Espera a que termine para cambiar de modelo.');
+    }
+
+    const models = await listModels();
+    const target = models.find((item) => item.name === name);
+    if (!target) return fail(res, 404, 'Ese modelo no está disponible en el nodo');
+
+    persistModel(target.name);
+    // Se precarga el nuevo para que la primera pregunta no pague la carga.
+    prewarmModel();
+
+    return json(res, 200, { active: runtime.model, model: target });
+  }
+
+  if (pathname === '/api/ask') {
+    if (method !== 'POST') return fail(res, 405, 'Método no permitido');
+    if (!rateLimit(ip, 'ask', 30, 60_000)) {
+      return fail(res, 429, 'Demasiadas consultas seguidas. Espera un momento.', { 'Retry-After': '30' });
+    }
+
+    const body = await readJson(req);
+    const message = String(body.message ?? '').slice(0, 2000);
+    if (message.trim() === '') return fail(res, 400, 'Escribe una pregunta');
+
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream; charset=utf-8',
+      'Cache-Control': 'no-store',
+      Connection: 'keep-alive',
+      'X-Accel-Buffering': 'no',
+      ...SECURITY_HEADERS,
+    });
+
+    let closed = false;
+    const sendEvent = (event, data) => {
+      if (closed || res.writableEnded) return;
+      res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+    };
+
+    const controller = new AbortController();
+    res.on('close', () => {
+      closed = true;
+      if (!res.writableEnded) controller.abort();
+    });
+    const hardTimeout = setTimeout(() => controller.abort(), 180_000);
+    hardTimeout.unref();
+
+    try {
+      const result = await askFree({
+        message,
+        signal: controller.signal,
+        onMeta: (meta) => sendEvent('meta', meta),
+        onToken: (token) => sendEvent('token', { t: token }),
+      });
+
+      if (controller.signal.aborted) {
+        sendEvent('done', { aborted: true });
+      } else {
+        store.count('messages');
+        sendEvent('done', {
+          engine: result.engine,
+          ms: result.ms,
+          tokensPerSecond: result.tokensPerSecond ?? null,
+          model: result.model,
+        });
+      }
+    } catch (error) {
+      sendEvent('error', {
+        message:
+          controller.signal.aborted
+            ? 'Consulta detenida.'
+            : error instanceof Error
+              ? error.message
+              : 'Fallo al responder',
       });
     } finally {
       clearTimeout(hardTimeout);

@@ -1,6 +1,7 @@
 import { getJson, toast } from './lib/dom.js';
 import { renderNodo } from './views/nodo.js';
 import { renderAula } from './views/aula.js';
+import { renderConsulta } from './views/consulta.js';
 import { renderDocente } from './views/docente.js';
 import { renderHardware } from './views/hardware.js';
 import { renderEtica } from './views/etica.js';
@@ -8,6 +9,7 @@ import { renderEtica } from './views/etica.js';
 const ROUTES = {
   '/': { render: renderNodo, nav: 'nodo', title: 'Nodo' },
   '/aula': { render: renderAula, nav: 'aula', title: 'Aula' },
+  '/consulta': { render: renderConsulta, nav: 'consulta', title: 'Consulta libre' },
   '/docente': { render: renderDocente, nav: 'docente', title: 'Panel docente' },
   '/hardware': { render: renderHardware, nav: 'hardware', title: 'Hardware' },
   '/etica': { render: renderEtica, nav: 'etica', title: 'Ética y datos' },

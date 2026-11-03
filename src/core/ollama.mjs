@@ -1,4 +1,4 @@
-import { OLLAMA_MODEL, OLLAMA_URL } from './config.mjs';
+﻿import { OLLAMA_URL, runtime } from './config.mjs';
 import { store } from './store.mjs';
 
 const MB = 1024 * 1024;
@@ -23,7 +23,7 @@ export async function streamGenerate({ system, prompt, onToken, signal, maxToken
     headers: { 'Content-Type': 'application/json' },
     signal,
     body: JSON.stringify({
-      model: OLLAMA_MODEL,
+      model: runtime.model,
       stream: true,
       messages: [
         { role: 'system', content: system },
@@ -85,7 +85,7 @@ export async function streamGenerate({ system, prompt, onToken, signal, maxToken
   });
   store.count('llm');
 
-  return { text, elapsedMs, tokensPerSecond, evalCount, model: OLLAMA_MODEL };
+  return { text, elapsedMs, tokensPerSecond, evalCount, model: runtime.model };
 }
 
 /** Generación corta sin streaming, para tareas auxiliares. */
@@ -95,7 +95,7 @@ export async function generateOnce({ system, prompt, maxTokens = 180, timeoutMs 
     headers: { 'Content-Type': 'application/json' },
     signal: AbortSignal.timeout(timeoutMs),
     body: JSON.stringify({
-      model: OLLAMA_MODEL,
+      model: runtime.model,
       stream: false,
       messages: [
         { role: 'system', content: system },
@@ -114,9 +114,10 @@ export async function modelMemoryMb() {
     const response = await fetch(`${OLLAMA_URL}/api/ps`, { signal: AbortSignal.timeout(900) });
     if (!response.ok) return null;
     const data = await response.json();
-    const running = (data.models ?? []).find((item) => item.name === OLLAMA_MODEL);
+    const running = (data.models ?? []).find((item) => item.name === runtime.model);
     return running?.size ? Math.round(running.size / MB) : null;
   } catch {
     return null;
   }
 }
+
