@@ -11,7 +11,7 @@
 
 <img src="docs/captura-nodo.png" width="520" alt="Panel de Semilla-IA: modelo, memoria, red local y estado del nodo">
 
-**Un nodo del tamaño de una caja de zapatos convierte cualquier salón en un aula con IA
+**Un nodo del pequeño y portátil convierte cualquier salón en un aula con IA
 propia: sin SIM, sin router, sin nube, sin una sola petición a internet.** Sirve una clase
 completa por wifi, conversa con un modelo de lenguaje **entrenado por nosotros y ejecutado
 en la propia máquina**, corrige ejercicios sin red y entrega al docente un resumen de lo que
