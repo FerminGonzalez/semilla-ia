@@ -1,7 +1,8 @@
 ﻿# PLAN — Semilla-IA · MVP Nodo Neuro-Educativo
 
 Pipeline: `orch-build-mvp` (ECC) · fase 0 → 6
-Spec de entrada: `Pitch Hackaton_ Proyecto Semilla-IA.pdf`
+Spec de entrada: `Pitch Hackaton_ Proyecto Semilla-IA.pdf` (documento de trabajo del
+equipo; se entrega como PDF aparte y no forma parte del repositorio)
 
 ## 0. Lectura del spec y decisiones bloqueadas
 
@@ -84,8 +85,9 @@ rúbricas, mapas, agregación). Eso es lo que hace creíble el objetivo de consu
 ## 5. Entregables
 
 1. Prototipo ejecutable en esta carpeta (`npm start`).
-2. `docs/INFORME-SEMILLA-IA.pdf` con evaluación, arquitectura, medidas reales,
-   límites y guion de demo.
+2. Informe PDF con evaluación, arquitectura, medidas reales, límites y guion de
+   demo. Se entrega aparte del repositorio; `npm run report` lo genera localmente
+   con medidas vivas del nodo.
 3. Repositorio git con commits `feat:` por slice.
 
 ## 6. Fuera de alcance (declarado, no oculto)

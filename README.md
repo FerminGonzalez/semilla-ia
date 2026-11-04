@@ -287,7 +287,6 @@ tools/                bitnet_server.py (sidecar) · run_nodo.mjs (orquestador)
 tests/                43 pruebas nativas (core, exercises, transcoder)
 scripts/              make-report.py (informe PDF desde medidas vivas)
 docs/                 capturas, pitch original, Modelfile
-INFORME-SEMILLA-IA.pdf   informe técnico de 13 páginas
 ```
 
 **Cero dependencias npm** (`dependencies: {}`): solo librería estándar de Node 24. El
@@ -298,10 +297,11 @@ para el modelo.
 
 | Documento | Qué contiene |
 |---|---|
-| [`INFORME-SEMILLA-IA.pdf`](INFORME-SEMILLA-IA.pdf) | Informe técnico de 13 páginas: medidas, arquitectura, ética y evaluación del pitch |
-| [`Pitch Hackaton_ Proyecto Semilla-IA.pdf`](Pitch%20Hackaton_%20Proyecto%20Semilla-IA.pdf) | Pitch presentado al certamen |
 | [`docs/idea-de-solucion.pdf`](docs/idea-de-solucion.pdf) | **Por dónde empezó todo**: el problema del salón a 3 horas |
 | [`PLAN.md`](PLAN.md) | Plan de trabajo por slices con criterios de aceptación |
+
+> El informe técnico y el pitch del certamen se entregan como PDF aparte, no en este
+> repositorio. `npm run report` genera el informe localmente con medidas vivas del nodo.
 
 ## Roadmap: el nodo físico
 
