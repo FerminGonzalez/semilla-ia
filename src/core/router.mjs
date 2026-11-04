@@ -46,13 +46,6 @@ export function decideEngine({ message, cartridgeId, force }) {
     };
   }
 
-  if (cartridgeId === 'idioma' && /quechua|guarani|ngabere|ngäbere|traduc|como se dice/i.test(text)) {
-    return {
-      engine: 'symbolic',
-      reason: 'consulta de léxico verificado: el modelo tendería a inventar palabras',
-    };
-  }
-
   if (text.length < 12) {
     return { engine: 'symbolic', reason: 'entrada demasiado corta para el modelo' };
   }
@@ -212,6 +205,7 @@ Reglas:
 - Si no sabes algo, lo dices y propones cómo comprobarlo.
 - Nada de enlaces, vídeos ni recursos online: aquí no hay conexión.
 - No inventes cifras ni citas.
+- No uses LaTeX ni símbolos de fórmula (\\( \\), \\[ \\], \\sqrt): escribe las cuentas en texto plano, en una línea.
 
 Estás en un nodo con un modelo pequeño: si la pregunta exige cálculo exacto, dilo y
 propón hacerlo paso a paso.`;

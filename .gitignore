@@ -7,3 +7,15 @@ _pitch_texto.txt
 __pycache__/
 docs/_paginas/
 
+# Motor: el checkpoint (195 MB) y los binarios de entrenamiento no entran
+# en git. El código del modelo (model.py, train.py) y el tokenizer sí.
+models/*.pt
+models/*.bin
+
+# Vídeo de demo: se sube en una segunda entrega (evita 13 MB de
+# intermedios de grabación: voz.wav, webm, frames).
+video/
+
+# Copias de seguridad locales
+*_BACKUP_*.zip
+

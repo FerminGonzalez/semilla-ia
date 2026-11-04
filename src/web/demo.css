@@ -1,0 +1,152 @@
+/* Modo presentación (recorrido guiado).
+   Tokens heredados de styles.css (:root). Nada de animaciones pesadas:
+   la barra aparece sin deslizamiento y respeta prefers-reduced-motion. */
+
+/* Cuando la barra está fijada al pie, reservamos espacio en el body para que
+   no tape los botones del composer. El scroll-padding evita que el foco o el
+   scroll manual vayan a parar detrás de la barra. */
+body.is-demo {
+  padding-bottom: 6.5rem;
+}
+html:has(body.is-demo) {
+  scroll-padding-bottom: 6.5rem;
+}
+
+/* ------------------------------ botón Presentar ----------------------------- */
+
+.demo-launch {
+  width: 100%;
+  margin-top: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  color: var(--green);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+}
+
+.demo-launch:hover {
+  background: var(--green-soft);
+  border-color: var(--green-2);
+}
+
+.demo-launch span {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+/* -------------------------------- cue bar ----------------------------------- */
+
+.cue-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem clamp(1rem, 3vw, 2rem);
+  background: var(--surface);
+  border-top: 1px solid var(--line-strong);
+  box-shadow: 0 -6px 24px rgba(27, 29, 23, 0.08);
+  font-size: 0.92rem;
+}
+
+.cue-bar__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.cue-bar__progress {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cue-bar__cue {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.45;
+  max-width: 82ch;
+}
+
+.cue-bar__actions {
+  display: flex;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+}
+
+.cue-bar__btn {
+  font: inherit;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+.cue-bar__btn:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.cue-bar__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.cue-bar__btn--primary {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+.cue-bar__btn--primary:hover:not(:disabled) {
+  background: #0f3d22;
+}
+
+.cue-bar__btn--quit {
+  color: var(--red);
+}
+
+.cue-bar__btn--quit:hover:not(:disabled) {
+  background: var(--red-soft);
+}
+
+/* -------------------------------- responsive -------------------------------- */
+
+@media (max-width: 720px) {
+  .cue-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+  .cue-bar__actions {
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-launch,
+  .cue-bar__btn {
+    transition: none !important;
+  }
+}

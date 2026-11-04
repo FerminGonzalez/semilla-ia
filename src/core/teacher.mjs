@@ -68,7 +68,6 @@ const CARTRIDGE_LABEL = {
   mate: 'Matemáticas',
   ciencias: 'Ciencias',
   lengua: 'Lengua',
-  idioma: 'Lengua originaria',
   emocional: 'Acompañamiento',
 };
 
@@ -103,16 +102,6 @@ function dynamicsFor(cartridgeId, focus) {
       ],
       material: 'Un párrafo corto impreso o escrito en la pizarra.',
       why: 'La lectura acompañada reduce el miedo a equivocarse en público.',
-    },
-    idioma: {
-      title: `Dos lenguas, un mismo saber: ${focus}`,
-      steps: [
-        '5 min · Se dicen cinco palabras del tema en castellano y en la lengua local.',
-        '7 min · Cada alumno escribe una frase usando una de ellas.',
-        '3 min · Se elige entre todos la traducción que suene más natural.',
-      ],
-      material: 'Cartel de palabras. Idealmente, un hablante nativo en el aula.',
-      why: 'La lengua de casa entra en la escuela; no se trata como traducción de emergencia.',
     },
     emocional: {
       title: `Un minuto de calma antes de empezar: ${focus}`,

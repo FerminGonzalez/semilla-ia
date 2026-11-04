@@ -154,7 +154,9 @@ export function renderRich(text) {
 
     const heading = line.match(/^(#{1,3})\s+(.*)$/);
     if (heading) {
-      const level = Math.min(4, heading[1].length + 2);
+      // Los encabezados de chat empiezan en h2 para no saltarse el h1 de la
+      // página. `#` → h2, `##` → h3, `###` → h4.
+      const level = heading[1].length + 1;
       const node = document.createElement(`h${level}`);
       appendInline(node, heading[2]);
       fragment.append(node);

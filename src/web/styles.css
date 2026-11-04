@@ -741,10 +741,14 @@ tr:last-child td {
   color: var(--muted);
   font-size: 0.9rem;
 }
+.bubble h2,
 .bubble h3,
 .bubble h4 {
   font-family: var(--font);
   font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: inherit;
   margin: 0.5rem 0 0.2rem;
 }
 .msg-meta {
@@ -1075,6 +1079,24 @@ tr:last-child td {
   background: var(--red);
 }
 
+/* ------------------------------ utilidades extra --------------------------- */
+
+/* Chat más alto en consultas largas (Consulta libre). */
+.chat-tall {
+  min-height: 360px;
+  max-height: 70vh;
+}
+/* Card que envuelve el chat de la Consulta: flex column para que el
+   composer-actions respire dentro de la tarjeta. */
+.chat-card {
+  display: flex;
+  flex-direction: column;
+}
+/* Margen superior para bloques insertados tras su tarjeta contenedora. */
+.mt-1 {
+  margin-top: 1rem;
+}
+
 /* ------------------------------- responsive -------------------------------- */
 
 @media (max-width: 880px) {
@@ -1091,6 +1113,8 @@ tr:last-child td {
     border-right: 0;
     border-bottom: 1px solid var(--line);
     overflow-x: auto;
+    min-width: 0;
+    width: 100%;
   }
   .nav {
     flex-direction: row;
@@ -1105,9 +1129,13 @@ tr:last-child td {
   }
   .main {
     padding: 1.1rem 1rem 2.5rem;
+    min-width: 0;
   }
   .chat {
     max-height: none;
+  }
+  .chat-tall {
+    min-height: 220px;
   }
 }
 

@@ -52,13 +52,6 @@ test('no confunde un rango con una división', () => {
   assert.ok(!/÷/.test(result.text), 'no debe dividir 5 entre 9');
 });
 
-test('el cartucho de idiomas no inventa ngäbere', () => {
-  const cartridge = getCartridge('idioma');
-  const result = cartridge.symbolic({ message: '¿Cómo se dice agua en ngäbere?' });
-  assert.match(result.text, /no voy a improvisar/i);
-  assert.equal(result.meta.verified, false);
-});
-
 test('el cartucho de lenguas mantiene el orden del texto', () => {
   const cartridge = getCartridge('lengua');
   const result = cartridge.symbolic({ message: 'Hola. Esta es una oración mucho más larga que la anterior.' });
@@ -98,7 +91,7 @@ test('una señal de riesgo nunca pasa por el modelo, aunque se fuerce', () => {
 
 test('un tema desconocido devuelve un cartucho válido, no null', () => {
   assert.equal(getCartridge('inexistente').id, 'mate');
-  assert.equal(publicCartridges().length, 5);
+  assert.equal(publicCartridges().length, 4);
   assert.ok(symbolicFallback({ message: 'hola' }).text.length > 20);
 });
 

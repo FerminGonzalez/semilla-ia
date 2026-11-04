@@ -44,7 +44,7 @@ export const PROJECTION = {
   capsuleGrams: 100,
   label: 'proyección',
   note:
-    'Calculado a partir de 1,5·10⁹ pesos × 1,58 bits. No se ha ejecutado un modelo ternario en este prototipo.',
+    'Calculado a partir de 1,5·10⁹ pesos × 1,58 bits: es una proyección, no una medida. El prototipo sí ejecuta un modelo ternario propio, mucho menor (17 M de parámetros, 204 MB), medido aparte.',
 };
 
 async function ollamaFetch(path, timeoutMs = 1200) {

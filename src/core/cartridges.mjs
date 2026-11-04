@@ -72,22 +72,6 @@ ${COMMON_RULES}`,
     symbolic: (ctx) => symbolicLanguage(ctx),
   },
   {
-    id: 'idioma',
-    name: 'Dos mundos',
-    role: 'Puente cultural',
-    reto: 'Reto 06 · La escuela habla tu idioma',
-    tagline: 'Explica en castellano y contrasta con quechua o guaraní, sin inventar léxico.',
-    accent: '#7a3a6a',
-    buildSystemPrompt: (ctx) => `Eres un puente entre el castellano y las lenguas originarias de América.
-${context(ctx)}
-- Explica el concepto en castellano y después muestra cómo se dice en la lengua que pida el alumno.
-- Usa SOLO el léxico que conozcas con seguridad. Si no estás seguro de una palabra, di "no lo sé con seguridad" y recomienda consultar a un hablante.
-- Nunca inventes ortografía ni gramática.
-- Trata la lengua como conocimiento vivo, no como curiosidad turística.
-${COMMON_RULES}`,
-    symbolic: (ctx) => symbolicLanguageBridge(ctx),
-  },
-  {
     id: 'emocional',
     name: 'Cápsula de calma',
     role: 'Apoyo en emergencias',
@@ -384,83 +368,6 @@ Usa la herramienta «Muchas formas» de este mismo nodo: corta las frases largas
 **Pista de escritura**
 Sujeto + verbo + qué. Ejemplo: «La niña / leyó / el cuento».`,
     meta: { sentences: sentences.length, longest: longest.trim() },
-  };
-}
-
-/**
- * Léxico deliberadamente pequeño y verificado. Donde no hay certeza, se dice.
- * Inventar léxico de una lengua viva es una falta de respeto, no una función.
- */
-const LEXICON = {
-  quechua: {
-    label: 'Quechua',
-    words: [
-      { es: 'agua', lx: 'yaku' },
-      { es: 'sol', lx: 'inti' },
-      { es: 'casa', lx: 'wasi' },
-      { es: 'aprender', lx: 'yachay' },
-      { es: 'tierra', lx: 'allpa' },
-      { es: 'ojo', lx: 'ñawi' },
-      { es: 'bueno', lx: 'allin' },
-    ],
-    note: 'Variante sureña (Cusco-Collao). La ortografía cambia entre territorios.',
-  },
-  guarani: {
-    label: 'Guaraní',
-    words: [
-      { es: 'agua', lx: 'y' },
-      { es: 'sol', lx: 'kuarahy' },
-      { es: 'tierra', lx: 'yvy' },
-      { es: 'enseñar', lx: "mbo'e" },
-      { es: 'saber', lx: 'kuaa' },
-      { es: 'palabra', lx: 'ñe\'ẽ' },
-    ],
-    note: 'Guaraní paraguayo. El guaraní de Bolivia tiene variantes propias.',
-  },
-};
-
-function symbolicLanguageBridge({ message }) {
-  const t = normalise(message);
-  const requested = /guarani/.test(t) ? 'guarani' : /quechua|quichua/.test(t) ? 'quechua' : null;
-  const ngabere = /ngabere|ngäbere|ngobe/.test(t);
-
-  if (ngabere) {
-    return {
-      text: `**Ngäbere: no voy a improvisar**
-
-No tengo léxico ngäbere verificado dentro del nodo. Prefiero decírtelo antes que inventar palabras: una traducción falsa enseña mal y ofende a quien habla la lengua.
-
-**Qué sí puedo hacer ahora**
-- Explicarte el concepto en castellano, con ejemplos de tu entorno.
-- Preparar el material para que un hablante lo revise y lo grabe.
-- Guardar el cartucho vacío con la estructura lista para cuando llegue esa revisión.
-
-**Cómo se cierra bien**
-Un hablante ngäbere revisa 20 palabras y las graba en 10 minutos. Con eso el cartucho ya sirve, y la autoría es suya, no mía.`,
-      meta: { language: 'ngabere', verified: false },
-    };
-  }
-
-  const key = requested ?? 'quechua';
-  const pack = LEXICON[key];
-  const sample = pack.words.slice(0, 5);
-
-  return {
-    text: `**La misma idea en dos lenguas**
-
-- **Castellano:** el agua cambia de forma y de lugar, pero no desaparece.
-- **${pack.label}:** ${sample.map((word) => `${word.es} → *${word.lx}*`).join(' · ')}
-
-**Cómo usar esto en clase**
-1. Di la palabra en castellano y después en ${pack.label}.
-2. Pide al alumno que la use en una frase sobre su casa o su huerto.
-3. Anota las palabras nuevas en un cartel de la pared.
-
-**Límite importante**
-El nodo solo tiene ${pack.words.length} palabras verificadas de ${pack.label}. ${pack.note} Para una unidad completa hace falta un hablante nativo revisando: el cartucho organiza, no sustituye.
-
-¿Quieres que prepare el mismo texto en castellano para que lo adaptéis juntos?`,
-    meta: { language: key, words: pack.words.length, verified: true },
   };
 }
 

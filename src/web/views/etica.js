@@ -3,7 +3,6 @@ import { el, tag } from '../lib/dom.js';
 const RETOS = [
   ['02 · Aprender sin conexión', 'Aula completa servida desde el nodo, sin internet', 'funcional'],
   ['03 · Un contenido, muchas formas', 'Transcodificador: lectura fácil, audio y mapa conceptual', 'funcional'],
-  ['06 · La escuela habla tu idioma', 'Cartucho con léxico verificado de quechua y guaraní; avisa cuando no sabe', 'parcial'],
   ['10 · Encontrar a quien dejamos atrás', 'Tutor sin prisa y señales de aula agregadas, nunca etiquetas al alumno', 'parcial'],
   ['11 · Segunda oportunidad', 'Cartucho andragógico reutilizable con ejemplos de oficio', 'parcial'],
   ['12 · Entrenador invisible del docente', 'Dudas agregadas, dinámica para mañana y rúbrica en segundos', 'funcional'],
@@ -145,9 +144,9 @@ export function renderEtica(root) {
       el(
         'div',
         { class: 'limits' },
-        limit('El modelo de 3B se equivoca. Por eso lo estructurado no pasa por él: los ejercicios y las rúbricas los resuelve el motor simbólico.'),
+        limit('El motor propio de 17 M se equivoca al conversar: es un LM causal, no un asistente afinado. Por eso lo estructurado no pasa por él: los ejercicios y las rúbricas los resuelve el motor simbólico.'),
         limit('Un portátil no es un nodo de 12 USD. El paso a RISC-V exige recompilar el runtime y validar el modelo ternario: es trabajo de ingeniería, no un cambio de configuración.'),
-        limit('El léxico de lenguas originarias es mínimo y está verificado palabra a palabra. Una unidad completa necesita un hablante nativo como coautor.'),
+        limit('Este MVP no publica contenido en lenguas originarias. Para que una unidad esté en una lengua viva hace falta un hablante nativo como coautor, no como revisor.'),
         limit('Sin conexión no hay actualizaciones: el contenido nuevo entra por USB o por el paquete federado.'),
         limit('No sustituye al docente. El panel le da material para decidir, no decisiones tomadas.'),
       ),
@@ -164,7 +163,7 @@ export function renderEtica(root) {
         el('li', { text: 'Pregunta una operación con números: verás que responde el motor simbólico en milisegundos.' }),
         el('li', { text: 'Desconecta el wifi y repite: nada cambia.' }),
         el('li', { text: 'Abre /api/profile en otra pestaña: la memoria y la versión de Node son las de este equipo.' }),
-        el('li', { text: 'Cierra el modelo con «ollama stop qwen2.5:3b» y vuelve a preguntar: el nodo sigue respondiendo con el motor simbólico y lo dice.' }),
+        el('li', { text: 'Detén Ollama (o no lo arranques) y vuelve a preguntar: el nodo sigue respondiendo con el motor propio y el simbólico, y lo dice.' }),
       ),
     ),
   );

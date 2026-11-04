@@ -35,7 +35,7 @@ export async function renderConsulta(root) {
   const messages = loadHistory();
 
   const status = el('p', { class: 'sr-only', role: 'status', 'aria-live': 'polite' });
-  const chat = el('div', { class: 'chat chat-tall', 'aria-label': 'Historial de la consulta' });
+  const chat = el('div', { class: 'chat chat-tall', role: 'log', 'aria-label': 'Historial de la consulta', 'aria-live': 'polite' });
   const input = el('textarea', {
     rows: 2,
     placeholder: 'Pregunta lo que quieras. El nodo responde con el modelo local, sin conexión.',
@@ -50,7 +50,14 @@ export async function renderConsulta(root) {
   let controller = null;
 
   function paint() {
+    // Render completo: solo para el arranque o el «Limpiar conversación».
     setChildren(chat, ...messages.map((message) => bubble(message)));
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  function appendMessage(message) {
+    // Añade un solo globo sin re-anunciar todo el historial al lector de pantalla.
+    chat.append(bubble(message));
     chat.scrollTop = chat.scrollHeight;
   }
 
@@ -96,7 +103,7 @@ export async function renderConsulta(root) {
     messages.push({ role: 'user', text });
     input.value = '';
     input.style.height = '';
-    paint();
+    appendMessage({ role: 'user', text });
     saveHistory(messages);
 
     const placeholder = el('div', { class: 'bubble' }, el('div', { class: 'typing' }, el('i'), el('i'), el('i')));
@@ -110,6 +117,9 @@ export async function renderConsulta(root) {
     sendButton.disabled = true;
     stopButton.disabled = false;
     controller = new AbortController();
+    // El chat es role="log"; marcamos busy durante el streaming para que el
+    // lector no anuncie cada token y solo lea la respuesta completa al final.
+    chat.setAttribute('aria-busy', 'true');
     status.textContent = 'Consultando al modelo local.';
     const started = performance.now();
 
@@ -129,6 +139,7 @@ export async function renderConsulta(root) {
             chat.scrollTop = chat.scrollHeight;
           },
           onDone: (data) => {
+            chat.removeAttribute('aria-busy');
             if (data.aborted) {
               meta.textContent = 'detenido por ti';
               status.textContent = 'Consulta detenida.';
@@ -148,6 +159,7 @@ export async function renderConsulta(root) {
             status.textContent = 'Respuesta lista.';
           },
           onError: (error) => {
+            chat.removeAttribute('aria-busy');
             answer.text = answer.text || `No he podido responder: ${error.message}`;
             placeholder.replaceChildren(renderRich(answer.text));
             meta.textContent = 'sin respuesta';
@@ -162,6 +174,7 @@ export async function renderConsulta(root) {
         meta.textContent = 'sin respuesta';
       }
     } finally {
+      chat.removeAttribute('aria-busy');
       streaming = false;
       sendButton.disabled = false;
       stopButton.disabled = true;
@@ -169,8 +182,11 @@ export async function renderConsulta(root) {
       if (answer.text.trim() !== '') {
         messages.push(answer);
         saveHistory(messages);
+        // Sustituimos el placeholder por el globo final con su meta. append-only.
+        node.replaceWith(bubble(answer));
+      } else {
+        node.remove();
       }
-      paint();
       input.focus();
     }
   }
@@ -186,7 +202,7 @@ export async function renderConsulta(root) {
   clearButton.addEventListener('click', () => {
     messages.length = 0;
     saveHistory(messages);
-    paint();
+    paint(); // «Limpiar» sí necesita el render completo.
     input.focus();
   });
 

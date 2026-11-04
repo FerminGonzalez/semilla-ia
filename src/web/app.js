@@ -1,10 +1,11 @@
 import { getJson, toast } from './lib/dom.js';
 import { renderNodo } from './views/nodo.js';
-import { renderAula } from './views/aula.js';
+import { renderAula, setInitialTab } from './views/aula.js';
 import { renderConsulta } from './views/consulta.js';
 import { renderDocente } from './views/docente.js';
 import { renderHardware } from './views/hardware.js';
 import { renderEtica } from './views/etica.js';
+import { initDemo, isDemoActive } from './views/demo.js';
 
 const ROUTES = {
   '/': { render: renderNodo, nav: 'nodo', title: 'Nodo' },
@@ -21,15 +22,30 @@ const main = document.getElementById('contenido');
 let renderToken = 0;
 let booted = false;
 
-function currentPath() {
-  const hash = window.location.hash.replace(/^#/, '');
-  return hash === '' ? '/' : hash.split('?')[0];
+/** Descompone el hash en ruta + query (#/aula?tab=formas → /aula + { tab: 'formas' }).
+ *  Los anclajes internos (#contenido) o las URLs sin ruta se tratan como la raíz,
+ *  así el skip-link y Atrás hasta una URL sin hash no rompen el render. */
+function parseHash() {
+  const raw = window.location.hash.replace(/^#/, '');
+  if (!raw.startsWith('/')) {
+    return { path: '/', query: new URLSearchParams() };
+  }
+  const qIndex = raw.indexOf('?');
+  if (qIndex === -1) return { path: raw === '' ? '/' : raw, query: new URLSearchParams() };
+  return {
+    path: raw.slice(0, qIndex) || '/',
+    query: new URLSearchParams(raw.slice(qIndex + 1)),
+  };
 }
 
 async function render() {
   const token = ++renderToken;
-  const path = currentPath();
+  const { path, query } = parseHash();
   const route = ROUTES[path];
+
+  // Deep-link de pestaña del Aula (p. ej. #/aula?tab=formas). Un valor no
+  // válido se ignora en aula.js, que cae en «conversar».
+  if (path === '/aula') setInitialTab(query.get('tab'));
 
   for (const link of document.querySelectorAll('[data-nav]')) {
     if (route && link.dataset.nav === route.nav) link.setAttribute('aria-current', 'page');
@@ -49,7 +65,7 @@ async function render() {
     if (token !== renderToken) return;
     main.replaceChildren(staging);
     document.title = `${route.title} · Semilla-IA`;
-    main.focus({ preventScroll: true });
+    if (!isDemoActive()) main.focus({ preventScroll: true });
   } catch (error) {
     if (token !== renderToken) return;
     const section = document.createElement('section');
@@ -95,12 +111,19 @@ async function updateStatus() {
 function boot() {
   if (booted) return;
   booted = true;
+  initDemo();
   void render();
   void updateStatus();
   setInterval(updateStatus, 20_000);
 }
 
-window.addEventListener('hashchange', () => void render());
+// Solo reaccionamos a hashes de ruta (#/...). Los anclajes internos (#contenido
+// del «Saltar al contenido», por ejemplo) no deben disparar un re-render, y una
+// URL sin hash tampoco (puede venir de haber pulsado Atrás hasta el estado inicial).
+window.addEventListener('hashchange', () => {
+  if (!window.location.hash.startsWith('#/')) return;
+  void render();
+});
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', boot, { once: true });

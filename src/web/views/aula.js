@@ -14,10 +14,6 @@ const SUGGESTIONS = {
     'Corrige esta frase y hazla más fácil: "Los alumnos que habían llegado tarde no pudieron realizar la actividad que la profesora había preparado con anterioridad".',
     '¿Cómo explico la diferencia entre sujeto y predicado?',
   ],
-  idioma: [
-    '¿Cómo se dice agua y sol en quechua?',
-    'Quiero enseñar el ciclo del agua en guaraní y castellano.',
-  ],
   emocional: [
     'Hoy no puedo concentrarme, tengo miedo.',
     'Me he enfadado con un compañero y no sé qué hacer.',
@@ -26,7 +22,17 @@ const SUGGESTIONS = {
 
 const SAMPLE_LESSON = `El ciclo del agua describe el movimiento continuo del agua en la Tierra. El sol calienta el agua de mares, ríos y lagos, que se evapora y pasa a la atmósfera en forma de vapor. Cuando ese vapor se enfría en las capas altas, se condensa en pequeñas gotitas que forman las nubes. Finalmente, esas gotitas se agrupan y caen como precipitación en forma de lluvia, nieve o granizo, y el agua vuelve al suelo, a los ríos y al mar para empezar de nuevo.`;
 
+const TAB_IDS = ['conversar', 'formas', 'taller', 'sobre'];
+let pendingTab = null;
+
+/** El router puede pedir una pestaña inicial (deep-link #/aula?tab=formas). */
+export function setInitialTab(tab) {
+  pendingTab = TAB_IDS.includes(tab) ? tab : null;
+}
+
 export async function renderAula(root) {
+  let active = pendingTab ?? 'conversar';
+  pendingTab = null;
   const cartridges = await getJson('/api/cartridges');
 
   const state = {
@@ -62,7 +68,6 @@ export async function renderAula(root) {
     sobre: () => aboutView(),
   };
 
-  let active = 'conversar';
   const buttons = [
     ['conversar', 'Conversar'],
     ['formas', 'Muchas formas'],
@@ -96,62 +101,63 @@ export async function renderAula(root) {
 
   /* -------------------------------- chat ---------------------------------- */
 
-  function cartridgeBar() {
-    const grid = el('div', { class: 'cartridges', role: 'group', 'aria-label': 'Cartuchos pedagógicos' });
-    for (const cartridge of cartridges) {
-      const button = el(
-        'button',
-        {
-          type: 'button',
-          class: 'cartridge',
-          'aria-pressed': String(cartridge.id === state.cartridge),
-          style: `border-left-color:${cartridge.accent}`,
-          onclick: () => {
-            state.cartridge = cartridge.id;
-            for (const other of grid.querySelectorAll('.cartridge')) {
-              other.setAttribute('aria-pressed', String(other.dataset.id === cartridge.id));
-            }
-            suggestions.replaceChildren(...suggestionChips());
-            detail.textContent = `${cartridge.reto} · ${cartridge.tagline}`;
-            composerInput.placeholder = placeholderFor(cartridge.id);
-          },
-        },
-        el('strong', { text: cartridge.name }),
-        el('span', { text: cartridge.role }),
-      );
-      button.dataset.id = cartridge.id;
-      grid.append(button);
-    }
-    return grid;
-  }
-
-  function suggestionChips() {
-    return (SUGGESTIONS[state.cartridge] ?? []).map((text) =>
-      el('button', {
-        type: 'button',
-        class: 'btn btn-ghost btn-sm',
-        text,
-        onclick: () => {
-          composerInput.value = text;
-          composerInput.focus();
-        },
-      }),
-    );
-  }
-
   function chatView() {
     const wrapper = el('div', { class: 'stack' });
 
     const detail = el('p', { class: 'small muted' });
     const suggestions = el('div', { class: 'row' });
 
-    const chat = el('div', { class: 'chat', 'aria-label': 'Conversación' });
+    const chat = el('div', { class: 'chat', role: 'log', 'aria-label': 'Conversación', 'aria-live': 'polite' });
     const liveStatus = el('p', { class: 'sr-only', role: 'status', 'aria-live': 'polite' });
     const composerInput = el('textarea', {
       rows: 2,
       placeholder: placeholderFor(state.cartridge),
       'aria-label': 'Escribe tu pregunta',
     });
+
+    function suggestionChips() {
+      return (SUGGESTIONS[state.cartridge] ?? []).map((text) =>
+        el('button', {
+          type: 'button',
+          class: 'btn btn-ghost btn-sm',
+          text,
+          onclick: () => {
+            composerInput.value = text;
+            composerInput.focus();
+          },
+        }),
+      );
+    }
+
+    function cartridgeBar() {
+      const grid = el('div', { class: 'cartridges', role: 'group', 'aria-label': 'Cartuchos pedagógicos' });
+      for (const cartridge of cartridges) {
+        const button = el(
+          'button',
+          {
+            type: 'button',
+            class: 'cartridge',
+            'aria-pressed': String(cartridge.id === state.cartridge),
+            style: `border-left-color:${cartridge.accent}`,
+            onclick: () => {
+              state.cartridge = cartridge.id;
+              for (const other of grid.querySelectorAll('.cartridge')) {
+                other.setAttribute('aria-pressed', String(other.dataset.id === cartridge.id));
+              }
+              suggestions.replaceChildren(...suggestionChips());
+              detail.textContent = `${cartridge.reto} · ${cartridge.tagline}`;
+              composerInput.placeholder = placeholderFor(cartridge.id);
+            },
+          },
+          el('strong', { text: cartridge.name }),
+          el('span', { text: cartridge.role }),
+        );
+        button.dataset.id = cartridge.id;
+        grid.append(button);
+      }
+      return grid;
+    }
+
 
     const sendButton = el('button', { type: 'button', class: 'btn btn-primary', text: 'Preguntar' });
     const stopButton = el('button', { type: 'button', class: 'btn btn-ghost btn-sm', text: 'Detener', disabled: true });
@@ -197,6 +203,10 @@ export async function renderAula(root) {
       chat.append(assistant);
       chat.scrollTop = chat.scrollHeight;
 
+      // El chat es role="log"; marcamos busy durante el streaming para que el
+      // lector no anuncie cada token y solo lea la respuesta completa al final.
+      chat.setAttribute('aria-busy', 'true');
+
       state.streaming = true;
       stopButton.disabled = false;
       sendButton.disabled = true;
@@ -232,6 +242,7 @@ export async function renderAula(root) {
               chat.scrollTop = chat.scrollHeight;
             },
             onDone: (data) => {
+              chat.removeAttribute('aria-busy');
               const elapsed = data.ms ?? performance.now() - started;
               setChildren(
                 meta,
@@ -243,6 +254,7 @@ export async function renderAula(root) {
               liveStatus.textContent = 'Respuesta lista.';
             },
             onError: (error) => {
+              chat.removeAttribute('aria-busy');
               bubble.replaceChildren(renderRich(`No he podido responder: ${error.message}`));
             },
           },
@@ -254,6 +266,7 @@ export async function renderAula(root) {
           setChildren(meta, el('span', { text: 'detenido por ti' }));
         }
       } finally {
+        chat.removeAttribute('aria-busy');
         state.streaming = false;
         stopButton.disabled = true;
         sendButton.disabled = false;
@@ -297,7 +310,6 @@ export async function renderAula(root) {
         mate: 'Escribe el problema con tus palabras…',
         ciencias: '¿Qué has observado hoy?',
         lengua: 'Pega tu frase y la hacemos más fácil…',
-        idioma: '¿Qué palabra quieres aprender en tu lengua?',
         emocional: '¿Cómo estás hoy?',
       }[id] ?? 'Escribe tu pregunta…'
     );
@@ -776,14 +788,6 @@ export async function renderAula(root) {
         el('p', {
           class: 'small muted',
           text: 'El ajuste fino real (LoRA) queda fuera del alcance del hackathon y está declarado en el informe.',
-        }),
-      ),
-      el(
-        'section',
-        { class: 'card' },
-        el('h2', { text: 'Lenguas originarias: el límite honesto' }),
-        el('p', {
-          text: 'El cartucho de lenguas contiene un léxico pequeño y verificado de quechua y guaraní. Si le pides ngäbere, responde que no lo sabe y propone cómo hacerlo con un hablante nativo. Inventar léxico de una lengua viva sería peor que no tener la función.',
         }),
       ),
     );

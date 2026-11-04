@@ -16,11 +16,11 @@ export const PORT = Number(process.env.NODO_PORT ?? 8090);
 export const HOST = process.env.NODO_HOST ?? '127.0.0.1';
 
 export const OLLAMA_URL = process.env.OLLAMA_URL ?? 'http://127.0.0.1:11434';
-export const OLLAMA_MODEL = process.env.OLLAMA_MODEL ?? 'qwen2.5:3b';
+export const OLLAMA_MODEL = process.env.OLLAMA_MODEL ?? 'bitnet-17m:ternario';
 
 /**
- * Modelo activo en tiempo de ejecución. Se puede cambiar desde el panel del nodo
- * sin reiniciar: el nodo pasa de un 1.5B rápido a un 3B más capaz.
+ * Modelo activo en tiempo de ejecución. En este MVP el nodo expone únicamente
+ * el motor propio bitnet-17m:ternario a través del sidecar en :11435.
  */
 export const runtime = { model: OLLAMA_MODEL };
 
