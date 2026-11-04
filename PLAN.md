@@ -16,7 +16,7 @@ separa con nitidez tres capas:
 
 | Capa | Estado en el MVP | Cómo se demuestra |
 |---|---|---|
-| Inferencia local real | **Construida** | Ollama `qwen2.5:3b` en `127.0.0.1:11434`, sin salida a internet |
+| Inferencia local real | **Construida** | Motor propio `bitnet-17m:ternario` en el sidecar `127.0.0.1:11435`, sin salida a internet |
 | Motor pedagógico determinista | **Construida** | Resuelve ejercicios, rúbricas y transcodificación en <10 ms |
 | Nodo físico (RISC-V, LoRa, solar, BOM) | **Modelada y etiquetada** | Panel con medidas reales + proyecciones marcadas como tales |
 
@@ -40,7 +40,7 @@ Consecuencias:
 | # | Slice | Resultado visible | Criterio de aceptación |
 |---|---|---|---|
 | 1 | Nodo y estación | Panel con modelo, RAM, energía, red local y arranque | Carga en <1 s, sin dependencias externas, con métricas reales |
-| 2 | Aula conversacional | Chat del alumno con 5 cartuchos y streaming | Responde sin internet; si matas Ollama, sigue respondiendo |
+| 2 | Aula conversacional | Chat del alumno con 4 cartuchos y streaming | Responde sin internet; si matas Ollama, sigue respondiendo |
 | 3 | Transcodificador (Reto 03) | Una lección en lectura fácil, audio y mapa conceptual | Tres formatos coherentes desde una sola fuente |
 | 4 | Taller de ejercicios | Ejercicios con corrección y pista | Corrección determinista, sin modelo |
 | 5 | Copiloto docente (Reto 12) | Dudas agregadas → dinámica del día siguiente + rúbrica | Panel protegido por PIN, datos solo locales |
@@ -60,8 +60,8 @@ navegador (alumno / docente)  ──LAN──┐
             orquestador (router)              almacén JSON local
         ┌───────────┴───────────┐
         ▼                       ▼
-motor simbólico          ollama.mjs (qwen2.5:3b)
-(<10 ms, determinista)   (~4,5 tok/s medidos)
+motor simbólico          ollama.mjs (bitnet-17m:ternario)
+(<10 ms, determinista)   (13,6–17,1 tok/s medidos)
 ```
 
 **Por qué el orquestador es la pieza clave.** En un nodo de 1,2 W no se puede
@@ -93,6 +93,7 @@ rúbricas, mapas, agregación). Eso es lo que hace creíble el objetivo de consu
 - Fabricación del nodo RISC-V y del cartucho LoRa.
 - Entrenamiento o ajuste fino real de LoRA: los cartuchos son prompts de sistema
   y enrutado, exactamente como plantea la fase 3 del pitch.
-- Cuantización ternaria: se explica y se proyecta, no se ejecuta.
+- Cuantización ternaria a escala útil: se ejecuta el ternario propio de 17 M (`bitnet-17m:ternario`);
+  proyectar 1,58 bits sobre 1,5·10⁹ pesos, no.
 - TTS neuronal: se usa la voz del sistema operativo del dispositivo.
 

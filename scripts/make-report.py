@@ -297,7 +297,7 @@ def cover(story, profile, telemetry):
         [
             Paragraph(f"<b>{tps_text}</b>\ntokens/s", ParagraphStyle("m1", fontName=AVAILABLE["body-bold"], fontSize=17, leading=20, textColor=GREEN)),
             Paragraph(f"<b>{latency_text}</b>\nsegundos", ParagraphStyle("m2", fontName=AVAILABLE["body-bold"], fontSize=17, leading=20, textColor=GREEN)),
-            Paragraph("<b>44</b>\npruebas verdes", ParagraphStyle("m3", fontName=AVAILABLE["body-bold"], fontSize=17, leading=20, textColor=GREEN)),
+            Paragraph("<b>43</b>\npruebas verdes", ParagraphStyle("m3", fontName=AVAILABLE["body-bold"], fontSize=17, leading=20, textColor=GREEN)),
             Paragraph("<b>17</b>\nbytes LoRa", ParagraphStyle("m4", fontName=AVAILABLE["body-bold"], fontSize=17, leading=20, textColor=GREEN)),
         ],
         [
@@ -327,7 +327,7 @@ def cover(story, profile, telemetry):
     meta = [
         ["Documento", "Evaluación del pitch y memoria de entrega del prototipo"],
         ["Certamen", "#hack4edu 2026 · VII edición · Fundación ProFuturo y UPSA"],
-        ["Modelo ejecutado", f"{model.get('model', 'no disponible')} ({model.get('quantization', 'n/d')}) vía Ollama local"],
+        ["Modelo ejecutado", f"{model.get('model', 'bitnet-17m:ternario')} ({model.get('quantization', 'n/d')}) vía sidecar propio en 127.0.0.1:11435"],
         ["Equipo de pruebas", f"{hw.get('cpu', 'n/d')} · {hw.get('cores', 'n/d')} núcleos · {hw.get('totalRamMb', 'n/d')} MB RAM"],
         ["Fecha", datetime.now().strftime("%d/%m/%Y")],
     ]
@@ -433,11 +433,11 @@ def evaluation(story):
                 [
                     "Modelo ternario 1.58-bit en SoC RISC-V de 12 USD",
                     "No existe runtime ternario maduro para esos SoC; el coste real incluye placa, memoria, radio y carcasa.",
-                    "Se ejecuta un modelo de 3B cuantizado a 4 bits en CPU. La proyección ternaria se presenta como cálculo, no como medida.",
+                    "Se ejecuta el motor ternario propio de 17 M en CPU y se mide; el ternario a 1,5·10⁹ pesos se presenta como cálculo, no como medida. Los GGUF de 1.5B y 3B vía Ollama quedan como referencia opcional, fuera del MVP.",
                 ],
                 [
                     "30 alumnos simultáneos",
-                    "Un nodo de un solo hilo con 4,5–6 tokens/s no sostiene 30 conversaciones.",
+                    "Un nodo de un solo hilo con 13,6–17,1 tokens/s no sostiene 30 conversaciones.",
                     "El orquestador descarga el 75 % de las consultas al motor simbólico; el modelo atiende una conversación cada vez.",
                 ],
                 [
@@ -485,12 +485,14 @@ def built(story):
             [
                 ["Componente", "Estado", "Cómo se demuestra"],
                 ["Servidor de aula sin dependencias", "Completo", "Node 24 y librería estándar. Sin npm install."],
-                ["Inferencia local", "Completo", "Ollama con qwen2.5:3b en 127.0.0.1, streaming token a token."],
+                ["Inferencia local", "Completo", "Motor propio bitnet-17m:ternario servido por el sidecar en 127.0.0.1:11435, streaming token a token, sin dependencia de Ollama."],
                 ["Orquestador simbólico/modelo", "Completo", "Decide por tarea y lo declara bajo cada respuesta."],
-                ["Cinco cartuchos pedagógicos", "Completo", "Matemáticas, ciencias, lectoescritura, lenguas originarias y calma."],
+                ["Cuatro cartuchos pedagógicos", "Completo", "Matemáticas, ciencias, lectoescritura y calma."],
                 ["Transcodificador (Reto 03)", "Completo", "Una lección en lectura fácil, audio y mapa conceptual, en 8 ms."],
                 ["Taller con corrección", "Completo", "Generación por semilla; corrección sin estado."],
                 ["Copiloto docente (Reto 12)", "Completo", "Dudas agregadas, dinámica, rúbrica y señales. PIN y sesión firmada."],
+                ["Consulta libre", "Completo", "Chat sin cartucho contra el modelo local, con streaming, copiar y detener."],
+                ["Cambio de modelo en caliente", "Completo", "Selector gobernado por el sidecar; hoy anuncia solo el motor propio, sin reiniciar."],
                 ["Sensor y método científico (Reto 17)", "Completo", "Ingesta HTTP, gráfica, andamiaje hipótesis-experimento."],
                 ["Telemetría federada (Reto 13)", "Completo", "Paquete binario de 17 bytes, sin PII, tamaño medido."],
                 ["Nodo RISC-V, LoRa y solar", "Fuera de alcance", "Modelado y etiquetado como proyección."],
@@ -628,7 +630,7 @@ def measurements(story, profile, telemetry):
         data_table(
             [
                 ["Medida", "Valor", "Origen"],
-                ["Modelo en ejecución", f"{model.get('model', 'n/d')} · {model.get('quantization', 'n/d')}", "Ollama local"],
+                ["Modelo en ejecución", f"{model.get('model', 'n/d')} · {model.get('quantization', 'n/d')}", "sidecar propio :11435"],
                 ["Memoria del proceso del nodo", f"{process_info.get('rssMb', 'n/d')} MB", "process.memoryUsage"],
                 ["Velocidad de generación", f"{meas.get('llmTokensPerSecond', 'n/d')} tokens/s", "eval_count / eval_duration"],
                 ["Latencia de una respuesta completa", f"{round(meas.get('llmLastLatencyMs', 0) / 1000, 1)} s", "cronómetro del servidor"],
@@ -637,7 +639,7 @@ def measurements(story, profile, telemetry):
                 ["Paquete LoRa en JSON", f"{packet.get('jsonBytes', 'n/d')} bytes", "medido en UTF-8"],
                 ["Paquete LoRa binario", f"{packet.get('binaryBytes', 'n/d')} bytes", "medido en binario"],
                 ["¿Cabe en un marco LoRaWAN?", "Sí" if packet.get("fitsInOnePacket") else "No", f"presupuesto {packet.get('loraBudgetBytes', 51)} B"],
-                ["Pruebas automáticas", "44 de 44", "node --test"],
+                ["Pruebas automáticas", "43 de 43", "node --test"],
                 ["Dependencias de ejecución", "0", "package.json"],
                 ["Hardware de la prueba", f"{hw.get('cores', 'n/d')} núcleos · {hw.get('totalRamMb', 'n/d')} MB", "os.cpus / os.totalmem"],
             ],
@@ -680,18 +682,35 @@ def integration(story):
             "<b>qwen2.5-1.5b-instruct-q5_k_m.gguf</b>, 1,2 GB."
         )
     )
-    story.append(P("Lo que se ha integrado de verdad", "h3"))
+    story.append(P("Qué sirve el MVP hoy", "h3"))
     story.append(
         P(
-            "El GGUF se ha registrado en el nodo con un Modelfile propio y ya es seleccionable desde "
-            "el panel. El nodo puede cambiar de cerebro sin reiniciar y conserva la elección. Medido "
-            "en este equipo, con el mismo prompt:"
+            "El MVP se sirve únicamente con el motor ternario propio. El sidecar de 127.0.0.1:11435 "
+            "anuncia un solo modelo y el nodo lo toma como predeterminado; el catálogo ya no se "
+            "consulta a Ollama. Medido en este equipo:"
         )
     )
     story.append(
         data_table(
             [
                 ["Modelo", "Cuantización", "Disco", "Velocidad", "Calidad observada"],
+                ["<b>bitnet-17m:ternario</b> (MiniBitNet, único modelo del MVP)", "ternario real", "204 MB", "13,6–15,1 tok/s directo · 16,6–17,1 tok/s por el sidecar", "17.033.984 parámetros y perplejidad 39,46 en val_wiki.bin; LM causal, no sigue instrucciones."],
+            ],
+            [5.0 * cm, 2.4 * cm, 2.2 * cm, 3.8 * cm, 4.0 * cm],
+        )
+    )
+    story.append(P("Integración con el GGUF: referencia opcional, fuera del MVP", "h3"))
+    story.append(
+        P(
+            "El GGUF de la carpeta se registró en su día con un Modelfile propio y fue seleccionable "
+            "desde el panel. Hoy no forma parte del MVP ni se anuncia. Las cifras siguientes siguen "
+            "siendo mediciones reales y se conservan como referencia histórica:"
+        )
+    )
+    story.append(
+        data_table(
+            [
+                ["Modelo (histórico, no MVP)", "Cuantización", "Disco", "Velocidad", "Calidad observada"],
                 ["semilla-1.5b (Qwen2.5 1.5B)", "Q5_K_M", "1226 MB", "13,7–15,7 tok/s", "Más rápida; respuestas más simples y con algún error conceptual."],
                 ["qwen2.5:3b", "Q4_K_M", "1841 MB", "8,6–9,4 tok/s", "Casi la mitad de velocidad; respuestas mejor construidas."],
             ],
@@ -700,18 +719,22 @@ def integration(story):
     )
     story.append(
         P(
-            "Ese es el compromiso real del nodo: el 1.5B duplica la velocidad y libera 600 MB de RAM, "
-            "que es exactamente lo que necesita un equipo de 512 MB. La calidad se sostiene porque el "
-            "trabajo estructurado no pasa por el modelo.",
+            "La comparación histórica dice que el 1.5B era más rápido y liberaba 600 MB de RAM. El MVP "
+            "asume la pérdida de calidad conversacional a cambio de servir un ternario propio de 17 M "
+            "que se ejecuta y se mide aquí; lo que no se pierde es la corrección, porque el trabajo "
+            "estructurado nunca pasó por el modelo.",
             "small",
         )
     )
     story.append(
         callout(
             "Lo que el GGUF no es",
-            "Es una cuantización de 5 bits por peso, no ternaria. No hay ningún checkpoint 1.58-bit "
-            "en la carpeta: la guía describe cómo entrenarlo y empaquetarlo, no incluye el resultado. "
-            "Presentar este archivo como «modelo ternario» sería falso y comprobable.",
+            "Es una cuantización de 5 bits por peso, no ternaria. En esa carpeta no hay ningún "
+            "checkpoint 1.58-bit: la guía describe cómo entrenarlo y empaquetarlo, no incluye el "
+            "resultado. Presentar este archivo como «modelo ternario» sería falso y comprobable. "
+            "Ahora bien, el proyecto sí tiene y ejecuta su propio checkpoint ternario, entrenado "
+            "aparte y mucho más pequeño: MiniBitNet, 17 M de parámetros, 204 MB, pesos en {-1, 0, 1} "
+            "con STE y activaciones int8.",
             "warn",
         )
     )
@@ -721,21 +744,41 @@ def integration(story):
         P(
             "Hay un malentendido que conviene deshacer antes: el ternario no es un formato de "
             "cuantización posterior. No se coge un Qwen entrenado y se convierte a {-1, 0, +1} sin "
-            "destruirlo; BitNet b1.58 se entrena desde cero con QAT. Eso exige GPU y semanas, y no "
-            "cabe en un hackathon. Lo que sí cabe es ejecutar un modelo ternario ya publicado."
+            "destruirlo; BitNet b1.58 se entrena desde cero con QAT. A la escala de 2B eso exige GPU "
+            "y semanas, y no cabe en un hackathon. A escala reducida sí cupo: el proyecto entrenó su "
+            "propio MiniBitNet en CPU y lo sirve al nodo. Además, sigue siendo posible ejecutar un "
+            "modelo ternario ya publicado."
         )
     )
     story.append(
         data_table(
             [
                 ["Etapa", "Qué se hace", "Qué hace falta", "Resultado esperado"],
-                ["0 · Hoy", "Qwen2.5 1.5B en Q4/Q5 sobre Ollama", "Nada: ya está hecho", "15 tok/s, 1,2 GB, calidad aceptable"],
-                ["1 · Ternario real sin entrenar", "Descargar BitNet b1.58 2B4T y ejecutarlo con bitnet.cpp o con llama.cpp (TQ1_0/TQ2_0)", "CMake, compilador C++, ~1,1 GB de descarga", "1.58-bit de verdad; medir tok/s y RAM en este equipo"],
-                ["2 · Servirlo al nodo", "Levantar llama-server o el servidor de bitnet.cpp y apuntar el nodo con un adaptador OpenAI-compatible", "Añadir un proveedor al nodo (una tarde)", "El nodo usa el ternario sin tocar la interfaz"],
-                ["3 · Nodo físico", "Compilar para RISC-V y medir en placa", "Milk-V Duo o Luckfox Pico, toolchain riscv64", "0,5–3 tok/s en CPU; la NPU exige toolchain del fabricante"],
-                ["4 · Modelo propio", "Entrenar con QAT sobre corpus educativo", "Presupuesto de GPU y semanas", "Investigación, no hackathon"],
+                ["0 · Base histórica (opcional)", "Qwen2.5 1.5B en Q4/Q5 sobre Ollama; fuera del MVP desde que el sidecar sirve el motor propio", "Ollama instalado, solo para comparar", "13,7–15,7 tok/s, 1,2 GB; ya no se anuncia en el panel"],
+                ["1 · Ternario propio (hecho y en el MVP)", "MiniBitNet de 17 M: pesos en {-1, 0, 1} con STE, activaciones int8, entrenado en CPU sobre Wikipedia en español", "Nada: ckpt_4500.pt ya está en el repositorio", "204 MB; 13,6–17,1 tok/s; perplejidad 39,46; único modelo servido, como bitnet-17m:ternario"],
+                ["2 · Ternario publicado (pendiente)", "Descargar BitNet b1.58 2B4T y ejecutarlo con bitnet.cpp o con llama.cpp (TQ1_0/TQ2_0)", "CMake, compilador C++, ~1,1 GB de descarga", "1.58-bit de verdad a escala 2B; medir tok/s y RAM en este equipo"],
+                ["3 · Servirlo al nodo", "Levantar llama-server o el servidor de bitnet.cpp y apuntar el nodo con un adaptador OpenAI-compatible", "Añadir un proveedor al nodo (una tarde)", "El nodo usa el ternario sin tocar la interfaz; ya ocurre con el modelo propio vía sidecar"],
+                ["4 · Nodo físico", "Compilar para RISC-V y medir en placa", "Milk-V Duo o Luckfox Pico, toolchain riscv64", "0,5–3 tok/s en CPU; la NPU exige toolchain del fabricante"],
+                ["5 · Modelo propio a escala útil", "Entrenar con QAT sobre corpus educativo", "Presupuesto de GPU y semanas", "Investigación, no hackathon"],
             ],
             [3.0 * cm, 5.4 * cm, 4.4 * cm, 4.6 * cm],
+        )
+    )
+    story.append(
+        P(
+            "La etapa 1 ya está completada y es lo que sirve el MVP hoy, por una vía propia que no "
+            "figuraba en el plan original: "
+            "17 M de parámetros ternarios (17.033.984), 204 MB, 13,6–15,1 tok/s en prueba directa y "
+            "16,6–17,1 tok/s medidos por el sidecar, con perplejidad 39,46 en "
+            "<font face='Courier'>val_wiki.bin</font>. "
+            "El motor está integrado y es el único modelo que el panel anuncia. Lo que falta no es "
+            "ejecución sino "
+            "calidad: es un LM causal sobre Wikipedia, no un asistente afinado. No sigue instrucciones, "
+            "ignora el system prompt, ecoa tokens de plantilla como <font face='Courier'>[INST]</font> "
+            "y ante «La capital de Francia es» responde «la ciudad de Lemón». Esa limitación se asume: "
+            "la conversación libre puede salir incoherente, mientras el motor simbólico cubre "
+            "aritmética, ejercicios, rúbricas y señales de riesgo.",
+            "small",
         )
     )
 
@@ -755,13 +798,131 @@ def integration(story):
         story.append(item)
 
 
+def lab(story):
+    story.append(section("Laboratorio ternario: la etapa 1 en C++", 7))
+    story.append(
+        P(
+            "Con el proyecto ya cerrado, se intentó un paso más: ejecutar un modelo "
+            "<b>1.58-bit real</b> en este equipo con un motor mínimo escrito en C++, sin integrarlo en "
+            "el producto. Este laboratorio es anterior y distinto del MiniBitNet que sí quedó "
+            "integrado (sección 6): aquí se buscaba verificar la matemática, no servir el aula. Se "
+            "probaron las tres vías disponibles y solo una funciona. Los artefactos están en "
+            "<font face='Courier'>C:\\Users\\Ghost\\bitnet-lab</font> (3,87 GB)."
+        )
+    )
+
+    story.append(
+        data_table(
+            [
+                ["Vía", "Resultado", "Evidencia"],
+                ["bitnet.cpp + i2_s oficial", "Arranca y genera, pero el texto degenera", "5–9 tok/s; «The capital of France is 0»"],
+                ["TQ2_0 en llama.cpp oficial", "Rápido, cuantizado roto", "9,76 tok/s; repite en bucle con decodificación voraz"],
+                ["Modelo ternario propio en C++", "Funciona de extremo a extremo", "4 400–5 300 tok/s; salida coherente"],
+            ],
+            [5.6 * cm, 6.2 * cm, 5.6 * cm],
+        )
+    )
+
+    story.append(P("Por qué falla bitnet.cpp en este equipo", "h3"))
+    story.append(
+        P(
+            "No es un problema de configuración: los dos ficheros de kernel que ofrece el "
+            "repositorio son incompatibles entre sí."
+        )
+    )
+    for item in bullets(
+        [
+            "El <font face='Courier'>kernel_config.ini</font> incluido está calibrado para el "
+            "modelo de 3B (<font face='Courier'>m = 3200, k = 8640</font>), no para el 2B4T "
+            "(<font face='Courier'>d = 2560, ff = 6912</font>).",
+            "Regenerarlo con <font face='Courier'>codegen_tl2.py</font> produce un header que usa "
+            "<font face='Courier'>ggml_tensor::backend</font> y "
+            "<font face='Courier'>GGML_BACKEND_TYPE_CPU</font>, símbolos que ya no existen en el "
+            "llama.cpp que el propio repositorio incluye. No compila.",
+            "El tipo <font face='Courier'>i2_s</font> no tiene dequantizador genérico, así que "
+            "tampoco se puede reconvertir: <font face='Courier'>llama-quantize</font> responde "
+            "<font face='Courier'>invalid type 36</font>.",
+            "El camino soportado del proyecto es ARM con kernels TL1, o una rama x86 actualizada. "
+            "En Windows x86 esta rama no ejecuta correctamente el 2B4T.",
+        ]
+    ):
+        story.append(item)
+
+    story.append(P("El modelo desde cero, en C++", "h3"))
+    story.append(
+        P(
+            "Para no quedarse en el diagnóstico, se escribió un transformer decoder-only "
+            "completo —atención causal con caché K/V, RoPE, RMSNorm, SwiGLU y matmul "
+            "ternario— sin llama.cpp y sin PyTorch en inferencia. El entrenamiento sí usa "
+            "PyTorch, con cuantización ternaria en cada paso hacia delante."
+        )
+    )
+    story.append(
+        data_table(
+            [
+                ["Medida", "Valor"],
+                ["Parámetros", "863 872 · 851 968 ternarios a 2 bits"],
+                ["Entrenamiento", "400 pasos · 4 minutos en CPU · pérdida 3,89 → 0,26"],
+                ["Tamaño en disco", "879 kB"],
+                ["Inferencia en C++", "4 400–5 300 tokens/s"],
+                ["Dependencias", "ninguna"],
+            ],
+            [5.4 * cm, 12.0 * cm],
+        )
+    )
+    story.append(
+        P(
+            "Salida real con el prompt «El agua »: <i>«El agua se evapora cuando el sol la "
+            "calienta. Cuando el vapor se enfría aparecen gotitas.»</i> El modelo no sabe nada "
+            "fuera de su corpus de 144 kB y a veces inventa palabras; eso es esperable a esta "
+            "escala y está declarado.",
+            "small",
+        )
+    )
+
+    story.append(P("Cómo se reproduce", "h3"))
+    code = ParagraphStyle(
+        "code2",
+        fontName="Courier",
+        fontSize=7.6,
+        leading=10.6,
+        textColor=colors.HexColor("#1f2419"),
+        backColor=colors.HexColor("#efeade"),
+        borderPadding=7,
+        spaceAfter=8,
+    )
+    story.append(
+        Paragraph(
+            "cd C:\\Users\\Ghost\\bitnet-lab\\semilla-cpp<br/>"
+            "python tools\\make_corpus.py<br/>"
+            "python train.py 400<br/>"
+            "set PATH=C:\\msys64\\ucrt64\\bin;%PATH%<br/>"
+            "g++ -O2 -std=c++17 -o semilla.exe src\\main.cpp<br/>"
+            "semilla.exe model \"El agua \" 110 0.55",
+            code,
+        )
+    )
+    story.append(
+        callout(
+            "Qué demuestra esto y qué no",
+            "Demuestra que la matemática del pitch —BitLinear, STE, activaciones int8, "
+            "empaquetado ternario— se puede implementar y ejecutar, y que un motor propio "
+            "reproduce la salida de PyTorch. No demuestra que un modelo de 2B entre en 512 MB "
+            "ni que 30 alumnos quepan en un nodo: para eso hace falta un entorno Linux/ARM, un "
+            "checkpoint ternario a escala útil —publicado o entrenado aquí— y LoRA con 8–16 GB de VRAM.",
+            "warn",
+        )
+    )
+
+
 def screenshots(story):
-    story.append(section("El prototipo en pantalla", 7))
+    story.append(section("El prototipo en pantalla", 8))
 
     shots = [
         ("captura-nodo.png", "Panel del nodo. Métricas medidas, estado del modelo y la tabla que separa lo real de lo proyectado."),
         ("captura-aula.png", "Aula. El cartucho activo, la conversación y, bajo cada respuesta, qué motor contestó y en cuánto tiempo."),
         ("captura-hardware.png", "Hardware. Sensor, gráfica de lecturas, reparto de energía y el paquete federado en sus dos codificaciones."),
+        ("captura-consulta.png", "Consulta libre. Chat sin cartucho contra el modelo local, con streaming, tiempo por respuesta y copiado."),
         ("captura-docente.png", "Panel docente. Dudas agregadas, dinámica para el día siguiente, rúbrica y señales, tras el PIN."),
     ]
 
@@ -782,7 +943,7 @@ def screenshots(story):
 
 
 def coverage(story):
-    story.append(section("Cobertura de los retos ProFuturo", 8))
+    story.append(section("Cobertura de los retos ProFuturo", 9))
     story.append(
         P(
             "«Funcional» significa que la mecánica está construida y se puede probar en la demo. "
@@ -794,7 +955,6 @@ def coverage(story):
     data = [
         ("02 · Aprender sin conexión", "Aula completa servida desde el nodo, sin internet", "Funcional"),
         ("03 · Un contenido, muchas formas", "Transcodificador: lectura fácil, audio y mapa", "Funcional"),
-        ("06 · La escuela habla tu idioma", "Léxico verificado de quechua y guaraní; avisa cuando no sabe", "Parcial"),
         ("10 · Encontrar a quien dejamos atrás", "Tutor sin prisa y señales de aula, nunca etiquetas", "Parcial"),
         ("11 · Segunda oportunidad", "Enfoque andragógico reutilizable con ejemplos de oficio", "Parcial"),
         ("12 · Entrenador invisible", "Dudas agregadas, dinámica y rúbrica en segundos", "Funcional"),
@@ -825,18 +985,19 @@ def coverage(story):
 
 
 def limits(story):
-    story.append(section("Límites, riesgos y camino al hardware", 9))
+    story.append(section("Límites, riesgos y camino al hardware", 10))
     story.append(P("Límites que el informe asume", "h3"))
     for item in bullets(
         [
-            "<b>El modelo de 3B se equivoca.</b> Por eso lo estructurado no pasa por él: ejercicios, "
+            "<b>El motor propio se equivoca al conversar.</b> Es un LM causal: no sigue instrucciones y "
+            "puede ecoar la plantilla. Por eso lo estructurado no pasa por él: ejercicios, "
             "rúbricas y mapas los resuelve el motor simbólico. Un fallo del modelo degrada la conversación, "
             "no la evaluación.",
             "<b>Un portátil no es un nodo de 12 dólares.</b> Pasar a RISC-V exige recompilar el runtime, "
             "validar el modelo cuantizado en la NPU y medir consumo real. Es un proyecto de ingeniería, "
             "no un cambio de configuración.",
-            "<b>El léxico de lenguas originarias es mínimo y verificado palabra a palabra.</b> Una unidad "
-            "completa necesita un hablante nativo como coautor, no como revisor.",
+            "<b>Este MVP no publica contenido en lenguas originarias.</b> Para que una unidad "
+            "esté en una lengua viva hace falta un hablante nativo como coautor, no como revisor.",
             "<b>Sin conexión no hay actualizaciones.</b> El contenido nuevo entra por USB o por el paquete "
             "federado; el nodo no se actualiza solo.",
             "<b>No sustituye al docente.</b> El panel le da material para decidir, no decisiones tomadas.",
@@ -876,7 +1037,7 @@ def limits(story):
 
 
 def demo(story):
-    story.append(section("Guion de demostración", 10))
+    story.append(section("Guion de demostración", 11))
     story.append(P("Noventa segundos, en este orden", "h3"))
     steps = [
         ("0–15 s", "Panel del nodo", "Señalar el modelo local, la memoria medida y la etiqueta naranja de 1,2 W: «esto es proyección, no medida»."),
@@ -909,15 +1070,15 @@ def demo(story):
         "Preguntar algo abierto en el aula y ver el streaming del modelo local.",
         "Preguntar una operación con números y ver el cambio a motor simbólico en milisegundos.",
         "Desconectar el wifi y repetir: nada cambia.",
-        "Ejecutar <b>node --test</b>: 44 pruebas en verde, sin dependencias.",
-        "Cerrar el modelo con <b>ollama stop qwen2.5:3b</b> y volver a preguntar: el nodo sigue respondiendo y lo declara.",
+        "Ejecutar <b>node --test</b>: 43 pruebas en verde, sin dependencias.",
+        "Detén Ollama (o no lo arranques) y vuelve a preguntar: el nodo sigue respondiendo con el motor propio y lo declara.",
     ]
     for index, item in enumerate(verify, start=1):
         story.append(Paragraph(f"<b>{index}.</b> {item}", S["bullet"]))
 
 
 def ethics(story):
-    story.append(section("Ética y protección de menores", 11))
+    story.append(section("Ética y protección de menores", 12))
     story.append(
         P(
             "Un producto para menores en contextos vulnerables tiene que poder auditarse. "
@@ -943,7 +1104,7 @@ def ethics(story):
 
 def annex(story):
     story.append(PageBreak())
-    story.append(section("Anexo · Cómo ejecutarlo", 12))
+    story.append(section("Anexo · Cómo ejecutarlo", 13))
     story.append(P("Arranque", "h3"))
     code_style = ParagraphStyle(
         "code",
@@ -970,8 +1131,8 @@ def annex(story):
     story.append(
         P(
             "No requiere <b>npm install</b>: el servidor usa solo la librería estándar de Node 24. "
-            "Si Ollama no está en marcha, el nodo arranca igualmente y responde con el motor simbólico, "
-            "declarándolo en cada respuesta."
+            "El nodo no necesita Ollama: si el sidecar no responde, arranca igualmente y responde con el "
+            "motor simbólico, declarándolo en cada respuesta."
         )
     )
 
@@ -982,8 +1143,8 @@ def annex(story):
                 ["Variable", "Por defecto", "Para qué"],
                 ["NODO_PORT", "8090", "Puerto del nodo. No se usa PORT a propósito."],
                 ["NODO_HOST", "127.0.0.1", "Poner 0.0.0.0 para publicar el aula en la red local."],
-                ["OLLAMA_URL", "http://127.0.0.1:11434", "Servicio de inferencia local."],
-                ["OLLAMA_MODEL", "qwen2.5:3b", "Modelo a cargar."],
+                ["OLLAMA_URL", "http://127.0.0.1:11434", "Servicio de inferencia local; npm run nodo lo apunta al sidecar en :11435."],
+                ["OLLAMA_MODEL", "bitnet-17m:ternario", "Modelo a cargar (único anunciado por el sidecar)."],
             ],
             [3.6 * cm, 4.6 * cm, 9.2 * cm],
         )
@@ -1017,7 +1178,7 @@ def annex(story):
                 ["src/server.mjs", "Servidor HTTP, rutas, sesión firmada y cabeceras de seguridad."],
                 ["src/core/", "Orquestador, motor simbólico, cartuchos, transcodificador, ejercicios, docente, sensores y telemetría."],
                 ["src/web/", "Interfaz sin compilación: módulos ES, CSS y vistas. No requiere bundler."],
-                ["tests/", "44 pruebas con el runner nativo de Node."],
+                ["tests/", "43 pruebas con el runner nativo de Node."],
                 ["docs/", "Este informe y las capturas de pantalla."],
                 ["data/", "Estado local del nodo (se crea al arrancar, no se versiona)."],
             ],
@@ -1071,6 +1232,7 @@ def build():
     architecture(story, tps_text, latency_text)
     measurements(story, profile, telemetry)
     integration(story)
+    lab(story)
     screenshots(story)
     coverage(story)
     limits(story)
@@ -1088,6 +1250,7 @@ def build():
 
 if __name__ == "__main__":
     build()
+
 
 
 
