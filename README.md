@@ -292,7 +292,7 @@ la prueba de que **una señal de riesgo nunca llega al modelo**, aunque se fuerc
 | `BITNET_DIR` | `models/` | Carpeta del motor; busca primero la variable, luego `models/` |
 | `OLLAMA_URL` | `http://127.0.0.1:11434` | `npm run nodo` lo apunta al sidecar en `:11435` |
 | `OLLAMA_MODEL` | `bitnet-17m:ternario` | Único modelo anunciado por el sidecar |
-| `MODELO_AJUSTADO_RUTA` | `models/ajustado/ckpt_ajustado.pt` | Checkpoint bitnet fine-tuneado con ngäbere (opcional) |
+| `MODELO_AJUSTADO_RUTA` | `models/ajustado/ckpt_ngabe.pt` | Checkpoint bitnet fine-tuneado con ngäbere (opcional) |
 
 **Si el sidecar no responde, el nodo arranca igual** y responde con el motor simbólico,
 declarándolo en cada respuesta. **No hace falta Ollama para nada del MVP.** Si alguien
