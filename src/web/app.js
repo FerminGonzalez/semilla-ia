@@ -5,6 +5,7 @@ import { renderConsulta } from './views/consulta.js';
 import { renderDocente } from './views/docente.js';
 import { renderHardware } from './views/hardware.js';
 import { renderEtica } from './views/etica.js';
+import { renderTraductor } from './views/traductor.js';
 import { initDemo, isDemoActive } from './views/demo.js';
 
 const ROUTES = {
@@ -14,6 +15,7 @@ const ROUTES = {
   '/docente': { render: renderDocente, nav: 'docente', title: 'Panel docente' },
   '/hardware': { render: renderHardware, nav: 'hardware', title: 'Hardware' },
   '/etica': { render: renderEtica, nav: 'etica', title: 'Ética y datos' },
+  '/traductor': { render: renderTraductor, nav: 'traductor', title: 'Traductor' },
 };
 
 const main = document.getElementById('contenido');
