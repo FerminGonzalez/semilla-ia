@@ -93,7 +93,13 @@ export async function renderTraductor(root) {
       });
 
       resultado.style.display = 'block';
-      textoResultado.textContent = data.texto;
+      if (data.motor === 'fallback') {
+        textoResultado.textContent = 'Sin traducción disponible';
+        textoResultado.style.color = '#666';
+      } else {
+        textoResultado.textContent = data.texto;
+        textoResultado.style.color = '';
+      }
 
       const motorLabel =
         data.motor === 'diccionario'

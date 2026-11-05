@@ -1,173 +1,453 @@
-{"es": "octavo u ocho", "ng": "Kökwö", "en": "eighth or eight"}
-{"es": "quieto", "ng": "Kwekebe", "en": "still"}
-{"es": "boca de pollo", "ng": "Kwikada", "en": "chicken's mouth"}
-{"es": "manteca de pollo", "ng": "Kwikö", "en": "chicken fat"}
-{"es": "manteca de frutas", "ng": "Kwokö", "en": "fruit butter"}
-{"es": "palabras", "ng": "KwuKe", "en": "words"}
-{"es": "exclamación de fuerte, tratándose de bebida", "ng": "Kwäka", "en": "exclamation of strong, when it comes to a drink"}
-{"es": "como se llama", "ng": "Köño", "en": "what is it called"}
-{"es": "tiempo lluvioso", "ng": "Köñure", "en": "rainy season"}
-{"es": "cantar; verde", "ng": "Kare", "en": "to sing; green"}
-{"es": "siempre", "ng": "Käre", "en": "always"}
-{"es": "antiguo; venir", "ng": "Kira", "en": "old; to come"}
-{"es": "a lado, costado, apoyando", "ng": "Kiri", "en": "to the side, side, leaning"}
-{"es": "asi", "ng": "Kore", "en": "like this"}
-{"es": "camalión", "ng": "Kurö", "en": "camalión"}
-{"es": "pargo", "ng": "Kurögwai", "en": "snapper"}
-{"es": "árbol de guarumo", "ng": "Kurä", "en": "guarumo tree"}
-{"es": "murió", "ng": "Küre", "en": "died"}
-{"es": "prodido", "ng": "Kure", "en": "rotten"}
-{"es": "tapa", "ng": "Käri", "en": "lid"}
-{"es": "detrás", "ng": "Köre", "en": "behind"}
-{"es": "olor de cacao, olor de monte", "ng": "Körö", "en": "smell of cacao, smell of the forest"}
-{"es": "saliva", "ng": "Käli", "en": "saliva"}
-{"es": "lluvia", "ng": "Kälü", "en": "rain"}
-{"es": "desbaratado", "ng": "Külä", "en": "broken apart"}
-{"es": "caballo garañón", "ng": "Kuju", "en": "stallion"}
-{"es": "pintar el hilo", "ng": "Köjugwe", "en": "to dye the thread"}
-{"es": "silvar", "ng": "Käjugwe", "en": "to whistle"}
-{"es": "pedregoso", "ng": "Köjäre", "en": "stony"}
-{"es": "cardo", "ng": "Katu", "en": "thistle"}
-{"es": "boca", "ng": "Kata", "en": "mouth"}
-{"es": "estibar", "ng": "Kete", "en": "to stow"}
-{"es": "anega", "ng": "Ketä", "en": "floods"}
-{"es": "botar", "ng": "Kita", "en": "to throw"}
-{"es": "pescar", "ng": "Kite", "en": "to fish"}
-{"es": "dolor referido al estómago", "ng": "Kotä", "en": "pain referred to the stomach"}
-{"es": "tapa rabo", "ng": "Kotö", "en": "tail cover"}
-{"es": "ansuelo", "ng": "Kotü", "en": "fishhook"}
-{"es": "gusano mota", "ng": "Kutä", "en": "mota worm"}
-{"es": "picante ; completo ó terminado", "ng": "Käte", "en": "spicy; complete or finished"}
-{"es": "medida para contar superficie plana", "ng": "Käti", "en": "measure for counting a flat surface"}
-{"es": "risa", "ng": "Köta", "en": "laughter"}
-{"es": "gordo", "ng": "Köte", "en": "fat"}
-{"es": "perrito", "ng": "Kiyi", "en": "little dog"}
-{"es": "nombre propio", "ng": "Kicho", "en": "proper noun"}
-{"es": "nombre propio de perro", "ng": "Kucho", "en": "proper name of a dog"}
-{"es": "hilo pequeño", "ng": "Köchi", "en": "small thread"}
-{"es": "disminutivo de zorra", "ng": "Köcha", "en": "diminutive of fox"}
-{"es": "grito alusivo a una balseria", "ng": "Köchö", "en": "shout alluding to a raft ride"}
-{"es": "brazo; gajo", "ng": "Kide", "en": "arm; segment"}
-{"es": "zorra", "ng": "Ködä", "en": "fox"}
-{"es": "orientación", "ng": "Ködö", "en": "orientation"}
-{"es": "puño", "ng": "Kudö", "en": "fist"}
-{"es": "atrapado", "ng": "Kani", "en": "trapped"}
-{"es": "principio; nombre propio del corregimiento de Alto de Jesus en Ngabere", "ng": "Kena", "en": "beginning; proper name of the district of Alto de Jesus in Ngabere"}
-{"es": "nervio", "ng": "Kine", "en": "nerve"}
-{"es": "adelante, primero", "ng": "Köne", "en": "ahead, first"}
-{"es": "derrumbe", "ng": "köNó", "en": "landslide"}
-{"es": "cantor de música sagrada Murire", "ng": "kaga", "en": "singer of sacred Murire music"}
-{"es": "vertir", "ng": "kega", "en": "to pour"}
-{"es": "pita: planta que se utiliza para extraer su fibra", "ng": "kiga", "en": "pita: plant used to extract its fiber"}
-{"es": "vasija de forma conica de calabazo para tomar cacao", "ng": "Kogö", "en": "conical-shaped gourd vessel for drinking cacao"}
-{"es": "comprar", "ng": "Kögö", "en": "to buy"}
-{"es": "cuarentena", "ng": "Küen", "en": "quarantine"}
-{"es": "garrapata", "ng": "Kion", "en": "tick"}
-{"es": "leche", "ng": "Kiän", "en": "milk"}
-{"es": "cola larga", "ng": "Känga", "en": "long tail"}
-{"es": "hilo largo", "ng": "Könga", "en": "long thread"}
-{"es": "nombre propio de unboxeador", "ng": "Kogi", "en": "proper name of a boxer"}
-{"es": "puerco castrado", "ng": "Kabo", "en": "castrated pig"}
-{"es": "casería realizado por alguien", "ng": "Köbö", "en": "hunt carried out by someone"}
-{"es": "camarón; comején, pronto, árbol de comején", "ng": "Kebe", "en": "shrimp; termite, soon, termite tree"}
-{"es": "compadre", "ng": "Kobä", "en": "close friend"}
-{"es": "dos", "ng": "Kubu", "en": "two"}
-{"es": "café", "ng": "Kabe", "en": "coffee"}
-{"es": "soñar", "ng": "Köbö", "en": "to dream"}
-{"es": "salió", "ng": "Kibe", "en": "came out"}
-{"es": "cuanto", "ng": "Kobe", "en": "how much"}
-{"es": "tres (3)", "ng": "Komö", "en": "three (3)"}
-{"es": "malo", "ng": "Käme", "en": "bad"}
-{"es": "mata de socanca", "ng": "Kimö", "en": "socanca bush"}
-{"es": "un dólar", "ng": "Kumö", "en": "one dollar"}
-{"es": "nudo de hilo", "ng": "kogwo", "en": "thread knot"}
-{"es": "palabras,quemar", "ng": "Kugwe", "en": "words, to burn"}
-{"es": "zorrillo ( gato de caña)", "ng": "Kugwuo", "en": "skunk (cane cat)"}
-{"es": "entro (tratándose de una persona que entra a una casa)", "ng": "Kigwo", "en": "entered (when referring to a person who enters a house)"}
-{"es": "vino pronto", "ng": "Kigwo", "en": "came soon"}
-{"es": "nombre propio de hombre", "ng": "Koyi", "en": "a man's proper name"}
-{"es": "nombre propio de hombre ; cuchillo", "ng": "Kuyo", "en": "a man's proper name ; knife"}
-{"es": "nombre propio de un hombre", "ng": "Kusi", "en": "a man's proper name"}
-{"es": "semilla de Jiraca", "ng": "Kangwo", "en": "Jiraca seed"}
-{"es": "amaneciendo", "ng": "Kongwen", "en": "dawning"}
-{"es": "semilla de cacao", "ng": "Köngwo", "en": "cacao seed"}
-{"es": "brazo", "ng": "Kise", "en": "arm"}
-{"es": "boxeo", "ng": "Kusö", "en": "boxing"}
-{"es": "bastante, mucho", "ng": "Kabre", "en": "enough, a lot"}
-{"es": "piojillo", "ng": "Kubru", "en": "small louse"}
-{"es": "Cerco grande", "ng": "Kikri", "en": "Large fence"}
-{"es": "Vino deambulando", "ng": "Kikrö", "en": "He came wandering"}
-{"es": "terreno extenso", "ng": "Kökri", "en": "extensive land"}
-{"es": "de él", "ng": "Kwe", "en": "of him"}
-{"es": "pollo", "ng": "Kwi", "en": "chicken"}
-{"es": "semilla de frutas", "ng": "Kwö", "en": "fruit seeds"}
-{"es": "compañero, cuñado,rival", "ng": "Kwüan", "en": "companion, brother-in-law, rival"}
-{"es": "ordeñar", "ng": "Kwain", "en": "to milk"}
-{"es": "Bueno , arriba", "ng": "Kwuin", "en": "Good, up"}
-{"es": "toma de cacao", "ng": "Kwöña", "en": "cacao drink"}
-{"es": "¿Qué fruta?", "ng": "Kwöñö", "en": "What fruit?"}
-{"es": "¿qué pollo?", "ng": "Kwiñö", "en": "what chicken?"}
-{"es": "¿sera de él?", "ng": "Kweñö", "en": "Will it be his?"}
-{"es": "liquido", "ng": "Kwari", "en": "liquid"}
-{"es": "Tucan", "ng": "Kwere", "en": "Toucan"}
-{"es": "marido, mujer, pareja", "ng": "Kwore", "en": "husband, wife, couple"}
-{"es": "más adelante, más arriba", "ng": "Kwori", "en": "further on, further up"}
-{"es": "corte longitudinal", "ng": "Kwärö", "en": "longitudinal cut"}
-{"es": "podrido, maduro", "ng": "Kwüre", "en": "rotten, ripe"}
-{"es": "enbase lleno", "ng": "Kwati", "en": "full at the base"}
-{"es": "cascara,piel", "ng": "Kwätä", "en": "peel, skin"}
-{"es": "intercambiar", "ng": "Kwita", "en": "to exchange"}
-{"es": "virar", "ng": "Kwite", "en": "to turn"}
-{"es": "comio", "ng": "Kwiti", "en": "ate"}
-{"es": "Tratase de un tonto,comparándose con el razonamiento de un pollo", "ng": "Kwito", "en": "It refers to a fool, comparing himself with the reasoning of a chicken"}
-{"es": "exclamación defectivo sobre una fruta fea", "ng": "Kwötö", "en": "defective exclamation about an ugly fruit"}
-{"es": "disminutibo de Kwekebe", "ng": "Kwechebe", "en": "diminutive of Kwekebe"}
-{"es": "Disminutivo de frut grande", "ng": "Kwöchi", "en": "Diminutive of big fruit"}
-{"es": "animal maccho", "ng": "Kwuane", "en": "maccho animal"}
-{"es": "encontró", "ng": "Kwuani", "en": "found"}
-{"es": "refiriéndose a niña o niño plagasddo de piojo", "ng": "Kwüne", "en": "referring to a girl or boy infested with lice"}
-{"es": "agujero de pollo , ano de pollo", "ng": "Kwigu", "en": "chicken hole, chicken anus"}
-{"es": "Amargo", "ng": "Kwägä", "en": "Bitter"}
-{"es": "Este libro trata sobre agricultura tradicional ngä bere. Habla de las especies, sus variedades y sus semillas. Estas últimas pueden germinar y son parte de la humanidad. Nosotros somos semillas de la naturaleza. Fue escrito para ser contado. Habla de enemigos y plagas, enfermedades; de todos los animales que vuelan y de los animales grandes, hasta de la mosca cantarria entre otros.", "ng": "Tärä sribebare kena ngäbere keteiti nurá bätä. Ye nura ketabe jagwebe täendre. Ne aráto kä jené jené bä jené jené tibien. Nura nire, ye ni nire nurai, ni ne nurare aráto. Ye ngäbere nura rüe täendre jökrä, ya arato bren ni níre rüere. Ye jüdrün ngwiyebiti nägaingä aibe. Ye jüdrün ngo togwä kräbägä.", "en": "This book is about traditional ngä bere agriculture. It speaks of the species, their varieties and their seeds. The latter can germinate and are part of humanity. We are seeds of nature. It was written to be told. It speaks of enemies and pests, diseases; of all the animals that fly and of the large animals, even of the fly cantarria among others."}
-{"es": "En el caso de los cultivos tradicionales, todas las especies tienen nombre en sus distintas variedades. Hay variedad de frutas, hay variedad de árboles, bejucos, así como de animales y también todos los seres que tienen aletas: la mosca, el jogoto, el gusano que ortiga, la ortiga (planta comestible y con usos medicinales), la nube, los líquenes u el musgo, la araña, la serpiente terciopelo, la palomi lla nocturna, las mariposas, la libélula, el zancudo, la avispa, la hormiga, el cerro, la cordillera, la poza, la naciente, el mar, el viento, la catarata.", "ng": "Ye nura kä jené jené, ne aráto ngäkwä jené jené, bänä jené jené. Ne ñerare sribeni kena ñerara. Ye jüdrün kríre, köre, nire, niguí. Ye jüdrün kä dibiebiti ñote. Mungwä, ngüdü, ngin, ngübrän, muta bongräin, (jogo = juble), (kögwata = tegrä), drü, malan, mera, jörän, öba, ngaña, ngutuä, ngüdre, ñö ogwä, ñö kide, mren, muríe, ngübrün.", "en": "In the case of traditional crops, all species have names in their different varieties. There is a variety of fruits, there is a variety of trees, vines, as well as animals and also all beings that have fins: the fly, the jogoto, the worm that stings, the nettle (an edible plant with medicinal uses), the cloud, the lichens or the moss, the spider, the velvet snake, the nocturnal moth, the butterflies, the dragonfly, the mosquito, the wasp, the ant, the hill, the mountain range, the pool, the spring, the sea, the wind, the waterfall."}
-{"es": "Hay plantas que producen raíces comestibles y plantas que producen frutos en las ramas: redondos, alargados, en árbol, en liana, en peda zo, u entero. Hay hojas redondas, fruta; en piñas o al mismo tiempo, en palo, en grupos de 6 ani males (kröti) y en grupos de 6 árboles (döti). Todos los que son bejucos: con hojas, que pro ducen alergias o que pican, en mitad o reduci do, aplastado, ondulado, de planicie o llanura, en pendientes de ladera de diez a veinte grados o en pendientes de sesenta a ochenta grados en la fila de la cordilleras o en cascajo, donde no existe suficiente tierra.", "ng": "Jüdrün ngwäre ngusé dobrote, jüdrün ngo gwäre kuinda kide: bolore, mreare, kríre, köre, otore, ötaingö; kä bolore, kä tägä tägä, ngogwä, dati, krati, kräti, däti. Köre jübenkä, kögrä kä dünde, juräte, möglöre, kwatare, kä mugwäre, kiare, bäkiare, kä bätätä, ngudre, jägwatara.", "en": "There are plants that produce edible roots and plants that produce fruit on the branches: round, elongated, on tree, on vine, in pieces, or whole. There are round leaves, fruit; in clusters or at the same time, on stick, in groups of 6 animals (kröti) and in groups of 6 trees (döti). All those that are vines: with leaves, that produce allergies or that sting, in the middle or reduced, flattened, wavy, of plain or flatland, on hillside slopes of ten to twenty degrees or on slopes of sixty to eighty degrees in the row of the mountain ranges or on gravel, where there is not enough soil."}
-{"es": "El Arroz: El arroz es de la familia de los cereales y los pas tos. Su uso es generalizado. El arroz es fácil de pilar, para esto hay especies muy buenas y otras más duras, con experiencia se aprende, de pilón en pilón, la mejor manera.", "ng": "1. Aro Ye dägädre bilon bití, ye rabadre kugwäne ngwane jueanengä, ye bití riadre kwetádre. Ye aro bä kwata keta kabré, ye kä jené jené, kwata ñakare bä erébe, roäre dünde, jibe. Ye roäre därebe dägädre nemén ngwängwane kugwäne. Ne aráto roäre kwata ribe. Mi giä aroe, Aro mumachi ye kwata ribe sögare ñan nemén dötrö kugwäne.", "en": "Rice: Rice belongs to the family of cereals and grasses. Its use is widespread. Rice is easy to husk, for this there are very good species and others harder, with experience one learns, from pestle to pestle, the best way."}
-{"es": "El Calabazo El calabazo es un bejuco que es utilizado para co merciar y para guardar agua para tomar. Existen calabazos alargados, otros de forma redondeada, buenos para hacer chicha para tomar. Se debe de jar secar al sol para ser usado, cuando está listo siempre mantiene el agua fresca.", "ng": "2. Mrü köre krígri Ye ñö ngwäre, ye aráto dö sribera, ye mrüe ketabägä, ne bä köre: Klö ye ñö ngwäre, dre té nitre nämbare ñö jague jae ñare. Mrü mreare nganga köre aráto kríguibebe dö ñara, te dö nemén kuin krübäte. Kä ngire agwa ye ñö abögän tibote ñara. Mrü kwitlo kore ñe kore roro tolene krígri mreare kia ja erebe jökrä kwin dö ngubuare ño diane tibo.", "en": "The Calabazo The calabazo is a vine that is used for trading and for storing drinking water. There are elongated calabazos, others round in shape, good for making chicha to drink. It must be left to dry in the sun to be used, when it is ready it always keeps the water fresh."}
-{"es": "El jícaro (partes): Fruta de jícaro, rama de jícaro, hoja de jícaro y flores de jícaro. Hay variedades de jícaro, algunas pequeñas y otras grandes, unas para maracas, las alargadas para vasos o cucharas. Son buenas para separar partes, cuartas, mitades, como para sacar arroz.", "ng": "3. Mürü kríe Krígri siribe nobare siäre ie ye nobare siä tomana ñara kwin ye aráto tre gano bare möröra ne árabe mörö dianinkä. Aro möröa sökara jeane ye kríe erere aráto aböngöne siribe nobare täone ne árabe ie siä anü ño ñara ne aráto kä ñara ne aráto mereare siribe nobare kökäre.", "en": "The jícaro (parts): jícaro fruit, jícaro branch, jícaro leaf and jícaro flowers. There are varieties of jícaro, some small and others large, some for maracas, the elongated ones for cups or spoons. They are good for separating parts, quarters, halves, as well as for scooping out rice."}
-{"es": "Mata de Yuca: Fruta de yuca, raíz de yuca.Es bueno para alimen to y muy bueno para hacer chicha. Es blanco, con olor característico, sus variedades poseen hojas muy similares, pero sabores y formas de las raíces distintas. Es tierna, suave y muy rica.", "ng": "4. Ö kríe Ö ngwä, ö ngwätri. Ye kuin ja dí krägue kwetádre därebe ngätä ngwenbrere rä öräre ye bä kabre jené jené bänä ja erebe ne arato kä jarebe ngwärite, agwa kríebe bä jené jené.", "en": "Yuca Bush: Yuca fruit, yuca root. It is good for food and very good for making chicha. It is white, with a characteristic smell, its varieties have very similar leaves, but different flavors and shapes of the roots. It is tender, soft and very tasty."}
-{"es": "Caña: Crece en nudos, tiene una apariencia similar a la caña de maíz. Pueden tener sabor dulce o agrio, también hay variedad de colores y unas son más duras que otras.", "ng": "5. Ibía Ye mrögabití kä nganga bä kabre agwa jené jené tibien bänä ja erébe mane ye kuin ja digrägue ñadre.", "en": "Sugarcane: It grows in nodes, it has an appearance similar to the corn stalk. They can have a sweet or sour taste, there is also a variety of colors and some are harder than others."}
-{"es": "Trigo: Tiene espiga con grano y es similar al sorgo, pero diferente en las hojas, es bueno para cultivar cer ca de un gran río.", "ng": "7. I ngwrä Bä kabré ye kä ibia kä erére aráto agwa ñokwä ae agwa jagwebe jökrä.", "en": "Wheat: It has a spike with grain and is similar to sorghum, but different in the leaves, it is good to grow near a large river."}
-{"es": "Guineo mocho: Se come tierno o maduro, es suave y se puede cocinar, se prepara machacado también.", "ng": "10. Diguimá ötö Ye ötö ne krígri nganga ne aráto diguimá otoe käi ye kuin därebe kwetádre ne aráto taine kuin nigui taine roäne.", "en": "Guineo mocho: It is eaten tender or ripe, it is soft and can be cooked, it is also prepared mashed."}
-{"es": "Jengibre: Parece una hierba, pero es usada para curar va rias enfermedades, como algunas dolencias de los huesos.", "ng": "12. Sübrü Ye käte ngire ye kuin brengrägue ñare krägäre krube tibo.", "en": "Ginger: It looks like a herb, but it is used to cure various diseases, such as some ailments of the bones."}
-{"es": "Cúrcuma: Es usada por su fuerte colorante amarillo y tam bién como planta comestible. Similar en forma al achiote y un buen condimento. Protege al cuerpo y sana síntomas de algunas enfermeda des antes que las notemos. Mantiene en buen funcionamiento el hígado y la irrigación arterial, dependiendo de su potencia.", "ng": "13. Sübrü Sübrü kö jügara sübrüre. Ye kuin krübäte jüdrün jügara tärän sübrüre. Yerabe nge dén krögäre nigrägue.", "en": "Turmeric: It is used for its strong yellow coloring and also as an edible plant. Similar in shape to achiote and a good condiment. It protects the body and heals symptoms of some illnesses before we notice them. It keeps the liver and arterial blood flow working well, depending on its potency."}
-{"es": "El Castaño: Exceden los veinte metros de altura, su fruta es alimenticia y posee propiedades curativas, por esto es importante cuidar sus semillas, pues tam bién nos dan sombra.", "ng": "19. Bere Kríe/Beregrie Ye ngogwä bolore tugwä tugwä bä käre ne ngägwä kwata bä dobore te mününe ngwen ne riare kwetádre.", "en": "The Castaño: They exceed twenty meters in height, its fruit is edible and possesses healing properties, for this reason it is important to care for its seeds, since they also give us shade."}
-{"es": "Aguacate: Es un árbol que nos alimenta y nutre. Su sabor es muy rico y también tiene propiedades curati vas. Sus variedades cambian el color de la fruta, el tamaño de su semilla y el sabor de su carne.", "ng": "20. Duga kríe/Dugagrie Ye ngogwä kare ne kuin kwetádre jadigrä ne bänände mrö mutuäre kwin ye bä jené jené ne keta kabre kríe. Dugagri nögani / Duga kríe käsenda ñerara.", "en": "Avocado: It is a tree that feeds and nourishes us. Its flavor is very rich and it also has healing properties. Its varieties change the color of the fruit, the size of its seed and the flavor of its flesh."}
-{"es": "Pejibaye: Existe gran cantidad de variedades de pejibaye, su fruto es comestible, al igual que su palmito. Su tallo, hojas y raíz, tienen propiedades curati vas. Se han perdido muchas tradiciones asocia das a esta planta.", "ng": "21. Debagrie Bä kabre jené jené ngwä sübrüre, tain, kä burere, tugwäte krübäte, agwa kuin kwe tare döre sribere mutu kwin kwetare.", "en": "Pejibaye: There exists a large quantity of varieties of pejibaye, its fruit is edible, as is its heart of palm. Its stem, leaves and root have healing properties. Many traditions associated with this plant have been lost."}
-{"es": "Guaba: Existen muchas variedades, se diferencian por sus hojas, su fruta, y sus tallos. Su sabia también tiene propiedades curativas propias. Puede lle gar a ser tóxica si no se usa en la dosis adecuada.", "ng": "22. Bü kríe/ Bügrie nue gwi Bä kabre bätägä ngwarobo ketabre ña ni tö rugadre näre.", "en": "Guaba: There are many varieties, they are distinguished by their leaves, their fruit, and their stems. Its sap also has healing properties. It can become toxic if it is not used in the proper dose."}
-{"es": "Tiquizque: Se han perdido algunas variedades, nos queda la variedad blanca y la variedad morada.", "ng": "23. Tä Tädongwä ye ketabägä tibien ye kä näre nibi kwetare ne nire ngwä ngusé dobróte.", "en": "Tiquizque: Some varieties have been lost, the white variety and the purple variety remain."}
-{"es": "Piñuela: Sus variedades presentan distintas sabores, algu nos dulces y otros agrios. Su hoja es alargada y delgada, también muy filosa.", "ng": "25. Biru Ye ñerara kä ngirete mren krä bäre. Ye kuin kwetáre bänä mane bätä dime, rä mane, kä kräkia nganga ngrinenemén, ne reba ni tiguegä y tugwäte bití.", "en": "Piñuela: Its varieties present different flavors, some sweet and others sour. Its leaf is long and thin, also very sharp."}
-{"es": "Guanábana: Se consume fresco y del arból, tiene un sabor muy dulce, son muy jugosas y buenas como ali mentos y bebida. Tiene propiedades medicinales, por ejemplo ayudan a la vista.", "ng": "26. Sörän Ye krí ngwä kwetare kwin tomanane ñe rara taine agwane nägäingä tibien bänä mane rä sörän ye kuin ja digräre.", "en": "Guanábana: It is consumed fresh and from the tree, it has a very sweet flavor, they are very juicy and good as food and drink. It has medicinal properties, for example they help eyesight."}
-{"es": "Ñame: Distintas variedades, la mayoría con una hoja triangular. Al contacto puede provocar pica zón pues ortiga.", "ng": "28. Drün Ye jödrün/ jüdrün: Ye köröre jübenkä ti bienta ngwäre dobrote ngüse ye kabre jené jené ni ngwen kä ngrabare nurai ye niki jurote riani kwin mününe kwetare ne därebe.", "en": "Yam: Different varieties, most with a triangular leaf. On contact it can cause itching like a nettle."}
-{"es": "Frijol: Existen distintas variedades; los más cono cidos son: negro, el rojo, y el amarillo, pero existen otros como el frijol jaba blanco, etc. Tienen las hojas muy similares.", "ng": "29. Muma köre Jübengä tibien ne ngongwä drüne tain sübrüre ye kuin mrö mutuäre ni kä ngöe tibien kwete ja erebe kä näre.", "en": "Bean: There are different varieties; the best known are: black, red, and yellow, but there are others such as the white jaba bean, etc. They have very similar leaves."}
-{"es": "Palma de Coroso: Posee hojas espinosas, se puede tumbar y obte ner la chicha o jugo el cual se fermenta bien. Se obtiene también su palmito y su fruta que se coci nan. También posee cualidades curativas.", "ng": "35. Kroso kä kríe Kroso ye kuin ngwä kwetare sribedre döre ñadre tomanane dime ne aráto kuin ngo gwä tregadrete te ribí ngwenbrene.", "en": "Coroso Palm: It has spiny leaves, it can be felled to obtain the chicha or juice which ferments well. Its heart of palm and its fruit, which are cooked, are also obtained. It also has healing qualities."}
-{"es": "Palma Real: Se obtiene de ella su palmito que es muy alimen ticio, también de ella se fermenta chicha muy fuerte, además del aceite que es muy bueno para el cabello.", "ng": "36. Balan Ne ngwä kwin kä deandre ne riadre ne ará to kwetádre, ye arato kä kuin sribedre ja juere.", "en": "Royal Palm: Its heart of palm is obtained from it, which is very nourishing, from it a very strong chicha is also fermented, besides the oil which is very good for the hair."}
-{"es": "Mamón chino: En color rojo o amarillo principalmente, su fruta es redonda.", "ng": "37. Süligrie kiare Ne mane, dime, ye nemén taine agwane sübürüre tain bä kare ye ne kríe nemén taine.", "en": "Mamón chino: Mainly red or yellow in color, its fruit is round."}
-{"es": "Árbol sin identificar: Es oscuro, suave y de olor fuerte. Tiene usos ali menticios, como bebida, como tinte y además tiene cualidades alimenticias.", "ng": "38. Krema kríe Ye krema ngogwä nemén tän agwane ne mén kremane därebe, ye kríe ngogwä ne mén jlimun närebe, ye nemén ngogwäre Nötarie bätä Trärie te.", "en": "Unidentified tree: It is dark, soft and strong-smelling. It has food uses, as a drink, as a dye and it also has food qualities."}
-{"es": "Maquenque: Tiene mucho palmito útil para obtener materia les de contrucción.", "ng": "40. Titi Ne mitrá bäri mutu ére krígri kríe bäri kuin tregadre migare jurägräre.", "en": "Maquenque: It has a lot of heart of palm useful for obtaining construction materials."}
-{"es": "Palmiche: Es comestible, pero de sabor amargo. Es una palma usada en construcción también.", "ng": "41. Jóra kríe krí Ye jöra mitra árabe agwa bänä bä kwaka ne kuin migadre jüre kä nganga ni ngä bere jüe metre ye tibo kä ngirete ne deo abögän krube kä tibote.", "en": "Palmiche: It is edible, but bitter in flavor. It is a palm used in construction as well."}
-{"es": "Palma: Produce palmito amargo, es usada como me dicina para solucionar problemas relacionados con mareos y la hiel.", "ng": "42. Kimu = Rügün (Súrtuba) Ne mutu kwaga agwa kuin kwetádre ara to ne aráto sribedre ja jüere nünane.", "en": "Palm: It produces bitter heart of palm, it is used as medicine to solve problems related to dizziness and gall."}
-{"es": "Platanillo o heliconia: Se consume crudo, se toman sus hojas tiernas también, para cocinar acompañado o asado en las brasas.", "ng": "44. Müne Ne mutu kuin nigui kwetádre ne bänä tibo ne aráto riani kuin mrö mutuäre.", "en": "Platanillo or heliconia: It is consumed raw, its tender leaves are also taken, to cook as a side or roasted over the embers."}
-{"es": "Chonta amarga: Se consume su raíz, la cual mide varias varas y tiene una forma de arco. Puede ser usada para construir arpones y flechas para cazar animales.", "ng": "45. Burä Ne ngätribiti bolota kabre ye ne sribe nämbare tuguene mundiara ne kuin aráto bugore jüdrün kä migare.", "en": "Bitter chonta: Its root is consumed, which measures several varas and has an arch shape. It can be used to build harpoons and arrows for hunting animals."}
-{"es": "Ortiga: Existen muchas variedades: blanco (de clima caliente), rojo (clima frío). Irrita al instante al contacto e intensifica las alergias de la persona. Cocinada y preparada es un alimento muy rico.", "ng": "47. Bugrän Ye kríe nebe ngwramä kuin ne reguetaga ni bätä ni kweta kwe tare ye ngübrän ke tabägä.", "en": "Nettle: There are many varieties: white (hot climate), red (cold climate). It irritates instantly on contact and intensifies the person's allergies. Cooked and prepared it is a very tasty food."}
-{"es": "Hongos comestibles: Algunas variedades tienen color rojo y de forma redonda. Se consumen acompañados con bija gua, con sal, tienen un olor y sabor muy rico.", "ng": "51. Krí olo Ye bä tain bolore ye kügwadre ñogwäte krígäte mrene nemén bänäte.", "en": "Edible mushrooms: Some varieties are red in color and round in shape. They are consumed accompanied with bija gua, with salt, they have a very rich smell and flavor."}
-{"es": "Chirimoya: Al madurar es de color amarillo, suave y es muy rica de comer. Es de tamaño grande simi lar a la fruta de pan o del castaño. Tiene propie dades medicinales sobre todo para el sistema nervioso central y la vista.", "ng": "56. Tugla Ne kríe ngwä kwetádre taine agwane bänä tuglare rä tuglare ne bä sübrüre tugwä tugwä. Ye jüdrün ne kuin ja digröre kuin krängäre arato.", "en": "Chirimoya: When ripe it is yellow in color, soft and very tasty to eat. It is large in size similar to the breadfruit or the castaño. It has medicinal properties above all for the central nervous system and eyesight."}
-{"es": "Sin identificar: Arbusto silvestre, principalmente en la zona de Paso real. Al madurar es de color negro su fruto. También es suave y dulce. Tiene cierto parecido al Guaitil.", "ng": "59. Krema Krí ne nemén gre jätä kuin ye ngwä kuin kwetara bä drüne te kremane.", "en": "Unidentified: Wild shrub, mainly in the Paso real area. When ripe its fruit is black in color. It is also soft and sweet. It has some resemblance to the Guaitil."}
-{"es": "Sin identificar: En apariencia es similar a la helinocia. Presenta variedades bastante grandes y su principal ali mento proviene de sus hojas tiernas. Es silvestre.", "ng": "60. Mrá Ye ne müne krígri neménn kwä kwä kuin bülü ye kätä kwärä ne bätä midi bülü doen krübäte.", "en": "Unidentified: In appearance it is similar to the helinocia. It presents fairly large varieties and its main food comes from its tender leaves. It is wild."}
-{"es": "Sin identificar: Se cocina su fruta sobre todo. Es un arbusto que se encuentra principalmente del lado panameño y es de una variedad silvestre.", "ng": "61. Tübä Ne kríe ngwä kwetare nigui dären riani mrö mütuäre.", "en": "Unidentified: Its fruit is cooked above all. It is a shrub found mainly on the Panamanian side and it is of a wild variety."}
-{"es": "Sonzapote: Árbol del bosque, que se cultiva de forma sil vestre y que es de color marrón. Se consume su fruta, su hoja y su tallo. También es medicinal y ayuda a apaciguar los dolores.", "ng": "62. Sabo Ne ngwä bä kare krígri ye taine agwane nängäin sö kräkügü a ngwane (Berérie) aráto sö krä kwä (Jobórie) ye ne kwin bänä mane kwin.", "en": "Sonzapote: Forest tree, which is cultivated in a wild way and which is brown in color. Its fruit, its leaf and its stem are consumed. It is also medicinal and helps to soothe the pains."}
-{"es": "Mosca de tórsalo: Viven en colmenas o en grupos. Afecta tanto a animales como a seres humanos.", "ng": "1. Mungwä/Mungwä Ye mrügue migaga jüdrün träende ngue tre jüdrün träende kwete tare krübäte.", "en": "Botfly: They live in hives or in groups. It affects both animals and human beings."}
-{"es": "Mosca blanca: Mosca pequeña de color blanco que molesta principalmente en el verano.", "ng": "2. Munkwä Tigwlin kwite krübäte jüdrün bätä, kite migue siä bätä ne aráto dobró bätä biti blato bätä mrö bätä.", "en": "Whitefly: Small white-colored fly that is mainly a nuisance in the summer."}
-{"es": "Mosca negra: Moscas negras de tamaño mediano y pequeño, que viven en la suciedad y contaminan los ali mentos al ser portadoras de enfermedades.", "ng": "3. Mungwä Bä kia kwite bä drüne ye käme krübäte ne jüdrün bätä. Ye niken bren be ni rüere.", "en": "Black fly: Black flies of medium and small size, which live in dirt and contaminate food by being carriers of diseases."}
-{"es": "Mosca chupa sangre: Se alimenta de sangre, similar a los bocones y de color negra.", "ng": "6. Mungwä Tu sübrüre ni däne doaga.", "en": "Blood-sucking fly: It feeds on blood, similar to the bocones and black in color."}
-{"es": "Purrujas: Son montones que se agrupan en nubes y atacan a los animales y a las personas.", "ng": "8. Mungwä Ngiba münü ne ni därie doagä ne kia nuäre ni kwete tare.", "en": "Purrujas: They are heaps that group into clouds and attack the animals and the people."}
-{"es": "Abejas: Producen miel que nos alimenta y que posee propiedades medicinales y beneficiosas. Su miel se usa para endulzar bebidas. Al ser una composición del néctar de las flores traídas por las abejas integra los beneficios de todas estas plantas en su miel.", "ng": "9. Mun, mungwäi Kadare ne mungwä. Ye mungwä drüne nüne kríte ne kö mane kuin ye rubún eráto ni kwete ja dogwäre.", "en": "Bees: They produce honey that feeds us and that possesses medicinal and beneficial properties. Their honey is used to sweeten drinks. As it is a composition of the nectar of the flowers brought by the bees, it integrates the benefits of all these plants into its honey."}
+{"es": "Hola", "ng": "Ñantörö", "en": "Hello"}
+{"es": "Buenos días", "ng": "Köbö kuin dekä", "en": "Good morning"}
+{"es": "Buenas tardes", "ng": "Köbö kuin dere", "en": "Good afternoon"}
+{"es": "Buenas noches", "ng": "Köbö kuin deu", "en": "Good evening"}
+{"es": "¿Qué tal? / ¿Cómo estás?", "ng": "Mä tua ño?", "en": "How are you?"}
+{"es": "Estoy bien", "ng": "Ti ta kuin", "en": "I am fine"}
+{"es": "¿Cómo te llamas?", "ng": "Mä kä ño?", "en": "What is your name?"}
+{"es": "Me llamo…", "ng": "Ti kä …", "en": "My name is…"}
+{"es": "Sí", "ng": "Jän", "en": "Yes"}
+{"es": "No", "ng": "Ñakare", "en": "No"}
+{"es": "Nos vemos / Hasta luego", "ng": "Ja tuaita", "en": "See you"}
+{"es": "Que Dios te acompañe", "ng": "Ngöbö rika mäbe", "en": "May God go with you"}
+{"es": "¿Adónde vas?", "ng": "Mä niki medente?", "en": "Where are you going?"}
+{"es": "Voy para allá", "ng": "Ti niki sete.", "en": "I'm going over there."}
+{"es": "Estoy visitando", "ng": "Ti ta basare.", "en": "I am visiting."}
+{"es": "¿De dónde eres?", "ng": "Mä medente?", "en": "Where are you from?"}
+{"es": "Soy de…", "ng": "Ti …bu.", "en": "I am from…"}
+{"es": "Aquí", "ng": "Nete", "en": "Here"}
+{"es": "Allí", "ng": "Yete", "en": "There"}
+{"es": "Muy allá", "ng": "Sete", "en": "Way over there"}
+{"es": "Este / esta", "ng": "Ne", "en": "This"}
+{"es": "Ese / esa", "ng": "Ye", "en": "That"}
+{"es": "Yo", "ng": "Ti", "en": "I"}
+{"es": "Tú", "ng": "Mä", "en": "you"}
+{"es": "Él / Ella", "ng": "Niara", "en": "he, she"}
+{"es": "Nosotros", "ng": "Nun", "en": "we"}
+{"es": "Ustedes", "ng": "Mun", "en": "you (plural)"}
+{"es": "Ellos / Ellas", "ng": "Niaratre", "en": "they"}
+{"es": "mío / mía", "ng": "Tikwe", "en": "my, mine"}
+{"es": "tuyo / tuya", "ng": "Mäkwe", "en": "yours"}
+{"es": "suyo / suya", "ng": "Niarakwe", "en": "his, her, hers"}
+{"es": "agua", "ng": "Ñö", "en": "water"}
+{"es": "maíz / comida", "ng": "Mrö", "en": "food / corn"}
+{"es": "casa", "ng": "Ti jue", "en": "house"}
+{"es": "paloma", "ng": "ütü", "en": "dove"}
+{"es": "ver", "ng": "toen / tuen", "en": "to see"}
+{"es": "idioma / palabra", "ng": "kukwe", "en": "language / word"}
+{"es": "árbol", "ng": "kri", "en": "tree"}
+{"es": "mujer", "ng": "meri", "en": "woman"}
+{"es": "mujeres", "ng": "meritre", "en": "women"}
+{"es": "gallina", "ng": "Kwi", "en": "chicken"}
+{"es": "gallinas", "ng": "kwikrä", "en": "chickens"}
+{"es": "niño / niña", "ng": "monso", "en": "child"}
+{"es": "cerdo", "ng": "mütü", "en": "pig"}
+{"es": "luna / mes", "ng": "sö", "en": "moon / month"}
+{"es": "dolor / dificultad / amor", "ng": "tare", "en": "pain / difficulty / love"}
+{"es": "entender", "ng": "gare / muga", "en": "to understand"}
+{"es": "no entiendo", "ng": "Ñakare gare tie", "en": "I don't understand"}
+{"es": "Hola a todos", "ng": "Ñantörö", "en": "Hello everyone"}
+{"es": "Buenos días niños", "ng": "Köbö kuin dekä", "en": "Good morning children"}
+{"es": "Siéntense por favor", "ng": "Ti niki sete (sentados)", "en": "Please sit down"}
+{"es": "Abran el libro", "ng": "…", "en": "Open the book"}
+{"es": "Escriban en el cuaderno", "ng": "…", "en": "Write in the notebook"}
+{"es": "Muy bien", "ng": "Ti ta kuin", "en": "Very good"}
+{"es": "Excelente", "ng": "Ti ta kuin", "en": "Excellent"}
+{"es": "Inténtalo de nuevo", "ng": "…", "en": "Try again"}
+{"es": "Uno", "ng": "…", "en": "One"}
+{"es": "Dos", "ng": "…", "en": "Two"}
+{"es": "Tres", "ng": "…", "en": "Three"}
+{"es": "Cuatro", "ng": "…", "en": "Four"}
+{"es": "Cinco", "ng": "…", "en": "Five"}
+{"es": "Diez", "ng": "…", "en": "Ten"}
+{"es": "Cien", "ng": "…", "en": "One hundred"}
+{"es": "Madre", "ng": "…", "en": "mother"}
+{"es": "Padre", "ng": "Ti run", "en": "father"}
+{"es": "Hermano (mismo sexo)", "ng": "eteba", "en": "sibling (same sex)"}
+{"es": "Hermana (sexo opuesto)", "ng": "ngwae", "en": "sibling (opposite sex)"}
+{"es": "Tío / Tío político", "ng": "u / duana", "en": "uncle / father-in-law"}
+{"es": "Buenos días, niños. Hoy vamos a aprender matemáticas.", "ng": "Köbö kuin dekä, monsochichi. Käne ngäbe matemática blite.", "en": "Good morning, children. Today we are going to learn mathematics."}
+{"es": "¿Quién quiere responder?", "ng": "…", "en": "Who wants to answer?"}
+{"es": "Muy bien, esa es la respuesta correcta.", "ng": "Ti ta kuin, ese kukwe bití blite.", "en": "Very good, that is the correct answer."}
+{"es": "Ahora vamos a leer el cuento.", "ng": "…", "en": "Now we are going to read the story."}
+{"es": "Escriban su nombre en la hoja.", "ng": "…", "en": "Write your name on the paper."}
+{"es": "El agua es esencial para la vida.", "ng": "Ñö mrene krubäte tö bití.", "en": "Water is essential for life."}
+{"es": "El maíz es nuestro alimento.", "ng": "Mrö tö bití.", "en": "Corn is our food."}
+{"es": "Respeten a sus compañeros.", "ng": "…", "en": "Respect your classmates."}
+{"es": "Si no entienden, pregunten.", "ng": "Ñakare gare tie, …", "en": "If you don't understand, ask."}
+{"es": "La tarea es para mañana.", "ng": "…", "en": "Homework is for tomorrow."}
+{"es": "octavo u ocho", "ng": "", "en": "eighth or eight"}
+{"es": "quieto", "ng": "", "en": "still"}
+{"es": "boca de pollo", "ng": "", "en": "chicken's mouth"}
+{"es": "manteca de pollo", "ng": "", "en": "chicken fat"}
+{"es": "manteca de frutas", "ng": "", "en": "fruit butter"}
+{"es": "palabras", "ng": "", "en": "words"}
+{"es": "exclamación de fuerte, tratándose de bebida", "ng": "", "en": "exclamation of strong, when it comes to a drink"}
+{"es": "como se llama", "ng": "", "en": "what is it called"}
+{"es": "tiempo lluvioso", "ng": "", "en": "rainy season"}
+{"es": "cantar; verde", "ng": "", "en": "to sing; green"}
+{"es": "siempre", "ng": "", "en": "always"}
+{"es": "antiguo; venir", "ng": "", "en": "old; to come"}
+{"es": "a lado, costado, apoyando", "ng": "", "en": "to the side, side, leaning"}
+{"es": "asi", "ng": "", "en": "like this"}
+{"es": "camalión", "ng": "", "en": "camalión"}
+{"es": "pargo", "ng": "", "en": "snapper"}
+{"es": "árbol de guarumo", "ng": "", "en": "guarumo tree"}
+{"es": "murió", "ng": "", "en": "died"}
+{"es": "prodido", "ng": "", "en": "rotten"}
+{"es": "tapa", "ng": "", "en": "lid"}
+{"es": "detrás", "ng": "", "en": "behind"}
+{"es": "olor de cacao, olor de monte", "ng": "", "en": "smell of cacao, smell of the forest"}
+{"es": "saliva", "ng": "", "en": "saliva"}
+{"es": "lluvia", "ng": "", "en": "rain"}
+{"es": "desbaratado", "ng": "", "en": "broken apart"}
+{"es": "caballo garañón", "ng": "", "en": "stallion"}
+{"es": "pintar el hilo", "ng": "", "en": "to dye the thread"}
+{"es": "silvar", "ng": "", "en": "to whistle"}
+{"es": "pedregoso", "ng": "", "en": "stony"}
+{"es": "cardo", "ng": "", "en": "thistle"}
+{"es": "boca", "ng": "", "en": "mouth"}
+{"es": "estibar", "ng": "", "en": "to stow"}
+{"es": "anega", "ng": "", "en": "floods"}
+{"es": "botar", "ng": "", "en": "to throw"}
+{"es": "pescar", "ng": "", "en": "to fish"}
+{"es": "dolor referido al estómago", "ng": "", "en": "pain referred to the stomach"}
+{"es": "tapa rabo", "ng": "", "en": "tail cover"}
+{"es": "ansuelo", "ng": "", "en": "fishhook"}
+{"es": "gusano mota", "ng": "", "en": "mota worm"}
+{"es": "picante ; completo ó terminado", "ng": "", "en": "spicy; complete or finished"}
+{"es": "medida para contar superficie plana", "ng": "", "en": "measure for counting a flat surface"}
+{"es": "risa", "ng": "", "en": "laughter"}
+{"es": "gordo", "ng": "", "en": "fat"}
+{"es": "perrito", "ng": "", "en": "little dog"}
+{"es": "nombre propio", "ng": "", "en": "proper noun"}
+{"es": "nombre propio de perro", "ng": "", "en": "proper name of a dog"}
+{"es": "hilo pequeño", "ng": "", "en": "small thread"}
+{"es": "disminutivo de zorra", "ng": "", "en": "diminutive of fox"}
+{"es": "grito alusivo a una balseria", "ng": "", "en": "shout alluding to a raft ride"}
+{"es": "brazo; gajo", "ng": "", "en": "arm; segment"}
+{"es": "zorra", "ng": "", "en": "fox"}
+{"es": "orientación", "ng": "", "en": "orientation"}
+{"es": "puño", "ng": "", "en": "fist"}
+{"es": "atrapado", "ng": "", "en": "trapped"}
+{"es": "principio; nombre propio del corregimiento de Alto de Jesus en Ngabere", "ng": "", "en": "beginning; proper name of the district of Alto de Jesus in Ngabere"}
+{"es": "nervio", "ng": "", "en": "nerve"}
+{"es": "adelante, primero", "ng": "", "en": "ahead, first"}
+{"es": "derrumbe", "ng": "", "en": "landslide"}
+{"es": "cantor de música sagrada Murire", "ng": "", "en": "singer of sacred Murire music"}
+{"es": "vertir", "ng": "", "en": "to pour"}
+{"es": "pita: planta que se utiliza para extraer su fibra", "ng": "", "en": "pita: plant used to extract its fiber"}
+{"es": "vasija de forma conica de calabazo para tomar cacao", "ng": "", "en": "conical-shaped gourd vessel for drinking cacao"}
+{"es": "comprar", "ng": "", "en": "to buy"}
+{"es": "cuarentena", "ng": "", "en": "quarantine"}
+{"es": "garrapata", "ng": "", "en": "tick"}
+{"es": "leche", "ng": "", "en": "milk"}
+{"es": "cola larga", "ng": "", "en": "long tail"}
+{"es": "hilo largo", "ng": "", "en": "long thread"}
+{"es": "nombre propio de unboxeador", "ng": "", "en": "proper name of a boxer"}
+{"es": "puerco castrado", "ng": "", "en": "castrated pig"}
+{"es": "casería realizado por alguien", "ng": "", "en": "hunt carried out by someone"}
+{"es": "camarón; comején, pronto, árbol de comején", "ng": "", "en": "shrimp; termite, soon, termite tree"}
+{"es": "compadre", "ng": "", "en": "close friend"}
+{"es": "dos", "ng": "", "en": "two"}
+{"es": "café", "ng": "", "en": "coffee"}
+{"es": "soñar", "ng": "", "en": "to dream"}
+{"es": "salió", "ng": "", "en": "came out"}
+{"es": "cuanto", "ng": "", "en": "how much"}
+{"es": "tres (3)", "ng": "", "en": "three (3)"}
+{"es": "malo", "ng": "", "en": "bad"}
+{"es": "mata de socanca", "ng": "", "en": "socanca bush"}
+{"es": "un dólar", "ng": "", "en": "one dollar"}
+{"es": "nudo de hilo", "ng": "", "en": "thread knot"}
+{"es": "palabras,quemar", "ng": "", "en": "words, to burn"}
+{"es": "zorrillo ( gato de caña)", "ng": "", "en": "skunk (cane cat)"}
+{"es": "entro (tratándose de una persona que entra a una casa)", "ng": "", "en": "entered (when referring to a person who enters a house)"}
+{"es": "vino pronto", "ng": "", "en": "came soon"}
+{"es": "nombre propio de hombre", "ng": "", "en": "a man's proper name"}
+{"es": "nombre propio de hombre ; cuchillo", "ng": "", "en": "a man's proper name ; knife"}
+{"es": "nombre propio de un hombre", "ng": "", "en": "a man's proper name"}
+{"es": "semilla de Jiraca", "ng": "", "en": "Jiraca seed"}
+{"es": "amaneciendo", "ng": "", "en": "dawning"}
+{"es": "semilla de cacao", "ng": "", "en": "cacao seed"}
+{"es": "brazo", "ng": "", "en": "arm"}
+{"es": "boxeo", "ng": "", "en": "boxing"}
+{"es": "bastante, mucho", "ng": "", "en": "enough, a lot"}
+{"es": "piojillo", "ng": "", "en": "small louse"}
+{"es": "Cerco grande", "ng": "", "en": "Large fence"}
+{"es": "Vino deambulando", "ng": "", "en": "He came wandering"}
+{"es": "terreno extenso", "ng": "", "en": "extensive land"}
+{"es": "de él", "ng": "", "en": "of him"}
+{"es": "pollo", "ng": "", "en": "chicken"}
+{"es": "semilla de frutas", "ng": "", "en": "fruit seeds"}
+{"es": "compañero, cuñado,rival", "ng": "", "en": "companion, brother-in-law, rival"}
+{"es": "ordeñar", "ng": "", "en": "to milk"}
+{"es": "Bueno , arriba", "ng": "", "en": "Good, up"}
+{"es": "toma de cacao", "ng": "", "en": "cacao drink"}
+{"es": "¿Qué fruta?", "ng": "", "en": "What fruit?"}
+{"es": "¿qué pollo?", "ng": "", "en": "what chicken?"}
+{"es": "¿sera de él?", "ng": "", "en": "Will it be his?"}
+{"es": "liquido", "ng": "", "en": "liquid"}
+{"es": "Tucan", "ng": "", "en": "Toucan"}
+{"es": "marido, mujer, pareja", "ng": "", "en": "husband, wife, couple"}
+{"es": "más adelante, más arriba", "ng": "", "en": "further on, further up"}
+{"es": "corte longitudinal", "ng": "", "en": "longitudinal cut"}
+{"es": "podrido, maduro", "ng": "", "en": "rotten, ripe"}
+{"es": "enbase lleno", "ng": "", "en": "full at the base"}
+{"es": "cascara,piel", "ng": "", "en": "peel, skin"}
+{"es": "intercambiar", "ng": "", "en": "to exchange"}
+{"es": "virar", "ng": "", "en": "to turn"}
+{"es": "comio", "ng": "", "en": "ate"}
+{"es": "Tratase de un tonto,comparándose con el razonamiento de un pollo", "ng": "", "en": "It refers to a fool, comparing himself with the reasoning of a chicken"}
+{"es": "exclamación defectivo sobre una fruta fea", "ng": "", "en": "defective exclamation about an ugly fruit"}
+{"es": "disminutibo de Kwekebe", "ng": "", "en": "diminutive of Kwekebe"}
+{"es": "Disminutivo de frut grande", "ng": "", "en": "Diminutive of big fruit"}
+{"es": "animal maccho", "ng": "", "en": "maccho animal"}
+{"es": "encontró", "ng": "", "en": "found"}
+{"es": "refiriéndose a niña o niño plagasddo de piojo", "ng": "", "en": "referring to a girl or boy infested with lice"}
+{"es": "agujero de pollo , ano de pollo", "ng": "", "en": "chicken hole, chicken anus"}
+{"es": "Amargo", "ng": "", "en": "Bitter"}
+{"es": "Este libro trata sobre agricultura tradicional ngä bere. Habla de las especies, sus variedades y sus semillas. Estas últimas pueden germinar y son parte de la humanidad. Nosotros somos semillas de la naturaleza. Fue escrito para ser contado. Habla de enemigos y plagas, enfermedades; de todos los animales que vuelan y de los animales grandes, hasta de la mosca cantarria entre otros.", "ng": "", "en": "This book is about traditional ngä bere agriculture. It speaks of the species, their varieties and their seeds. The latter can germinate and are part of humanity. We are seeds of nature. It was written to be told. It speaks of enemies and pests, diseases; of all the animals that fly and of the large animals, even of the fly cantarria among others."}
+{"es": "En el caso de los cultivos tradicionales, todas las especies tienen nombre en sus distintas variedades. Hay variedad de frutas, hay variedad de árboles, bejucos, así como de animales y también todos los seres que tienen aletas: la mosca, el jogoto, el gusano que ortiga, la ortiga (planta comestible y con usos medicinales), la nube, los líquenes u el musgo, la araña, la serpiente terciopelo, la palomi lla nocturna, las mariposas, la libélula, el zancudo, la avispa, la hormiga, el cerro, la cordillera, la poza, la naciente, el mar, el viento, la catarata.", "ng": "", "en": "In the case of traditional crops, all species have names in their different varieties. There is a variety of fruits, there is a variety of trees, vines, as well as animals and also all beings that have fins: the fly, the jogoto, the worm that stings, the nettle (an edible plant with medicinal uses), the cloud, the lichens or the moss, the spider, the velvet snake, the nocturnal moth, the butterflies, the dragonfly, the mosquito, the wasp, the ant, the hill, the mountain range, the pool, the spring, the sea, the wind, the waterfall."}
+{"es": "Hay plantas que producen raíces comestibles y plantas que producen frutos en las ramas: redondos, alargados, en árbol, en liana, en peda zo, u entero. Hay hojas redondas, fruta; en piñas o al mismo tiempo, en palo, en grupos de 6 ani males (kröti) y en grupos de 6 árboles (döti). Todos los que son bejucos: con hojas, que pro ducen alergias o que pican, en mitad o reduci do, aplastado, ondulado, de planicie o llanura, en pendientes de ladera de diez a veinte grados o en pendientes de sesenta a ochenta grados en la fila de la cordilleras o en cascajo, donde no existe suficiente tierra.", "ng": "", "en": "There are plants that produce edible roots and plants that produce fruit on the branches: round, elongated, on tree, on vine, in pieces, or whole. There are round leaves, fruit; in clusters or at the same time, on stick, in groups of 6 animals (kröti) and in groups of 6 trees (döti). All those that are vines: with leaves, that produce allergies or that sting, in the middle or reduced, flattened, wavy, of plain or flatland, on hillside slopes of ten to twenty degrees or on slopes of sixty to eighty degrees in the row of the mountain ranges or on gravel, where there is not enough soil."}
+{"es": "El Arroz: El arroz es de la familia de los cereales y los pas tos. Su uso es generalizado. El arroz es fácil de pilar, para esto hay especies muy buenas y otras más duras, con experiencia se aprende, de pilón en pilón, la mejor manera.", "ng": "", "en": "Rice: Rice belongs to the family of cereals and grasses. Its use is widespread. Rice is easy to husk, for this there are very good species and others harder, with experience one learns, from pestle to pestle, the best way."}
+{"es": "El Calabazo El calabazo es un bejuco que es utilizado para co merciar y para guardar agua para tomar. Existen calabazos alargados, otros de forma redondeada, buenos para hacer chicha para tomar. Se debe de jar secar al sol para ser usado, cuando está listo siempre mantiene el agua fresca.", "ng": "", "en": "The Calabazo The calabazo is a vine that is used for trading and for storing drinking water. There are elongated calabazos, others round in shape, good for making chicha to drink. It must be left to dry in the sun to be used, when it is ready it always keeps the water fresh."}
+{"es": "El jícaro (partes): Fruta de jícaro, rama de jícaro, hoja de jícaro y flores de jícaro. Hay variedades de jícaro, algunas pequeñas y otras grandes, unas para maracas, las alargadas para vasos o cucharas. Son buenas para separar partes, cuartas, mitades, como para sacar arroz.", "ng": "", "en": "The jícaro (parts): jícaro fruit, jícaro branch, jícaro leaf and jícaro flowers. There are varieties of jícaro, some small and others large, some for maracas, the elongated ones for cups or spoons. They are good for separating parts, quarters, halves, as well as for scooping out rice."}
+{"es": "Mata de Yuca: Fruta de yuca, raíz de yuca.Es bueno para alimen to y muy bueno para hacer chicha. Es blanco, con olor característico, sus variedades poseen hojas muy similares, pero sabores y formas de las raíces distintas. Es tierna, suave y muy rica.", "ng": "", "en": "Yuca Bush: Yuca fruit, yuca root. It is good for food and very good for making chicha. It is white, with a characteristic smell, its varieties have very similar leaves, but different flavors and shapes of the roots. It is tender, soft and very tasty."}
+{"es": "Caña: Crece en nudos, tiene una apariencia similar a la caña de maíz. Pueden tener sabor dulce o agrio, también hay variedad de colores y unas son más duras que otras.", "ng": "", "en": "Sugarcane: It grows in nodes, it has an appearance similar to the corn stalk. They can have a sweet or sour taste, there is also a variety of colors and some are harder than others."}
+{"es": "Trigo: Tiene espiga con grano y es similar al sorgo, pero diferente en las hojas, es bueno para cultivar cer ca de un gran río.", "ng": "", "en": "Wheat: It has a spike with grain and is similar to sorghum, but different in the leaves, it is good to grow near a large river."}
+{"es": "Guineo mocho: Se come tierno o maduro, es suave y se puede cocinar, se prepara machacado también.", "ng": "", "en": "Guineo mocho: It is eaten tender or ripe, it is soft and can be cooked, it is also prepared mashed."}
+{"es": "Jengibre: Parece una hierba, pero es usada para curar va rias enfermedades, como algunas dolencias de los huesos.", "ng": "", "en": "Ginger: It looks like a herb, but it is used to cure various diseases, such as some ailments of the bones."}
+{"es": "Cúrcuma: Es usada por su fuerte colorante amarillo y tam bién como planta comestible. Similar en forma al achiote y un buen condimento. Protege al cuerpo y sana síntomas de algunas enfermeda des antes que las notemos. Mantiene en buen funcionamiento el hígado y la irrigación arterial, dependiendo de su potencia.", "ng": "", "en": "Turmeric: It is used for its strong yellow coloring and also as an edible plant. Similar in shape to achiote and a good condiment. It protects the body and heals symptoms of some illnesses before we notice them. It keeps the liver and arterial blood flow working well, depending on its potency."}
+{"es": "El Castaño: Exceden los veinte metros de altura, su fruta es alimenticia y posee propiedades curativas, por esto es importante cuidar sus semillas, pues tam bién nos dan sombra.", "ng": "", "en": "The Castaño: They exceed twenty meters in height, its fruit is edible and possesses healing properties, for this reason it is important to care for its seeds, since they also give us shade."}
+{"es": "Aguacate: Es un árbol que nos alimenta y nutre. Su sabor es muy rico y también tiene propiedades curati vas. Sus variedades cambian el color de la fruta, el tamaño de su semilla y el sabor de su carne.", "ng": "", "en": "Avocado: It is a tree that feeds and nourishes us. Its flavor is very rich and it also has healing properties. Its varieties change the color of the fruit, the size of its seed and the flavor of its flesh."}
+{"es": "Pejibaye: Existe gran cantidad de variedades de pejibaye, su fruto es comestible, al igual que su palmito. Su tallo, hojas y raíz, tienen propiedades curati vas. Se han perdido muchas tradiciones asocia das a esta planta.", "ng": "", "en": "Pejibaye: There exists a large quantity of varieties of pejibaye, its fruit is edible, as is its heart of palm. Its stem, leaves and root have healing properties. Many traditions associated with this plant have been lost."}
+{"es": "Guaba: Existen muchas variedades, se diferencian por sus hojas, su fruta, y sus tallos. Su sabia también tiene propiedades curativas propias. Puede lle gar a ser tóxica si no se usa en la dosis adecuada.", "ng": "", "en": "Guaba: There are many varieties, they are distinguished by their leaves, their fruit, and their stems. Its sap also has healing properties. It can become toxic if it is not used in the proper dose."}
+{"es": "Tiquizque: Se han perdido algunas variedades, nos queda la variedad blanca y la variedad morada.", "ng": "", "en": "Tiquizque: Some varieties have been lost, the white variety and the purple variety remain."}
+{"es": "Piñuela: Sus variedades presentan distintas sabores, algu nos dulces y otros agrios. Su hoja es alargada y delgada, también muy filosa.", "ng": "", "en": "Piñuela: Its varieties present different flavors, some sweet and others sour. Its leaf is long and thin, also very sharp."}
+{"es": "Guanábana: Se consume fresco y del arból, tiene un sabor muy dulce, son muy jugosas y buenas como ali mentos y bebida. Tiene propiedades medicinales, por ejemplo ayudan a la vista.", "ng": "", "en": "Guanábana: It is consumed fresh and from the tree, it has a very sweet flavor, they are very juicy and good as food and drink. It has medicinal properties, for example they help eyesight."}
+{"es": "Ñame: Distintas variedades, la mayoría con una hoja triangular. Al contacto puede provocar pica zón pues ortiga.", "ng": "", "en": "Yam: Different varieties, most with a triangular leaf. On contact it can cause itching like a nettle."}
+{"es": "Frijol: Existen distintas variedades; los más cono cidos son: negro, el rojo, y el amarillo, pero existen otros como el frijol jaba blanco, etc. Tienen las hojas muy similares.", "ng": "", "en": "Bean: There are different varieties; the best known are: black, red, and yellow, but there are others such as the white jaba bean, etc. They have very similar leaves."}
+{"es": "Palma de Coroso: Posee hojas espinosas, se puede tumbar y obte ner la chicha o jugo el cual se fermenta bien. Se obtiene también su palmito y su fruta que se coci nan. También posee cualidades curativas.", "ng": "", "en": "Coroso Palm: It has spiny leaves, it can be felled to obtain the chicha or juice which ferments well. Its heart of palm and its fruit, which are cooked, are also obtained. It also has healing qualities."}
+{"es": "Palma Real: Se obtiene de ella su palmito que es muy alimen ticio, también de ella se fermenta chicha muy fuerte, además del aceite que es muy bueno para el cabello.", "ng": "", "en": "Royal Palm: Its heart of palm is obtained from it, which is very nourishing, from it a very strong chicha is also fermented, besides the oil which is very good for the hair."}
+{"es": "Mamón chino: En color rojo o amarillo principalmente, su fruta es redonda.", "ng": "", "en": "Mamón chino: Mainly red or yellow in color, its fruit is round."}
+{"es": "Árbol sin identificar: Es oscuro, suave y de olor fuerte. Tiene usos ali menticios, como bebida, como tinte y además tiene cualidades alimenticias.", "ng": "", "en": "Unidentified tree: It is dark, soft and strong-smelling. It has food uses, as a drink, as a dye and it also has food qualities."}
+{"es": "Maquenque: Tiene mucho palmito útil para obtener materia les de contrucción.", "ng": "", "en": "Maquenque: It has a lot of heart of palm useful for obtaining construction materials."}
+{"es": "Palmiche: Es comestible, pero de sabor amargo. Es una palma usada en construcción también.", "ng": "", "en": "Palmiche: It is edible, but bitter in flavor. It is a palm used in construction as well."}
+{"es": "Palma: Produce palmito amargo, es usada como me dicina para solucionar problemas relacionados con mareos y la hiel.", "ng": "", "en": "Palm: It produces bitter heart of palm, it is used as medicine to solve problems related to dizziness and gall."}
+{"es": "Platanillo o heliconia: Se consume crudo, se toman sus hojas tiernas también, para cocinar acompañado o asado en las brasas.", "ng": "", "en": "Platanillo or heliconia: It is consumed raw, its tender leaves are also taken, to cook as a side or roasted over the embers."}
+{"es": "Chonta amarga: Se consume su raíz, la cual mide varias varas y tiene una forma de arco. Puede ser usada para construir arpones y flechas para cazar animales.", "ng": "", "en": "Bitter chonta: Its root is consumed, which measures several varas and has an arch shape. It can be used to build harpoons and arrows for hunting animals."}
+{"es": "Ortiga: Existen muchas variedades: blanco (de clima caliente), rojo (clima frío). Irrita al instante al contacto e intensifica las alergias de la persona. Cocinada y preparada es un alimento muy rico.", "ng": "", "en": "Nettle: There are many varieties: white (hot climate), red (cold climate). It irritates instantly on contact and intensifies the person's allergies. Cooked and prepared it is a very tasty food."}
+{"es": "Hongos comestibles: Algunas variedades tienen color rojo y de forma redonda. Se consumen acompañados con bija gua, con sal, tienen un olor y sabor muy rico.", "ng": "", "en": "Edible mushrooms: Some varieties are red in color and round in shape. They are consumed accompanied with bija gua, with salt, they have a very rich smell and flavor."}
+{"es": "Chirimoya: Al madurar es de color amarillo, suave y es muy rica de comer. Es de tamaño grande simi lar a la fruta de pan o del castaño. Tiene propie dades medicinales sobre todo para el sistema nervioso central y la vista.", "ng": "", "en": "Chirimoya: When ripe it is yellow in color, soft and very tasty to eat. It is large in size similar to the breadfruit or the castaño. It has medicinal properties above all for the central nervous system and eyesight."}
+{"es": "Sin identificar: Arbusto silvestre, principalmente en la zona de Paso real. Al madurar es de color negro su fruto. También es suave y dulce. Tiene cierto parecido al Guaitil.", "ng": "", "en": "Unidentified: Wild shrub, mainly in the Paso real area. When ripe its fruit is black in color. It is also soft and sweet. It has some resemblance to the Guaitil."}
+{"es": "Sin identificar: En apariencia es similar a la helinocia. Presenta variedades bastante grandes y su principal ali mento proviene de sus hojas tiernas. Es silvestre.", "ng": "", "en": "Unidentified: In appearance it is similar to the helinocia. It presents fairly large varieties and its main food comes from its tender leaves. It is wild."}
+{"es": "Sin identificar: Se cocina su fruta sobre todo. Es un arbusto que se encuentra principalmente del lado panameño y es de una variedad silvestre.", "ng": "", "en": "Unidentified: Its fruit is cooked above all. It is a shrub found mainly on the Panamanian side and it is of a wild variety."}
+{"es": "Sonzapote: Árbol del bosque, que se cultiva de forma sil vestre y que es de color marrón. Se consume su fruta, su hoja y su tallo. También es medicinal y ayuda a apaciguar los dolores.", "ng": "", "en": "Sonzapote: Forest tree, which is cultivated in a wild way and which is brown in color. Its fruit, its leaf and its stem are consumed. It is also medicinal and helps to soothe the pains."}
+{"es": "Mosca de tórsalo: Viven en colmenas o en grupos. Afecta tanto a animales como a seres humanos.", "ng": "", "en": "Botfly: They live in hives or in groups. It affects both animals and human beings."}
+{"es": "Mosca blanca: Mosca pequeña de color blanco que molesta principalmente en el verano.", "ng": "", "en": "Whitefly: Small white-colored fly that is mainly a nuisance in the summer."}
+{"es": "Mosca negra: Moscas negras de tamaño mediano y pequeño, que viven en la suciedad y contaminan los ali mentos al ser portadoras de enfermedades.", "ng": "", "en": "Black fly: Black flies of medium and small size, which live in dirt and contaminate food by being carriers of diseases."}
+{"es": "Mosca chupa sangre: Se alimenta de sangre, similar a los bocones y de color negra.", "ng": "", "en": "Blood-sucking fly: It feeds on blood, similar to the bocones and black in color."}
+{"es": "Purrujas: Son montones que se agrupan en nubes y atacan a los animales y a las personas.", "ng": "", "en": "Purrujas: They are heaps that group into clouds and attack the animals and the people."}
+{"es": "Abejas: Producen miel que nos alimenta y que posee propiedades medicinales y beneficiosas. Su miel se usa para endulzar bebidas. Al ser una composición del néctar de las flores traídas por las abejas integra los beneficios de todas estas plantas en su miel.", "ng": "", "en": "Bees: They produce honey that feeds us and that possesses medicinal and beneficial properties. Their honey is used to sweeten drinks. As it is a composition of the nectar of the flowers brought by the bees, it integrates the benefits of all these plants into its honey."}
+{"es": "octavo u ocho", "ng": "Kökwö", "en": ""}
+{"es": "quieto", "ng": "Kwekebe", "en": ""}
+{"es": "boca de pollo", "ng": "Kwikada", "en": ""}
+{"es": "manteca de pollo", "ng": "Kwikö", "en": ""}
+{"es": "manteca de frutas", "ng": "Kwokö", "en": ""}
+{"es": "palabras", "ng": "KwuKe", "en": ""}
+{"es": "exclamación de fuerte, tratándose de bebida", "ng": "Kwäka", "en": ""}
+{"es": "como se llama", "ng": "Köño", "en": ""}
+{"es": "tiempo lluvioso", "ng": "Köñure", "en": ""}
+{"es": "cantar; verde", "ng": "Kare", "en": ""}
+{"es": "siempre", "ng": "Käre", "en": ""}
+{"es": "antiguo; venir", "ng": "Kira", "en": ""}
+{"es": "a lado, costado, apoyando", "ng": "Kiri", "en": ""}
+{"es": "asi", "ng": "Kore", "en": ""}
+{"es": "camalión", "ng": "Kurö", "en": ""}
+{"es": "pargo", "ng": "Kurögwai", "en": ""}
+{"es": "árbol de guarumo", "ng": "Kurä", "en": ""}
+{"es": "murió", "ng": "Küre", "en": ""}
+{"es": "prodido", "ng": "Kure", "en": ""}
+{"es": "tapa", "ng": "Käri", "en": ""}
+{"es": "detrás", "ng": "Köre", "en": ""}
+{"es": "olor de cacao, olor de monte", "ng": "Körö", "en": ""}
+{"es": "saliva", "ng": "Käli", "en": ""}
+{"es": "lluvia", "ng": "Kälü", "en": ""}
+{"es": "desbaratado", "ng": "Külä", "en": ""}
+{"es": "caballo garañón", "ng": "Kuju", "en": ""}
+{"es": "pintar el hilo", "ng": "Köjugwe", "en": ""}
+{"es": "silvar", "ng": "Käjugwe", "en": ""}
+{"es": "pedregoso", "ng": "Köjäre", "en": ""}
+{"es": "cardo", "ng": "Katu", "en": ""}
+{"es": "boca", "ng": "Kata", "en": ""}
+{"es": "estibar", "ng": "Kete", "en": ""}
+{"es": "anega", "ng": "Ketä", "en": ""}
+{"es": "botar", "ng": "Kita", "en": ""}
+{"es": "pescar", "ng": "Kite", "en": ""}
+{"es": "dolor referido al estómago", "ng": "Kotä", "en": ""}
+{"es": "tapa rabo", "ng": "Kotö", "en": ""}
+{"es": "ansuelo", "ng": "Kotü", "en": ""}
+{"es": "gusano mota", "ng": "Kutä", "en": ""}
+{"es": "picante ; completo ó terminado", "ng": "Käte", "en": ""}
+{"es": "medida para contar superficie plana", "ng": "Käti", "en": ""}
+{"es": "risa", "ng": "Köta", "en": ""}
+{"es": "gordo", "ng": "Köte", "en": ""}
+{"es": "perrito", "ng": "Kichi", "en": ""}
+{"es": "nombre propio", "ng": "Kicho", "en": ""}
+{"es": "nombre propio de perro", "ng": "Kucho", "en": ""}
+{"es": "hilo pequeño", "ng": "Köchi", "en": ""}
+{"es": "disminutivo de zorra", "ng": "Köcha", "en": ""}
+{"es": "grito alusivo a una balseria", "ng": "Köchö", "en": ""}
+{"es": "brazo; gajo", "ng": "Kide", "en": ""}
+{"es": "zorra", "ng": "Ködä", "en": ""}
+{"es": "orientación", "ng": "Ködö", "en": ""}
+{"es": "puño", "ng": "Kudö", "en": ""}
+{"es": "atrapado", "ng": "Kani", "en": ""}
+{"es": "principio; nombre propio del corregimiento de Alto de Jesus en Ngabere", "ng": "Kena", "en": ""}
+{"es": "nervio", "ng": "Kine", "en": ""}
+{"es": "adelante, primero", "ng": "Köne", "en": ""}
+{"es": "derrumbe", "ng": "köNó", "en": ""}
+{"es": "cantor de música sagrada Murire", "ng": "kaga", "en": ""}
+{"es": "vertir", "ng": "kega", "en": ""}
+{"es": "pita: planta que se utiliza para extraer su fibra", "ng": "kiga", "en": ""}
+{"es": "vasija de forma conica de calabazo para tomar cacao", "ng": "Kogö", "en": ""}
+{"es": "comprar", "ng": "Kögö", "en": ""}
+{"es": "cuarentena", "ng": "Küen", "en": ""}
+{"es": "garrapata", "ng": "Kion", "en": ""}
+{"es": "leche", "ng": "Kiän", "en": ""}
+{"es": "cola larga", "ng": "Känga", "en": ""}
+{"es": "hilo largo", "ng": "Könga", "en": ""}
+{"es": "nombre propio de unboxeador", "ng": "Kogi", "en": ""}
+{"es": "puerco castrado", "ng": "Kabo", "en": ""}
+{"es": "casería realizado por alguien", "ng": "Köbö", "en": ""}
+{"es": "camarón; comején, pronto, árbol de comején", "ng": "Kebe", "en": ""}
+{"es": "compadre", "ng": "Kobä", "en": ""}
+{"es": "dos", "ng": "Kubu", "en": ""}
+{"es": "café", "ng": "Kabe", "en": ""}
+{"es": "soñar", "ng": "Köbö", "en": ""}
+{"es": "salió", "ng": "Kibe", "en": ""}
+{"es": "cuanto", "ng": "Kobe", "en": ""}
+{"es": "tres (3)", "ng": "Komö", "en": ""}
+{"es": "malo", "ng": "Käme", "en": ""}
+{"es": "mata de socanca", "ng": "Kimö", "en": ""}
+{"es": "un dólar", "ng": "Kumö", "en": ""}
+{"es": "nudo de hilo", "ng": "kogwo", "en": ""}
+{"es": "palabras,quemar", "ng": "Kugwe", "en": ""}
+{"es": "zorrillo ( gato de caña)", "ng": "Kugwuo", "en": ""}
+{"es": "entro (tratándose de una persona que entra a una casa)", "ng": "Kigwo", "en": ""}
+{"es": "vino pronto", "ng": "Kigwo", "en": ""}
+{"es": "perrito", "ng": "Kiyi", "en": ""}
+{"es": "nombre propio de hombre", "ng": "Kiyo", "en": ""}
+{"es": "nombre propio de hombre", "ng": "Koyi", "en": ""}
+{"es": "nombre propio de hombre ; cuchillo", "ng": "Kuyo", "en": ""}
+{"es": "nombre propio de un hombre", "ng": "Köyö", "en": ""}
+{"es": "semilla de Jiraca", "ng": "Kangwo", "en": ""}
+{"es": "amaneciendo", "ng": "Kongwen", "en": ""}
+{"es": "semilla de cacao", "ng": "Köngwo", "en": ""}
+{"es": "brazo", "ng": "Kise", "en": ""}
+{"es": "nombre propio de un hombre", "ng": "Kusi", "en": ""}
+{"es": "boxeo", "ng": "Kusö", "en": ""}
+{"es": "bastante, mucho", "ng": "Kabre", "en": ""}
+{"es": "piojillo", "ng": "Kubru", "en": ""}
+{"es": "Cerco grande", "ng": "Kikri", "en": ""}
+{"es": "Vino deambulando", "ng": "Kikrö", "en": ""}
+{"es": "terreno extenso", "ng": "Kökri", "en": ""}
+{"es": "de él", "ng": "Kwe", "en": ""}
+{"es": "pollo", "ng": "Kwi", "en": ""}
+{"es": "semilla de frutas", "ng": "Kwö", "en": ""}
+{"es": "compañero, cuñado,rival", "ng": "Kwüan", "en": ""}
+{"es": "ordeñar", "ng": "Kwuain", "en": ""}
+{"es": "ordeñar", "ng": "Kwain", "en": ""}
+{"es": "Bueno , arriba", "ng": "Kwuin", "en": ""}
+{"es": "toma de cacao", "ng": "Kwöña", "en": ""}
+{"es": "¿Qué fruta?", "ng": "Kwöñö", "en": ""}
+{"es": "¿qué pollo?", "ng": "Kwiñö", "en": ""}
+{"es": "¿sera de él?", "ng": "Kweñö", "en": ""}
+{"es": "liquido", "ng": "Kwari", "en": ""}
+{"es": "Tucan", "ng": "Kwere", "en": ""}
+{"es": "marido, mujer, pareja", "ng": "Kwore", "en": ""}
+{"es": "más adelante, más arriba", "ng": "Kwori", "en": ""}
+{"es": "corte longitudinal", "ng": "Kwärö", "en": ""}
+{"es": "podrido, maduro", "ng": "Kwüre", "en": ""}
+{"es": "enbase lleno", "ng": "Kwati", "en": ""}
+{"es": "cascara,piel", "ng": "Kwätä", "en": ""}
+{"es": "intercambiar", "ng": "Kwita", "en": ""}
+{"es": "virar", "ng": "Kwite", "en": ""}
+{"es": "comio", "ng": "Kwiti", "en": ""}
+{"es": "Tratase de un tonto,comparándose con el razonamiento de un pollo", "ng": "Kwito", "en": ""}
+{"es": "exclamación defectivo sobre una fruta fea", "ng": "Kwötö", "en": ""}
+{"es": "disminutibo de Kwekebe", "ng": "Kwechebe", "en": ""}
+{"es": "Disminutivo de frut grande", "ng": "Kwöchi", "en": ""}
+{"es": "animal maccho", "ng": "Kwuane", "en": ""}
+{"es": "encontró", "ng": "Kwuani", "en": ""}
+{"es": "refiriéndose a niña o niño plagasddo de piojo", "ng": "Kwüne", "en": ""}
+{"es": "agujero de pollo , ano de pollo", "ng": "Kwigu", "en": ""}
+{"es": "Amargo", "ng": "Kwägä", "en": ""}
+{"es": "Este libro trata sobre agricultura tradicional ngä bere. Habla de las especies, sus variedades y sus semillas. Estas últimas pueden germinar y son parte de la humanidad. Nosotros somos semillas de la naturaleza. Fue escrito para ser contado. Habla de enemigos y plagas, enfermedades; de todos los animales que vuelan y de los animales grandes, hasta de la mosca cantarria entre otros.", "ng": "Tärä sribebare kena ngäbere keteiti nurá bätä. Ye nura ketabe jagwebe täendre. Ne aráto kä jené jené bä jené jené tibien. Nura nire, ye ni nire nurai, ni ne nurare aráto. Ye ngäbere nura rüe täendre jökrä, ya arato bren ni níre rüere. Ye jüdrün ngwiyebiti nägaingä aibe. Ye jüdrün ngo togwä kräbägä.", "en": ""}
+{"es": "En el caso de los cultivos tradicionales, todas las especies tienen nombre en sus distintas variedades. Hay variedad de frutas, hay variedad de árboles, bejucos, así como de animales y también todos los seres que tienen aletas: la mosca, el jogoto, el gusano que ortiga, la ortiga (planta comestible y con usos medicinales), la nube, los líquenes u el musgo, la araña, la serpiente terciopelo, la palomi lla nocturna, las mariposas, la libélula, el zancudo, la avispa, la hormiga, el cerro, la cordillera, la poza, la naciente, el mar, el viento, la catarata.", "ng": "Ye nura kä jené jené, ne aráto ngäkwä jené jené, bänä jené jené. Ne ñerare sribeni kena ñerara. Ye jüdrün kríre, köre, nire, niguí. Ye jüdrün kä dibiebiti ñote. Mungwä, ngüdü, ngin, ngübrän, muta bongräin, (jogo = juble), (kögwata = tegrä), drü, malan, mera, jörän, öba, ngaña, ngutuä, ngüdre, ñö ogwä, ñö kide, mren, muríe, ngübrün.", "en": ""}
+{"es": "Hay plantas que producen raíces comestibles y plantas que producen frutos en las ramas: redondos, alargados, en árbol, en liana, en peda zo, u entero. Hay hojas redondas, fruta; en piñas o al mismo tiempo, en palo, en grupos de 6 ani males (kröti) y en grupos de 6 árboles (döti). Todos los que son bejucos: con hojas, que pro ducen alergias o que pican, en mitad o reduci do, aplastado, ondulado, de planicie o llanura, en pendientes de ladera de diez a veinte grados o en pendientes de sesenta a ochenta grados en la fila de la cordilleras o en cascajo, donde no existe suficiente tierra.", "ng": "Jüdrün ngwäre ngusé dobrote, jüdrün ngo gwäre kuinda kide: bolore, mreare, kríre, köre, otore, ötaingö; kä bolore, kä tägä tägä, ngogwä, dati, krati, kräti, däti. Köre jübenkä, kögrä kä dünde, juräte, möglöre, kwatare, kä mugwäre, kiare, bäkiare, kä bätätä, ngudre, jägwatara.", "en": ""}
+{"es": "El Arroz: El arroz es de la familia de los cereales y los pas tos. Su uso es generalizado. El arroz es fácil de pilar, para esto hay especies muy buenas y otras más duras, con experiencia se aprende, de pilón en pilón, la mejor manera.", "ng": "1. Aro Ye dägädre bilon bití, ye rabadre kugwäne ngwane jueanengä, ye bití riadre kwetádre. Ye aro bä kwata keta kabré, ye kä jené jené, kwata ñakare bä erébe, roäre dünde, jibe. Ye roäre därebe dägädre nemén ngwängwane kugwäne. Ne aráto roäre kwata ribe. Mi giä aroe, Aro mumachi ye kwata ribe sögare ñan nemén dötrö kugwäne.", "en": ""}
+{"es": "El Calabazo El calabazo es un bejuco que es utilizado para co merciar y para guardar agua para tomar. Existen calabazos alargados, otros de forma redondeada, buenos para hacer chicha para tomar. Se debe de jar secar al sol para ser usado, cuando está listo siempre mantiene el agua fresca.", "ng": "2. Mrü köre krígri Ye ñö ngwäre, ye aráto dö sribera, ye mrüe ketabägä, ne bä köre: Klö ye ñö ngwäre, dre té nitre nämbare ñö jague jae ñare. Mrü mreare nganga köre aráto kríguibebe dö ñara, te dö nemén kuin krübäte. Kä ngire agwa ye ñö abögän tibote ñara. Mrü kwitlo kore ñe kore roro tolene krígri mreare kia ja erebe jökrä kwin dö ngubuare ño diane tibo.", "en": ""}
+{"es": "El jícaro (partes): Fruta de jícaro, rama de jícaro, hoja de jícaro y flores de jícaro. Hay variedades de jícaro, algunas pequeñas y otras grandes, unas para maracas, las alargadas para vasos o cucharas. Son buenas para separar partes, cuartas, mitades, como para sacar arroz.", "ng": "3. Mürü kríe Krígri siribe nobare siäre ie ye nobare siä tomana ñara kwin ye aráto tre gano bare möröra ne árabe mörö dianinkä. Aro möröa sökara jeane ye kríe erere aráto aböngöne siribe nobare täone ne árabe ie siä anü ño ñara ne aráto kä ñara ne aráto mereare siribe nobare kökäre.", "en": ""}
+{"es": "Mata de Yuca: Fruta de yuca, raíz de yuca.Es bueno para alimen to y muy bueno para hacer chicha. Es blanco, con olor característico, sus variedades poseen hojas muy similares, pero sabores y formas de las raíces distintas. Es tierna, suave y muy rica.", "ng": "4. Ö kríe Ö ngwä, ö ngwätri. Ye kuin ja dí krägue kwetádre därebe ngätä ngwenbrere rä öräre ye bä kabre jené jené bänä ja erebe ne arato kä jarebe ngwärite, agwa kríebe bä jené jené.", "en": ""}
+{"es": "Caña: Crece en nudos, tiene una apariencia similar a la caña de maíz. Pueden tener sabor dulce o agrio, también hay variedad de colores y unas son más duras que otras.", "ng": "5. Ibía Ye mrögabití kä nganga bä kabre agwa jené jené tibien bänä ja erébe mane ye kuin ja digrägue ñadre.", "en": ""}
+{"es": "Trigo: Tiene espiga con grano y es similar al sorgo, pero diferente en las hojas, es bueno para cultivar cer ca de un gran río.", "ng": "7. I ngwrä Bä kabré ye kä ibia kä erére aráto agwa ñokwä ae agwa jagwebe jökrä.", "en": ""}
+{"es": "Guineo mocho: Se come tierno o maduro, es suave y se puede cocinar, se prepara machacado también.", "ng": "10. Diguimá ötö Ye ötö ne krígri nganga ne aráto diguimá otoe käi ye kuin därebe kwetádre ne aráto taine kuin nigui taine roäne.", "en": ""}
+{"es": "Jengibre: Parece una hierba, pero es usada para curar va rias enfermedades, como algunas dolencias de los huesos.", "ng": "12. Sübrü Ye käte ngire ye kuin brengrägue ñare krägäre krube tibo.", "en": ""}
+{"es": "Cúrcuma: Es usada por su fuerte colorante amarillo y tam bién como planta comestible. Similar en forma al achiote y un buen condimento. Protege al cuerpo y sana síntomas de algunas enfermeda des antes que las notemos. Mantiene en buen funcionamiento el hígado y la irrigación arterial, dependiendo de su potencia.", "ng": "13. Sübrü Sübrü kö jügara sübrüre. Ye kuin krübäte jüdrün jügara tärän sübrüre. Yerabe nge dén krögäre nigrägue.", "en": ""}
+{"es": "El Castaño: Exceden los veinte metros de altura, su fruta es alimenticia y posee propiedades curativas, por esto es importante cuidar sus semillas, pues tam bién nos dan sombra.", "ng": "19. Bere Kríe/Beregrie Ye ngogwä bolore tugwä tugwä bä käre ne ngägwä kwata bä dobore te mününe ngwen ne riare kwetádre.", "en": ""}
+{"es": "Aguacate: Es un árbol que nos alimenta y nutre. Su sabor es muy rico y también tiene propiedades curati vas. Sus variedades cambian el color de la fruta, el tamaño de su semilla y el sabor de su carne.", "ng": "20. Duga kríe/Dugagrie Ye ngogwä kare ne kuin kwetádre jadigrä ne bänände mrö mutuäre kwin ye bä jené jené ne keta kabre kríe. Dugagri nögani / Duga kríe käsenda ñerara.", "en": ""}
+{"es": "Pejibaye: Existe gran cantidad de variedades de pejibaye, su fruto es comestible, al igual que su palmito. Su tallo, hojas y raíz, tienen propiedades curati vas. Se han perdido muchas tradiciones asocia das a esta planta.", "ng": "21. Debagrie Bä kabre jené jené ngwä sübrüre, tain, kä burere, tugwäte krübäte, agwa kuin kwe tare döre sribere mutu kwin kwetare.", "en": ""}
+{"es": "Guaba: Existen muchas variedades, se diferencian por sus hojas, su fruta, y sus tallos. Su sabia también tiene propiedades curativas propias. Puede lle gar a ser tóxica si no se usa en la dosis adecuada.", "ng": "22. Bü kríe/ Bügrie nue gwi Bä kabre bätägä ngwarobo ketabre ña ni tö rugadre näre.", "en": ""}
+{"es": "Tiquizque: Se han perdido algunas variedades, nos queda la variedad blanca y la variedad morada.", "ng": "23. Tä Tädongwä ye ketabägä tibien ye kä näre nibi kwetare ne nire ngwä ngusé dobróte.", "en": ""}
+{"es": "Piñuela: Sus variedades presentan distintas sabores, algu nos dulces y otros agrios. Su hoja es alargada y delgada, también muy filosa.", "ng": "25. Biru Ye ñerara kä ngirete mren krä bäre. Ye kuin kwetáre bänä mane bätä dime, rä mane, kä kräkia nganga ngrinenemén, ne reba ni tiguegä y tugwäte bití.", "en": ""}
+{"es": "Guanábana: Se consume fresco y del arból, tiene un sabor muy dulce, son muy jugosas y buenas como ali mentos y bebida. Tiene propiedades medicinales, por ejemplo ayudan a la vista.", "ng": "26. Sörän Ye krí ngwä kwetare kwin tomanane ñe rara taine agwane nägäingä tibien bänä mane rä sörän ye kuin ja digräre.", "en": ""}
+{"es": "Ñame: Distintas variedades, la mayoría con una hoja triangular. Al contacto puede provocar pica zón pues ortiga.", "ng": "28. Drün Ye jödrün/ jüdrün: Ye köröre jübenkä ti bienta ngwäre dobrote ngüse ye kabre jené jené ni ngwen kä ngrabare nurai ye niki jurote riani kwin mününe kwetare ne därebe.", "en": ""}
+{"es": "Frijol: Existen distintas variedades; los más cono cidos son: negro, el rojo, y el amarillo, pero existen otros como el frijol jaba blanco, etc. Tienen las hojas muy similares.", "ng": "29. Muma köre Jübengä tibien ne ngongwä drüne tain sübrüre ye kuin mrö mutuäre ni kä ngöe tibien kwete ja erebe kä näre.", "en": ""}
+{"es": "Palma de Coroso: Posee hojas espinosas, se puede tumbar y obte ner la chicha o jugo el cual se fermenta bien. Se obtiene también su palmito y su fruta que se coci nan. También posee cualidades curativas.", "ng": "35. Kroso kä kríe Kroso ye kuin ngwä kwetare sribedre döre ñadre tomanane dime ne aráto kuin ngo gwä tregadrete te ribí ngwenbrene.", "en": ""}
+{"es": "Palma Real: Se obtiene de ella su palmito que es muy alimen ticio, también de ella se fermenta chicha muy fuerte, además del aceite que es muy bueno para el cabello.", "ng": "36. Balan Ne ngwä kwin kä deandre ne riadre ne ará to kwetádre, ye arato kä kuin sribedre ja juere.", "en": ""}
+{"es": "Mamón chino: En color rojo o amarillo principalmente, su fruta es redonda.", "ng": "37. Süligrie kiare Ne mane, dime, ye nemén taine agwane sübürüre tain bä kare ye ne kríe nemén taine.", "en": ""}
+{"es": "Árbol sin identificar: Es oscuro, suave y de olor fuerte. Tiene usos ali menticios, como bebida, como tinte y además tiene cualidades alimenticias.", "ng": "38. Krema kríe Ye krema ngogwä nemén tän agwane ne mén kremane därebe, ye kríe ngogwä ne mén jlimun närebe, ye nemén ngogwäre Nötarie bätä Trärie te.", "en": ""}
+{"es": "Maquenque: Tiene mucho palmito útil para obtener materia les de contrucción.", "ng": "40. Titi Ne mitrá bäri mutu ére krígri kríe bäri kuin tregadre migare jurägräre.", "en": ""}
+{"es": "Palmiche: Es comestible, pero de sabor amargo. Es una palma usada en construcción también.", "ng": "41. Jóra kríe krí Ye jöra mitra árabe agwa bänä bä kwaka ne kuin migadre jüre kä nganga ni ngä bere jüe metre ye tibo kä ngirete ne deo abögän krube kä tibote.", "en": ""}
+{"es": "Palma: Produce palmito amargo, es usada como me dicina para solucionar problemas relacionados con mareos y la hiel.", "ng": "42. Kimu = Rügün (Súrtuba) Ne mutu kwaga agwa kuin kwetádre ara to ne aráto sribedre ja jüere nünane.", "en": ""}
+{"es": "Platanillo o heliconia: Se consume crudo, se toman sus hojas tiernas también, para cocinar acompañado o asado en las brasas.", "ng": "44. Müne Ne mutu kuin nigui kwetádre ne bänä tibo ne aráto riani kuin mrö mutuäre.", "en": ""}
+{"es": "Chonta amarga: Se consume su raíz, la cual mide varias varas y tiene una forma de arco. Puede ser usada para construir arpones y flechas para cazar animales.", "ng": "45. Burä Ne ngätribiti bolota kabre ye ne sribe nämbare tuguene mundiara ne kuin aráto bugore jüdrün kä migare.", "en": ""}
+{"es": "Ortiga: Existen muchas variedades: blanco (de clima caliente), rojo (clima frío). Irrita al instante al contacto e intensifica las alergias de la persona. Cocinada y preparada es un alimento muy rico.", "ng": "47. Bugrän Ye kríe nebe ngwramä kuin ne reguetaga ni bätä ni kweta kwe tare ye ngübrän ke tabägä.", "en": ""}
+{"es": "Hongos comestibles: Algunas variedades tienen color rojo y de forma redonda. Se consumen acompañados con bija gua, con sal, tienen un olor y sabor muy rico.", "ng": "51. Krí olo Ye bä tain bolore ye kügwadre ñogwäte krígäte mrene nemén bänäte.", "en": ""}
+{"es": "Chirimoya: Al madurar es de color amarillo, suave y es muy rica de comer. Es de tamaño grande simi lar a la fruta de pan o del castaño. Tiene propie dades medicinales sobre todo para el sistema nervioso central y la vista.", "ng": "56. Tugla Ne kríe ngwä kwetádre taine agwane bänä tuglare rä tuglare ne bä sübrüre tugwä tugwä. Ye jüdrün ne kuin ja digröre kuin krängäre arato.", "en": ""}
+{"es": "Sin identificar: Arbusto silvestre, principalmente en la zona de Paso real. Al madurar es de color negro su fruto. También es suave y dulce. Tiene cierto parecido al Guaitil.", "ng": "59. Krema Krí ne nemén gre jätä kuin ye ngwä kuin kwetara bä drüne te kremane.", "en": ""}
+{"es": "Sin identificar: En apariencia es similar a la helinocia. Presenta variedades bastante grandes y su principal ali mento proviene de sus hojas tiernas. Es silvestre.", "ng": "60. Mrá Ye ne müne krígri neménn kwä kwä kuin bülü ye kätä kwärä ne bätä midi bülü doen krübäte.", "en": ""}
+{"es": "Sin identificar: Se cocina su fruta sobre todo. Es un arbusto que se encuentra principalmente del lado panameño y es de una variedad silvestre.", "ng": "61. Tübä Ne kríe ngwä kwetare nigui dären riani mrö mütuäre.", "en": ""}
+{"es": "Sonzapote: Árbol del bosque, que se cultiva de forma sil vestre y que es de color marrón. Se consume su fruta, su hoja y su tallo. También es medicinal y ayuda a apaciguar los dolores.", "ng": "62. Sabo Ne ngwä bä kare krígri ye taine agwane nängäin sö kräkügü a ngwane (Berérie) aráto sö krä kwä (Jobórie) ye ne kwin bänä mane kwin.", "en": ""}
+{"es": "Mosca de tórsalo: Viven en colmenas o en grupos. Afecta tanto a animales como a seres humanos.", "ng": "1. Mungwä/Mungwä Ye mrügue migaga jüdrün träende ngue tre jüdrün träende kwete tare krübäte.", "en": ""}
+{"es": "Mosca blanca: Mosca pequeña de color blanco que molesta principalmente en el verano.", "ng": "2. Munkwä Tigwlin kwite krübäte jüdrün bätä, kite migue siä bätä ne aráto dobró bätä biti blato bätä mrö bätä.", "en": ""}
+{"es": "Mosca negra: Moscas negras de tamaño mediano y pequeño, que viven en la suciedad y contaminan los ali mentos al ser portadoras de enfermedades.", "ng": "3. Mungwä Bä kia kwite bä drüne ye käme krübäte ne jüdrün bätä. Ye niken bren be ni rüere.", "en": ""}
+{"es": "Mosca chupa sangre: Se alimenta de sangre, similar a los bocones y de color negra.", "ng": "6. Mungwä Tu sübrüre ni däne doaga.", "en": ""}
+{"es": "Purrujas: Son montones que se agrupan en nubes y atacan a los animales y a las personas.", "ng": "8. Mungwä Ngiba münü ne ni därie doagä ne kia nuäre ni kwete tare.", "en": ""}
+{"es": "Abejas: Producen miel que nos alimenta y que posee propiedades medicinales y beneficiosas. Su miel se usa para endulzar bebidas. Al ser una composición del néctar de las flores traídas por las abejas integra los beneficios de todas estas plantas en su miel.", "ng": "9. Mun, mungwäi Kadare ne mungwä. Ye mungwä drüne nüne kríte ne kö mane kuin ye rubún eráto ni kwete ja dogwäre.", "en": ""}
+{"es": "gracias", "ng": "…", "en": "thank you"}
+{"es": "de nada", "ng": "…", "en": "you're welcome"}
+{"es": "por favor", "ng": "…", "en": "please"}
+{"es": "maestro", "ng": "…", "en": "teacher"}
+{"es": "maestra", "ng": "…", "en": "teacher"}
+{"es": "alumno", "ng": "monso", "en": "student"}
+{"es": "niño", "ng": "monso", "en": "child"}
+{"es": "niña", "ng": "monso", "en": "child"}
+{"es": "libro", "ng": "…", "en": "book"}
+{"es": "cuaderno", "ng": "…", "en": "notebook"}
+{"es": "lápiz", "ng": "…", "en": "pencil"}
+{"es": "papel", "ng": "…", "en": "paper"}
+{"es": "aula", "ng": "…", "en": "classroom"}
+{"es": "clase", "ng": "…", "en": "class"}
+{"es": "escuela", "ng": "…", "en": "school"}
+{"es": "maíz", "ng": "Mrö", "en": "corn"}
+{"es": "sol", "ng": "…", "en": "sun"}
+{"es": "luna", "ng": "sö", "en": "moon"}
+{"es": "comida", "ng": "Mrö", "en": "food"}
+{"es": "sí", "ng": "Jän", "en": "yes"}
+{"es": "no", "ng": "Ñakare", "en": "no"}
+{"es": "hola", "ng": "Ñantörö", "en": "hello"}
+{"es": "buenos días", "ng": "Köbö kuin dekä", "en": "good morning"}
+{"es": "buenas tardes", "ng": "Köbö kuin dere", "en": "good afternoon"}
+{"es": "buenas noches", "ng": "Köbö kuin deu", "en": "good evening"}

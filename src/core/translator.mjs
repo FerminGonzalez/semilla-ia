@@ -34,9 +34,12 @@ const IDIOMAS = {
 // ->[origen][destino][texto] = { texto, confianza }
 const DIC = {};
 
+function _limpiar(s) {
+  return s.toLowerCase().replace(/[.,¡¿!?;:()]/g, '');
+}
+
 function _registrar(es, ng, en) {
-  const t = (s) => s.trim().toLowerCase();
-  const e = t(es), n = t(ng), i = t(en);
+  const e = _limpiar(es), n = _limpiar(ng), i = _limpiar(en);
   const pares = [
     ['es', 'ng', e, n], ['es', 'en', e, i],
     ['ng', 'es', n, e], ['ng', 'en', n, i],
@@ -47,6 +50,18 @@ function _registrar(es, ng, en) {
     if (!DIC[o][d]) DIC[o][d] = {};
     const textoDestino = o === 'en' ? (d === 'ng' ? ng : en) : d === 'ng' ? ng : en;
     DIC[o][d][vOrigen] = { texto: textoDestino, confianza: 1 };
+
+    // Indexar cada palabra suelta para búsquedas parciales (traducción palabra a palabra)
+    const palabrasOrigen = vOrigen.split(/\s+/);
+    const palabrasDestino = textoDestino.split(/\s+/);
+    const nPalabras = Math.min(palabrasOrigen.length, palabrasDestino.length);
+    for (let k = 0; k < nPalabras; k++) {
+      const po = _limpiar(palabrasOrigen[k]);
+      const pd = _limpiar(palabrasDestino[k]);
+      if (po && pd && !DIC[o][d][po]) {
+        DIC[o][d][po] = { texto: pd, confianza: 0.7 };
+      }
+    }
   }
 }
 
@@ -181,7 +196,7 @@ function _traducirConModeloAjustado(texto, desde, hacia) {
 }
 
 function _traducirConDiccionario(texto, desde, hacia) {
-  const clave = texto.trim().toLowerCase();
+  const clave = _limpiar(texto);
   // búsqueda exacta
   if (DIC[desde]?.[hacia]?.[clave]) {
     const r = DIC[desde][hacia][clave];
@@ -193,13 +208,13 @@ function _traducirConDiccionario(texto, desde, hacia) {
   const traducidas = [];
   let encontradas = 0;
   for (const palabra of palabras) {
-    const limpia = palabra.toLowerCase().replace(/[.,¡¿!?;:()]/g, '');
+    const limpia = _limpiar(palabra);
     const r = DIC[desde]?.[hacia]?.[limpia];
     if (r) {
       traducidas.push(r.texto);
       encontradas++;
     } else {
-      traducidas.push(palabra);
+      traducidas.push(palabra); // se queda en el idioma original
     }
   }
   const confianza = palabras.length > 0 ? encontradas / palabras.length : 0;
