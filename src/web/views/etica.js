@@ -146,7 +146,7 @@ export function renderEtica(root) {
         { class: 'limits' },
         limit('El motor propio de 17 M se equivoca al conversar: es un LM causal, no un asistente afinado. Por eso lo estructurado no pasa por él: los ejercicios y las rúbricas los resuelve el motor simbólico.'),
         limit('Un portátil no es un nodo de 12 USD. El paso a RISC-V exige recompilar el runtime y validar el modelo ternario: es trabajo de ingeniería, no un cambio de configuración.'),
-        limit('Este MVP no publica contenido en lenguas originarias. Para que una unidad esté en una lengua viva hace falta un hablante nativo como coautor, no como revisor.'),
+        limit('Este MVP incluye traducción español ↔ ngäbere ↔ inglés para el aula. El diccionario estático cubre saludos, instrucciones y vocabulario clave; las lecciones completas requieren el modelo bitnet fine-tuneado con ngäbere y la revisión de un hablante nativo.'),
         limit('Sin conexión no hay actualizaciones: el contenido nuevo entra por USB o por el paquete federado.'),
         limit('No sustituye al docente. El panel le da material para decidir, no decisiones tomadas.'),
       ),

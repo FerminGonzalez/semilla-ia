@@ -93,9 +93,49 @@ rúbricas, mapas, agregación). Eso es lo que hace creíble el objetivo de consu
 ## 6. Fuera de alcance (declarado, no oculto)
 
 - Fabricación del nodo RISC-V y del cartucho LoRa.
-- Entrenamiento o ajuste fino real de LoRA: los cartuchos son prompts de sistema
-  y enrutado, exactamente como plantea la fase 3 del pitch.
 - Cuantización ternaria a escala útil: se ejecuta el ternario propio de 17 M (`bitnet-17m:ternario`);
   proyectar 1,58 bits sobre 1,5·10⁹ pesos, no.
 - TTS neuronal: se usa la voz del sistema operativo del dispositivo.
+
+## 7. Mejoras multilingües: español ↔ ngäbere ↔ inglés
+
+**Objetivo:** que las clases en el aula sean bilingües (español–ngäbere) y, cuando sea
+posible, trilingües (español–ngäbere–inglés).
+
+### 7.1 Qué se entrega en esta fase
+
+| Entregable | Estado | Dónde |
+|---|---|---|
+| Diccionario estático es↔ng↔en | ✅ Hecho | `src/core/translator.mjs` |
+| Corpus de entrenamiento (79 pares) | ✅ Hecho | `data/entrenamiento/` |
+| Rutas API `/api/idiomas`, `/api/traducir` | ✅ Hecho | `src/server.mjs` |
+| Configuración `MODELO_AJUSTADO_RUTA` | ✅ Hecho | `src/core/config.mjs` |
+| Instrucciones para el modelo ajustado | ✅ Hecho | `models/ajustado/README.md` |
+| Conexión al checkpoint fine-tuneado | ✅ Hecho | `models/ajustado/ckpt_ngabe.pt` (13,8 M parámetros) cargado en el sidecar |
+
+### 7.2 Fine-tuning del modelo con ngäbere
+
+Cuando el equipo entregue el modelo ajustado (checkpoint `.pt` de bitnet entrenado con
+ngäbere), se conecta mediante:
+
+- Variable de entorno `MODELO_AJUSTADO_RUTA`, o
+- Ruta `POST /api/traducir/modelo-ajustado`, o
+- Copiando el checkpoint a `models/ajustado/ckpt_ajustado.pt`
+
+El traductor delegará en el modelo ajustado y usará el diccionario estático como
+fallback. Las lecciones completas requieren el modelo ajustado y la revisión de un
+hablante nativo de ngäbere.
+
+### 7.3 Datos de entrenamiento
+
+El corpus se generó a partir de Wikipedia (español e inglés) sobre el idioma ngäbere
+y material público de vocabulario básico ngäbe. Incluye:
+- Saludos y frases de presentación
+- Instrucciones de aula (siéntense, abran el libro, escriban, etc.)
+- Números, familia, naturaleza
+- Oraciones de ciencias y matemáticas
+
+Formato: `data/entrenamiento/corpus-es-ngäbere-en.txt` (texto plano con etiquetas
+`<es>`, `<ng>`, `<en>`) y `.jsonl` para fine-tuning.
+
 

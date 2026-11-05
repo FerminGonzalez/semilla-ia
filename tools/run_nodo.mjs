@@ -11,6 +11,7 @@ import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { MODELO_AJUSTADO_RUTA, MODELO_AJUSTADO_TOKENIZER } from '../src/core/config.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -120,7 +121,12 @@ async function main() {
     process.exit(1);
   }
 
-  const bitnet = spawnChild(process.platform === 'win32' ? 'python' : 'python3', [pythonScript]);
+  const envExtra = {};
+  if (existsSync(MODELO_AJUSTADO_RUTA)) {
+    envExtra.CKPT_PATH = MODELO_AJUSTADO_RUTA;
+    envExtra.TOKENIZER_PATH = MODELO_AJUSTADO_TOKENIZER;
+  }
+  const bitnet = spawnChild(process.platform === 'win32' ? 'python' : 'python3', [pythonScript], envExtra);
 
   bitnet.on('exit', (code) => {
     if (!shuttingDown) {

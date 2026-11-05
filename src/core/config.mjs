@@ -18,11 +18,25 @@ export const HOST = process.env.NODO_HOST ?? '127.0.0.1';
 export const OLLAMA_URL = process.env.OLLAMA_URL ?? 'http://127.0.0.1:11434';
 export const OLLAMA_MODEL = process.env.OLLAMA_MODEL ?? 'bitnet-17m:ternario';
 
+/** Idiomas soportados para la traducción del aula (español · ngäbere · inglés). */
+export const IDIOMAS = {
+  es: { nombre: 'Español', nativo: 'Español' },
+  ng: { nombre: 'Ngäbere', nativo: 'Ngäbere' },
+  en: { nombre: 'English', nativo: 'English' },
+};
+export const IDIOMA_POR_DEFECTO = 'es';
+
+/** Ruta al modelo ajustado fine-tuneado con ngäbere (checkpoint .pt). */
+export const MODELO_AJUSTADO_RUTA = process.env.MODELO_AJUSTADO_RUTA ?? resolve(ROOT, 'models', 'ajustado', 'ckpt_ngabe.pt');
+
+/** Tokenizer del modelo ajustado (mismo directorio que el checkpoint). */
+export const MODELO_AJUSTADO_TOKENIZER = process.env.MODELO_AJUSTADO_TOKENIZER ?? resolve(ROOT, 'models', 'ajustado', 'tokenizer_ngabe.json');
+
 /**
  * Modelo activo en tiempo de ejecución. En este MVP el nodo expone únicamente
  * el motor propio bitnet-17m:ternario a través del sidecar en :11435.
  */
-export const runtime = { model: OLLAMA_MODEL };
+export const runtime = { model: OLLAMA_MODEL, idiomas: IDIOMA_POR_DEFECTO };
 
 export function ensureDataDir() {
   if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });

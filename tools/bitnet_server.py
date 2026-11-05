@@ -80,8 +80,8 @@ from model import MiniBitNet  # noqa: E402
 print(f"[bitnet] cargando modelo desde {BITNET_DIR}", flush=True)
 _start_load = time.perf_counter()
 
-CKPT_PATH = os.path.join(BITNET_DIR, "ckpt_4500.pt")
-TOKENIZER_PATH = os.path.join(BITNET_DIR, "tokenizer_wiki_8192.json")
+CKPT_PATH = os.environ.get("CKPT_PATH") or os.path.join(BITNET_DIR, "ckpt_4500.pt")
+TOKENIZER_PATH = os.environ.get("TOKENIZER_PATH") or os.path.join(BITNET_DIR, "tokenizer_wiki_8192.json")
 
 try:
     ckpt = torch.load(CKPT_PATH, map_location="cpu", weights_only=True)

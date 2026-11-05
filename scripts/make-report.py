@@ -996,8 +996,7 @@ def limits(story):
             "<b>Un portátil no es un nodo de 12 dólares.</b> Pasar a RISC-V exige recompilar el runtime, "
             "validar el modelo cuantizado en la NPU y medir consumo real. Es un proyecto de ingeniería, "
             "no un cambio de configuración.",
-            "<b>Este MVP no publica contenido en lenguas originarias.</b> Para que una unidad "
-            "esté en una lengua viva hace falta un hablante nativo como coautor, no como revisor.",
+            "<b>Este MVP incluye traducción español ↔ ngäbere ↔ inglés para el aula.</b> El diccionario estático cubre saludos, instrucciones y vocabulario clave; las lecciones completas requieren el modelo bitnet fine-tuneado con ngäbere y la revisión de un hablante nativo."
             "<b>Sin conexión no hay actualizaciones.</b> El contenido nuevo entra por USB o por el paquete "
             "federado; el nodo no se actualiza solo.",
             "<b>No sustituye al docente.</b> El panel le da material para decidir, no decisiones tomadas.",

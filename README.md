@@ -188,6 +188,43 @@ El código del modelo (`models/model.py`), el script de entrenamiento (`models/t
 el tokenizer y el demo **van en el repositorio**: cualquiera puede leerlo, ejecutarlo y
 discutirlo.
 
+## Modelo ajustado: ngäbere (lengua indígena)
+
+El repositorio incluye un **checkpoint fine-tuneado con ngäbere** listo para usar:
+
+- **Archivo:** `models/ajustado/ckpt_ngabe.pt` (**46,8 MB**)
+- **Parámetros:** **13,835,008** (13,8 M)
+- **Arquitectura:** `vocab 4096 · n_embd 384 · n_head 6 · n_layer 6 · block 128`
+- **Pesos:** ternarios `{-1, 0, 1}` con straight-through estimator
+- **Tokenizer:** `models/ajustado/tokenizer_ngabe.json` (4096 tokens)
+- **Cargado automáticamente:** el sidecar lo detecta y lo usa en lugar del modelo base
+- **Sin modelo ajustado:** el nodo arranca igual con el modelo base de 17 M
+
+Para conectar un modelo ajustado diferente, define la variable de entorno
+`MODELO_AJUSTADO_RUTA` o usa la ruta `POST /api/traducir/modelo-ajustado`.
+
+## Traducción: español ↔ ngäbere ↔ inglés
+
+Semilla-IA incluye un **traductor de lengua indígena para el aula**, con el objetivo de
+que las clases sean bilingües (español–ngäbere) y, cuando sea posible, trilingües
+(español–ngäbere–inglés).
+
+- **Motor actual:** diccionario estático con **251 pares es↔ng↔en** construido a partir
+  del corpus de entrenamiento (`data/entrenamiento/`). Cubre saludos, instrucciones de
+  aula, números, familia, naturaleza y vocabulario clave — sin modelo ajustado, sin
+  internet, sin dependencias npm.
+- **Modelo ajustado conectado:** el checkpoint `ckpt_ngabe.pt` está cargado en el
+  sidecar y disponible para inferencia. El traductor usa el diccionario estático como
+  capa primaria y puede delegar en el modelo ajustado mediante
+  `POST /api/traducir/modelo-ajustado`.
+- **Rutas API:** `GET /api/idiomas` (lista idiomas y estado del modelo ajustado) y
+  `POST /api/traducir` (traducir texto entre es, ng y en).
+- **Corpus de entrenamiento:** `scripts/entrenamiento/datos-ngäbere.json` (79 pares
+  originales) + `data/entrenamiento/corpus-es-ngabe-en.jsonl` (173 pares adicionales
+  del corpus alineado de Ngäbere-Wiki y vocabulario público).
+- **Documentos de referencia:** `docs/NgäbereWiki.pdf` y `docs/Vocabulario-Ngabe.pdf`
+  con material fuente sobre la lengua ngäbere.
+
 ## Límites honestos
 
 *Esto también es una venta: un equipo que sabe qué no hace su producto es un equipo en
@@ -208,6 +245,10 @@ En la práctica:
 - ✅ **Su valor es que el ternario se ejecuta y se mide aquí**, en una CPU de 14 GB, a la
   vista de cualquiera. No pretende sustituir a un asistente afinado: demuestra que un
   modelo 88× más pequeño sirve para lo que un aula necesita de verdad.
+- ✅ **Traducción ngäbere:** el diccionario estático cubre 251 pares es↔ng↔en con frases
+  clave del aula. El modelo fine-tuneado con ngäbere (13,8 M parámetros) ya está
+  cargado en el sidecar y disponible para inferencia. Para traducción fluida de
+  lecciones completas se recomienda la revisión de un hablante nativo.
 
 ---
 
@@ -228,6 +269,9 @@ En la práctica:
 | `/api/sensors` | GET / POST | Lecturas del sensor |
 | `/api/telemetry` | GET | Paquete federado y balance energético |
 | `/api/telemetry/send` | POST | Genera y guarda un paquete |
+| `/api/idiomas` | GET | Idiomas disponibles (es, ng, en) y estado del modelo ajustado |
+| `/api/traducir` | POST | Traduce texto entre español, ngäbere e inglés |
+| `/api/traducir/modelo-ajustado` | POST | Conecta un checkpoint bitnet fine-tuneado con ngäbere |
 
 ## Pruebas
 
@@ -248,6 +292,7 @@ la prueba de que **una señal de riesgo nunca llega al modelo**, aunque se fuerc
 | `BITNET_DIR` | `models/` | Carpeta del motor; busca primero la variable, luego `models/` |
 | `OLLAMA_URL` | `http://127.0.0.1:11434` | `npm run nodo` lo apunta al sidecar en `:11435` |
 | `OLLAMA_MODEL` | `bitnet-17m:ternario` | Único modelo anunciado por el sidecar |
+| `MODELO_AJUSTADO_RUTA` | `models/ajustado/ckpt_ajustado.pt` | Checkpoint bitnet fine-tuneado con ngäbere (opcional) |
 
 **Si el sidecar no responde, el nodo arranca igual** y responde con el motor simbólico,
 declarándolo en cada respuesta. **No hace falta Ollama para nada del MVP.** Si alguien
@@ -298,6 +343,8 @@ para el modelo.
 | Documento | Qué contiene |
 |---|---|
 | [`docs/idea-de-solucion.pdf`](docs/idea-de-solucion.pdf) | **Por dónde empezó todo**: el problema del salón a 3 horas |
+| [`docs/NgäbereWiki.pdf`](docs/NgäbereWiki.pdf) | Lengua ngäbere: gramática, alfabeto, frases útiles y contexto cultural (fuente Wikipedia) |
+| [`docs/Vocabulario-Ngabe.pdf`](docs/Vocabulario-Ngabe.pdf) | Vocabulario ngäbe-español de referencia para el traductor del aula |
 | [`PLAN.md`](PLAN.md) | Plan de trabajo por slices con criterios de aceptación |
 
 > El informe técnico y el pitch del certamen se entregan como PDF aparte, no en este

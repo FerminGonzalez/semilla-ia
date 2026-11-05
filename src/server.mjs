@@ -2,7 +2,7 @@ import http from 'node:http';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize, resolve, sep } from 'node:path';
-import { WEB_DIR, HOST, PORT, VERSION, loadConfig, persistModel, runtime } from './core/config.mjs';
+import { WEB_DIR, HOST, PORT, VERSION, loadConfig, persistModel, runtime, IDIOMA_POR_DEFECTO, MODELO_AJUSTADO_RUTA, MODELO_AJUSTADO_TOKENIZER } from './core/config.mjs';
 import { nodeSnapshot, prewarmModel, listModels } from './core/profile.mjs';
 import { publicCartridges, getCartridge } from './core/cartridges.mjs';
 import { chat, askFree, llmStatus } from './core/router.mjs';
@@ -12,6 +12,7 @@ import { teacherSummary, clearDoubts } from './core/teacher.mjs';
 import { recordReading, latest, history, simulatedSeries } from './core/sensors.mjs';
 import { buildPacket, sendPacket, packets, energyReport } from './core/telemetry.mjs';
 import { store } from './core/store.mjs';
+import { traducir, idiomasDisponibles, estadoModeloAjustado, conectarModeloAjustado, validarIdioma } from './core/translator.mjs';
 
 const config = loadConfig();
 const startedAt = Date.now();
@@ -325,6 +326,37 @@ async function handleApi(req, res, url) {
     prewarmModel();
 
     return json(res, 200, { active: runtime.model, model: target });
+  }
+
+  if (pathname === '/api/idiomas') {
+    return json(res, 200, {
+      disponibles: idiomasDisponibles(),
+      porDefecto: IDIOMA_POR_DEFECTO,
+      modeloAjustado: estadoModeloAjustado(),
+    });
+  }
+
+  if (pathname === '/api/traducir') {
+    if (method !== 'POST') return fail(res, 405, 'Método no permitido');
+    const body = await readJson(req);
+    const texto = String(body.texto ?? '').slice(0, 2000);
+    if (texto.trim() === '') return fail(res, 400, 'Escribe un texto para traducir');
+    const desde = String(body.desde ?? IDIOMA_POR_DEFECTO).toLowerCase();
+    const hacia = String(body.hacia ?? 'es').toLowerCase();
+    if (!validarIdioma(desde) || !validarIdioma(hacia)) {
+      return fail(res, 400, 'Idioma no soportado. Usa es, ng o en.');
+    }
+    const resultado = traducir(texto, desde, hacia);
+    return json(res, 200, resultado);
+  }
+
+  if (pathname === '/api/traducir/modelo-ajustado') {
+    if (method !== 'POST') return fail(res, 405, 'Método no permitido');
+    const body = await readJson(req);
+    const ruta = String(body.ruta ?? '').trim();
+    if (!ruta) return fail(res, 400, 'Falta la ruta del checkpoint');
+    const ok = conectarModeloAjustado({ rutaCheckpoint: ruta });
+    return json(res, 200, { conectado: ok, estado: estadoModeloAjustado() });
   }
 
   if (pathname === '/api/ask') {
