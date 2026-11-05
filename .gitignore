@@ -19,3 +19,9 @@ video/
 # Copias de seguridad locales
 *_BACKUP_*.zip
 
+# Archivos temporales de Word/Office
+~$*
+
+# Corpus de entrenamiento (sí se trackea, sin el resto de data/)
+!data/entrenamiento/
+
