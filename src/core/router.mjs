@@ -17,6 +17,32 @@ const NUMERIC = /\d/;
 const LLM_QUEUE_LIMIT = 2;
 let llmInFlight = 0;
 
+/**
+ * Detecta si una respuesta del modelo ternario es incoherente.
+ * El modelo bitnet-17m:ternario es un LM causal entrenado sobre Wikipedia,
+ * no un asistente afinado: no sigue instrucciones y a menudo devuelve
+ * tokens sueltos, números aislados o texto sin sentido.
+ */
+function isIncoherent(text) {
+  const t = String(text ?? '').trim();
+  if (t.length === 0) return true;
+  if (t.length < 10) return true; // demasiado corto para ser útil
+  // Solo números, símbolos o un carácter repetido
+  if (/^[\d\s\.\,\-\+\!\?\:\;\'\"\(\)]+$/.test(t)) return true;
+  // Mismo carácter repetido más de 3 veces seguido
+  if (/^(.)\1{3,}$/.test(t.replace(/\s/g, ''))) return true;
+  // Contar palabras y proporción de caracteres alfabéticos
+  const words = t.split(/\s+/).filter((w) => w.length > 0);
+  if (words.length < 3) return true; // menos de 3 palabras
+  const alphaChars = t.match(/[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]/g) ?? [];
+  const alphaRatio = alphaChars.length / t.length;
+  if (alphaRatio < 0.3) return true; // menos de 30% son letras
+  const digitChars = t.match(/\d/g) ?? [];
+  const digitRatio = digitChars.length / t.length;
+  if (digitRatio > 0.4) return true; // más de 40% son números
+  return false;
+}
+
 export function decideEngine({ message, cartridgeId, force }) {
   if (force === 'symbolic') {
     return { engine: 'symbolic', reason: 'elegido manualmente en la interfaz' };
@@ -151,7 +177,7 @@ export async function chat({
       signal,
     });
 
-    if (result.text.trim() === '') throw new Error('respuesta vacía');
+    if (result.text.trim() === '' || isIncoherent(result.text)) throw new Error('respuesta incoherente o vacía');
 
     recordDoubt({ cartridge, topic, grade, message, engine: 'llm' });
     return {
@@ -242,7 +268,7 @@ export async function askFree({ message, onMeta, onToken, signal }) {
       maxTokens: 420,
     });
 
-    if (result.text.trim() === '') throw new Error('respuesta vacía');
+    if (result.text.trim() === '' || isIncoherent(result.text)) throw new Error('respuesta incoherente o vacía');
 
     return {
       text: result.text,
