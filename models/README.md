@@ -46,3 +46,19 @@ npm run bitnet
 | Disco | 204 MB (204.488.011 bytes) |
 | Perplejidad (`val_wiki.bin`) | 39,46 |
 | Velocidad | 13,6–17,1 tok/s en CPU |
+
+## Modelo ajustado: ngäbere (lengua indígena)
+
+También incluido en este repositorio:
+
+| Métrica | Valor |
+|---|---|
+| Archivo | `models/ajustado/ckpt_ngabe.pt` |
+| Parámetros | 13.835.008 (13,8 M) |
+| Configuración | `vocab 4096 · n_embd 384 · n_head 6 · n_layer 6 · block 128` |
+| Pesos | ternarios `{-1, 0, 1}` (STE), activaciones 8 bits |
+| Disco | 46,8 MB |
+| Tokenizer | `models/ajustado/tokenizer_ngabe.json` |
+
+Este checkpoint fine-tuneado con ngäbere se carga automáticamente al arrancar
+el nodo. Véase `models/ajustado/README.md` para más detalles.

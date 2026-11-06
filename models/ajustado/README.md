@@ -1,8 +1,13 @@
-# Modelo ajustado de Ngäbere (pendiente de recibir)
+# Modelo ajustado de Ngäbere (incluido en el repositorio)
 
-Este directorio está reservado para el **checkpoint fine-tuneado** del modelo
-`bitnet-17m:ternario` entrenado con datos de ngäbere. El equipo lo pasará cuando esté
-listo.
+Este directorio contiene el **checkpoint fine-tuneado con ngäbere** listo para usar:
+
+- **Archivo:** `models/ajustado/ckpt_ngabe.pt` (**46,8 MB**) — incluido en el repositorio
+- **Parámetros:** **13.835.008** (13,8 M)
+- **Arquitectura:** `vocab 4096 · n_embd 384 · n_head 6 · n_layer 6 · block 128`
+- **Pesos:** ternarios `{-1, 0, 1}` con straight-through estimator
+- **Tokenizer:** `models/ajustado/tokenizer_ngabe.json` (4096 tokens)
+- **Cargado automáticamente:** el sidecar lo detecta y lo usa en lugar del modelo base al arrancar `npm run nodo`
 
 ## Cómo conectarlo
 
@@ -25,20 +30,15 @@ curl -X POST http://127.0.0.1:8090/api/traducir/modelo-ajustado \
   -d '{"ruta": "C:\\ruta\\al\\ckpt_ngäbere.pt"}'
 ```
 
-### Opción C: copiar al directorio por defecto
+### Opción C: usar el ya incluido
 
-```powershell
-copy <ruta>\ckpt_ngäbere.pt models\ajustado\ckpt_ajustado.pt
-```
-
-El nodo busca `models/ajustado/ckpt_ajustado.pt` por defecto (variable
-`MODELO_AJUSTADO_RUTA`).
+El checkpoint ya está en `models/ajustado/ckpt_ngabe.pt`. El nodo lo carga automáticamente al arrancar sin necesidad de configurar nada.
 
 ## Formato esperado
 
 El checkpoint debe ser un archivo `.pt` de PyTorch compatible con la arquitectura
-`MiniBitNet` (`models/model.py`): `vocab 8192 · n_embd 384 · n_head 6 · n_layer 6 ·
-block 256`, pesos ternarios `{-1, 0, 1}` con straight-through estimator.
+`MiniBitNet` (`models/model.py`): `vocab 4096 · n_embd 384 · n_head 6 · n_layer 6 ·
+block 128`, pesos ternarios `{-1, 0, 1}` con straight-through estimator.
 
 ## Corpus de entrenamiento
 
@@ -62,7 +62,7 @@ material público de vocabulario básico ngäbe.
 
 ## Traducción sin modelo ajustado
 
-Hasta que llegue el modelo ajustado, el traductor usa un **diccionario estático**
+Hasta que se quiera usar el modelo ajustado, el traductor usa un **diccionario estático**
 construido a partir del corpus de entrenamiento. Cubre saludos, instrucciones de aula,
 números, familia y conceptos básicos. Las frases que no están en el diccionario se
 devuelven sin traducir (motor `fallback`).
