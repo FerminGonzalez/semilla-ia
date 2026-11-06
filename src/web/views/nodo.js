@@ -132,7 +132,7 @@ export async function renderNodo(root) {
             row('Corrección de ejercicios', tag('medido', 'ok'), 'motor simbólico, mismo resultado siempre'),
             row('Transcodificación a 3 formatos', tag('medido', 'ok'), 'reglas deterministas, sin modelo'),
             row('Consumo eléctrico 1,2 W', tag('proyección', 'projection'), 'nodo objetivo, no este portátil'),
-            row('Coste 12 USD por nodo', tag('proyección', 'projection'), 'lista de materiales estimada del pitch'),
+            row('Nodo educativo de bajo coste', tag('proyección', 'projection'), 'lista de materiales estimada del pitch'),
             row('Radio LoRa', tag('proyección', 'projection'), 'el paquete se mide; la radio no se ha ejecutado'),
           ),
         ),
